@@ -1,0 +1,23 @@
+{
+  "name": "team6finalproject",
+  "version": "1.0.0",
+  "description": "Team 6 Final Project =====================",
+  "main": "server.js",
+  "scripts": {
+    "test": "unit",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PennStateSoftwareTest/FinalProjectPennState.git"
+  },
+  "author": "Team6",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/PennStateSoftwareTest/FinalProjectPennState/issues"
+  },
+  "homepage": "https://github.com/PennStateSoftwareTest/FinalProjectPennState#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
