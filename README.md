@@ -10,3 +10,6 @@ To run:
 5.  Open a browser and navigate to localhost:3000
 
 To auto-compile TypeScript changes, use npm run watch.
+
+
+Josh is here and ready to code!
