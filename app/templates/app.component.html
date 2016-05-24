@@ -1,1 +1,6 @@
 <h1>Hello, Angular!</h1>
+<form [ngFormModel]="createAccount" (submit)="doCreateAccount($event)">
+    <input ngControl="email" type="email" placeholder="Your Email">
+    <input ngControl="userName" type="UserName" placeholder="New Username">
+    <button type="submit">Create Account</button>
+</form>
