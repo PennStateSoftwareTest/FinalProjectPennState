@@ -6,7 +6,8 @@ import {Router} from '@angular/router-deprecated';
 
 @Component({
     selector: 'new-user',
-    templateUrl: 'app/newuser/templates/newuser.component.html'
+    templateUrl: 'app/newuser/templates/newuser.component.html',
+    styleUrls: ['app/newuser/styles/newuser.component.css']
 })
 export class NewUserComponent {
 
