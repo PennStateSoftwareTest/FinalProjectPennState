@@ -1,0 +1,10 @@
+.newuserform {
+    border: 1px solid #cacaca;
+    padding: 1rem;
+    border-radius: 3px;
+    width: 100%;
+}
+
+.button.expanded {
+    width: 100%;
+}
