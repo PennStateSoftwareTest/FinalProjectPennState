@@ -11,7 +11,7 @@
     "test": "unit",
     "testserver": "node_modules/.bin/mocha --recursive -w",
     "start": "tsc && node server.js",
-    "postinstall": "typings install && tsc",
+    "postinstall": "typings install && tsc && bower install",
     "tsc": "tsc",
     "watch": "tsc -w",
     "typings": "typings"
