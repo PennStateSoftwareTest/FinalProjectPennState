@@ -7,5 +7,5 @@ var rootPath = path.join(__dirname + '/../../server/');
 module.exports = {
     db: '',
     rootPath: rootPath,
-    port: 3000
+    port: process.env.PORT || 3000
 }
