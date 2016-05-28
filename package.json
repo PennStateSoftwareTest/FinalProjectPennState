@@ -46,12 +46,13 @@
     "systemjs": "0.19.27",
     "zone.js": "^0.6.12",
     "json-comments": "^0.2.1"
-  },
-  "devDependencies": {
-    "chai": "^3.5.0",
-    "mocha": "^2.4.5",
-    "sinon": "^1.17.4",
-    "typescript": "^1.8.10"
-    
   }
+  //,
+  //"devDependencies": {
+    //"chai": "^3.5.0",
+    //"mocha": "^2.4.5",
+    //"sinon": "^1.17.4",
+    //"typescript": "^1.8.10"
+    
+ // }
 }
