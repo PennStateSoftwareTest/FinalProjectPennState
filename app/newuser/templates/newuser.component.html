@@ -7,31 +7,29 @@
             <div class="row column newuser-form">
                 <h4 class="text-center">New Account Signup</h4>
                 <label>First Name
-                    <input type="text">
+                    <input type="text" [(ngModel)]="model.firstName" required>
                 </label>
                 <label>Last Name
-                    <input type="text">
+                    <input type="text" [(ngModel)]="model.lastName" required>
                 </label>
                 <label>Username
-                    <input type="text">
+                    <input type="text" [(ngModel)]="model.username" required>
                 </label>
                 <label>Password
-                    <input type="text">
+                    <input type="password" [(ngModel)]="model.password" required>
                 </label>
                 <label>E-mail
-                    <input type="text">
+                    <input type="text" [(ngModel)]="model.email" required>
                 </label>
                 <label>Account Type
-                    <select>
-                        <option value="venue">Venue Manager</option>
-                        <option value="band">Band Manager</option>
+                    <select [(ngModel)]="model.accountType" required>
+                        <option *ngFor="let acctType of accountTypes" [value]="acctType">{{acctType}}</option>
                     </select>
                 </label>
                 <br>
                 <br>
-                <p><a type="submit" class="button expanded">Submit</a></p>
+                <p><a type="submit" class="button expanded" (click)="createUser()">Submit</a></p>
             </div>
         </form>
-
     </div>
 </div>

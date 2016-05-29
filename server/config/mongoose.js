@@ -6,15 +6,15 @@ var mongoose = require('mongoose'),
 
 module.exports = function(envConf) {
 
-    //mongoose.connect(envConf.db);
-    //var db = mongoose.connection;
-    //
-    ////TODO: use Winston
-    //db.on('error', console.error.bind(console, 'connection error...'));
-    //
-    //db.once('open', function() {
-    //    //TODO: use winston for logging
-    //    console.log('scrs db opened');
-    //});
+    mongoose.connect(envConf.db);
+    var db = mongoose.connection;
+
+    //TODO: use Winston
+    db.on('error', console.error.bind(console, 'connection error...'));
+
+    db.once('open', function() {
+        //TODO: use winston for logging
+        console.log('scrs db opened');
+    });
 };
 

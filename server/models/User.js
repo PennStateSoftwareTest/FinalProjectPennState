@@ -21,7 +21,7 @@ var userSchema = mongoose.Schema({
         type: String,
         required: '{PATH} is required!'
     },
-    account_type: {type: String, required: '{PATH} is required!', enum: accountTypes},
+    accountType: {type: String, required: '{PATH} is required!', enum: accountTypes},
     salt: {type: String, required: '{PATH} is required!'},
     password_hash: {type: String, required: '{PATH} is required!'},
     roles: [String]

@@ -6,12 +6,12 @@ var rootPath = path.join(__dirname + '/../../server/');
 
 module.exports = {
     development: {
-        db: '',
+        db: 'mongodb://scrs:R0ckOn!$$@ds011298.mlab.com:11298/scrs',
         rootPath: rootPath,
         port: process.env.PORT || 3000
     },
     production: {
-        db: '',
+        db: 'mongodb://scrs:R0ckOn!$$@ds011298.mlab.com:11298/scrs',
         rootPath: rootPath,
         port: process.env.PORT || 80
     }
