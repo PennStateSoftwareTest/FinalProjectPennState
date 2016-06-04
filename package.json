@@ -8,7 +8,7 @@
   "description": "Team 6 Final Project =====================",
   "main": "server.js",
   "scripts": {
-    "test": "unit",
+    "test": "istanbul cover ./node_modules/.bin/mocha test/**/*.js --coverage",
     "testserver": "node_modules/.bin/mocha --recursive -w",
     "start": "tsc && node server.js",
     "postinstall": "typings install && tsc",
@@ -53,6 +53,7 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "istanbul": "^0.4.3",
     "mocha": "^2.4.5",
     "sinon": "^1.17.4"
   }
