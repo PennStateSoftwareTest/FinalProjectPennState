@@ -34,6 +34,7 @@ describe("CreateAccount", function () {
         expect(newUser).to.have.been.calledWith("some errorCode");
 
     });
+
     it("Create account should fail if the password is not appropriately complex", function () {
         //code to create a new user with
         var password = "tooSimple";
@@ -41,34 +42,21 @@ describe("CreateAccount", function () {
         var newUser = userService1.createUser(password);
         //expect login failureMessage
     });
+
+    it("Successful create account should send a verification email", function () {
+        //code to create a new user with
+        var password = "tooSimple";
+        //code to try login for new user with simple password
+        var newUser = userService1.createUser(password);
+        //expect login failureMessage
+
+    });
+    
+        it("create account should fail without enter of proper Capcha to prevent bots", function () {
+            //code to create a new user with
+            var password = "tooSimple";
+            //code to try login for new user with simple password
+            var newUser = userService1.createUser(password);
+            //expect login failureMessage
+    });
 });
-
-
-//Givin I have not already logged in
-  //Given the login page does not detect a sessionID
-//Expect to be presented with the login page
-
-//Given I have submitted a username and password that exists
-  //given the database can be queried to find the user that matches these attributes
-    //given i can establish a connection to the database
-
-  //given a unique session can be created for this user
-//expect to be presented with the main interface page for usertype
-
-//given i have submitted a username that does not exists
-//expect to be presented with a message that says username does not exists
-
-//given i have submitted a password that does not exists
-//expect to be presented with a message that states password does not exists
-
-//given i have not filled in the user name field
-//expect the Log In button to be disabled
-
-//given i have not filled in the password field
-//expect the Log In button to be disabled
-
-//given i have not entered the min required characters for username field
-//expect the Log In button to be disabled
-
-//given i have not filled in the password field with the minumum complexity
-//expect the Log In button to be disabled
