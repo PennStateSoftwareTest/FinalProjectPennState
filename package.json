@@ -8,7 +8,7 @@
   "description": "Team 6 Final Project =====================",
   "main": "server.js",
   "scripts": {
-    "test": "istanbul cover ./node_modules/.bin/mocha test/**/*.js --coverage",
+    "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha test/**/*.js --coverage",
     "testserver": "node_modules/.bin/mocha --recursive -w",
     "testclient": "tsc && node ./node_modules/karma/bin/karma start ./app/test/karma.unit.conf.js",
     "start": "tsc && node server.js",
