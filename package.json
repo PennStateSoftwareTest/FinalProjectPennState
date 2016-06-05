@@ -10,6 +10,7 @@
   "scripts": {
     "test": "istanbul cover ./node_modules/.bin/mocha test/**/*.js --coverage",
     "testserver": "node_modules/.bin/mocha --recursive -w",
+    "testclient": "tsc && node ./node_modules/karma/bin/karma start ./app/test/karma.unit.conf.js",
     "start": "tsc && node server.js",
     "postinstall": "typings install && tsc",
     "tsc": "tsc",
@@ -56,7 +57,13 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "istanbul": "^0.4.3",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.0",
     "mocha": "^2.4.5",
-    "sinon": "^1.17.4"
+    "phantomjs-prebuilt": "^2.1.7",
+    "sinon": "^1.17.4",
+    "sinon-chai": "^2.8.0"
   }
 }
