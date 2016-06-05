@@ -22,7 +22,7 @@ describe("CreateAccount", function () {
 
   getSignupForm("foo", cb);
 
-  expect(newUser).to.have.been.calledWith("some errorCode");
+  expect(newUser).to.have.been.calledWith("The server will respond with a 400");
       });
 
     it("Create account should fail if the email already exists", function () {
@@ -51,7 +51,7 @@ describe("CreateAccount", function () {
         //expect login failureMessage
 
     });
-    
+
         it("create account should fail without enter of proper Capcha to prevent bots", function () {
             //code to create a new user with
             var password = "tooSimple";
