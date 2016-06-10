@@ -11,6 +11,7 @@ exports.readUser = function(request, response, next) {
 
 exports.createUser = function(request, response, next) {
     var userData = request.body;
+    console.log(request.body);
 
     //TODO: add a validation function
     userData.username = userData.username.toLowerCase();
