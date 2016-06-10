@@ -15,6 +15,8 @@ expressConfig(app, envconf);
 mongooseConfig(envconf);
 routeConfig(app, envconf);
 
-app.listen(envconf.port);
+var server = app.listen(envconf.port);
 //TODO: use Winston
 console.log('Listening on port ' + envconf.port + '...');
+
+module.exports = server;
