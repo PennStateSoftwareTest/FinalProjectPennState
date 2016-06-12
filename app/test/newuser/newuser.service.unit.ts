@@ -67,10 +67,10 @@ describe('new user service tests',() => {
         newUserService.createUser(user);
         catchSpy.calls.mostRecent().args[0](errorObject).subscribe(
             () => {},
-            (error : any) => actualError = error.message
+            (errorMessage : string) => actualError = errorMessage
         );
 
         //Assert
-        expect(actualError).toEqual(errorObject.Message);
+        expect(actualError).toEqual(errorObject.message);
     }));
 });
