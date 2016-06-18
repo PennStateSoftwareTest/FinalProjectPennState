@@ -9,7 +9,7 @@ chai.use(chaiHttp);
 
 var user1 = require('../../server/models/User.js');
 var userService1 = require('../../server/services/userService.js');
-describe("unit test CreateAccount - duplicate check", function () {
+describe("functional test CreateAccount - duplicate check", function () {
 
   it("should return 400 with correct form data sent twice", function (done) {
     chai.request(server)
@@ -20,18 +20,25 @@ describe("unit test CreateAccount - duplicate check", function () {
       console.log(res.body);
       expect(res).to.have.status(400);
 
-      //res.should.be.json;
-      //res.body.should.be.a('object');
-      /*  res.body.should.have.property('SUCCESS');
-      res.body.SUCCESS.should.be.a('object');
-      res.body.SUCCESS.should.have.property('name');
-      res.body.SUCCESS.should.have.property('lastName');
-      res.body.SUCCESS.should.have.property('_id');
-      res.body.SUCCESS.name.should.equal('Java');
-      res.body.SUCCESS.lastName.should.equal('Script');  */
       done();
     })
-
-
   })
 });
+
+chai.use(sinonChai);
+
+describe("userService Unit Test", function () {
+    it("should test the userService.createUser function", function () {
+
+  //var username = "userTest69";
+  var newUser = userService1.createUser({"firstName":"foo","lastName":"bar","username":"foobarbaz","email":"foo@bar.com","accountType":"band","password":"foobar"});
+  //var cb = sinon.spy();
+
+  //function getSignupForm(name, cb) {
+    //  cb("hello " + name)};
+
+//  getSignupForm("foo", cb);
+  expect(res).to.have.status(400);
+        })
+  //expect(newUser).to.have.been.calledWith("The server will respond with a 400");
+      });
