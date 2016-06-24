@@ -12,11 +12,7 @@ var accountTypes = Object.keys(constants.ACCOUNT_TYPE).map(function(key) {
 var userSchema = mongoose.Schema({
     firstName: {type: String, required: '{PATH} is required!'},
     lastName: {type: String, required: '{PATH} is required!'},
-    username: {
-        type: String,
-        required: '{PATH} is required!',
-        unique: true
-    },
+    
     email: {
         type: String,
         required: '{PATH} is required!'
