@@ -29,16 +29,15 @@ chai.use(sinonChai);
 
 describe("userService Unit Test", function () {
     it("should test the userService.createUser function", function () {
+      chai.request(server)
+      .post('/api/user')
+      .send({"firstName":"bar","lastName":"foo","username":"foobarbaz","email":"foo@bar.com","accountType":"band","password":"foobar"})
+      .end(function(err, res){
+        console.log(res.body);
+        expect(res).to.have.status(200);
 
-  //var username = "userTest69";
-  var newUser = userService1.createUser({"firstName":"foo","lastName":"bar","username":"foobarbaz","email":"foo@bar.com","accountType":"band","password":"foobar"});
-  //var cb = sinon.spy();
-
-  //function getSignupForm(name, cb) {
-    //  cb("hello " + name)};
-
-//  getSignupForm("foo", cb);
-  expect(res).to.have.status(400);
-        })
-  //expect(newUser).to.have.been.calledWith("The server will respond with a 400");
-      });
+        done();
+      })
+//returning the user
+    });
+});

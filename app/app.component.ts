@@ -6,7 +6,7 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/route
 import {DashboardComponent} from "./dashboard/dashboard.component";
 import {LoginComponent} from "./login/login.component";
 import {NewUserComponent} from "./newuser/newuser.component";
-
+import {ForgotPasswordComponent} from "./forgotpassword/forgotpassword.component";
 
 //TODO: add routes and auth service
 
@@ -34,6 +34,11 @@ import {NewUserComponent} from "./newuser/newuser.component";
         path: '/newuser',
         name: 'NewUser',
         component: NewUserComponent
+    },
+    {
+        path: '/forgotpassword',
+        name: 'ForgotPassword',
+        component: ForgotPasswordComponent
     }
 ])
 export class AppComponent {

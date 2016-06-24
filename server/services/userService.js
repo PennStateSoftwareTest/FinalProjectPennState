@@ -28,7 +28,7 @@ exports.createUser = function(request, response, next) {
             return response.send({reason:error.toString()});
         } else {
             response.status(200);
-            response.send();
+            response.send(user);
         }
     })
 };
