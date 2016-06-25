@@ -14,7 +14,7 @@ exports.createUser = function(request, response, next) {
     console.log(request.body);
 
     //TODO: add a validation function
-    userData.username = userData.username.toLowerCase();
+    userData.email = userData.email.toLowerCase();
     userData.salt = encrypt.createSalt();
     userData.password_hash = encrypt.hashPassword(userData.salt, userData.password);
 
@@ -28,11 +28,15 @@ exports.createUser = function(request, response, next) {
             return response.send({reason:error.toString()});
         } else {
             response.status(200);
-            response.send();
+            response.send(user);
         }
     })
 };
 
 exports.updateUser = function() {
+
+};
+
+exports.deleteUser = function() {
 
 };
