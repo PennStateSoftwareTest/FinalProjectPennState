@@ -43,3 +43,5 @@ typings/**
 
 # IDE Stuffs
 .idea
+
+.env
