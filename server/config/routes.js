@@ -8,6 +8,7 @@ var venueService = require("../services/venueService");
 module.exports = function(app, envconf) {
 
     app.post('/api/user', userService.createUser);
+    app.post("/api/user/delete", userService.deleteUser);
     app.post('/api/venue', venueService.createVenue);
     app.get("/api/venue/getall", venueService.getAllVenues);
 

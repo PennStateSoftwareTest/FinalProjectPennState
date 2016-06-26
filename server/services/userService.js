@@ -17,12 +17,20 @@ exports.createUser = function(request, response, next) {
     userData.email = userData.email.toLowerCase();
     userData.salt = encrypt.createSalt();
     userData.password_hash = encrypt.hashPassword(userData.salt, userData.password);
+    if(userData.accountType == "band"){
+      userData.accountType = "Band Manager";
+    }else if(userData.accountType == "venue"){
+      userData.accountType = "Venue Manager";
+    }
 
     User.create(userData, function(error, user) {
         //TODO: clean this stuff up
+        if(error){
+        console.log(error.toString());
+      }
         if(error) {
             if(error.toString().indexOf('E11000') > -1) {
-                error = new Error('Username already in use.');
+                error = new Error('email already in use.');
             }
             response.status(400);
             return response.send({reason:error.toString()});
@@ -37,6 +45,27 @@ exports.updateUser = function() {
 
 };
 
-exports.deleteUser = function() {
+exports.deleteUser = function(request, response) {
+//exports.deleteUser = function() {
+  var email_delete = request.body.email;
+  console.log(request.body.email);
+  User.findOneAndRemove({email: email_delete}), function(err, removed){
+    //response.status(200);
+    //response.send(removed);
+    console.log(removed);
+    if(err){
+      response.status(400);
+      return response.send({"reason":error.toString()});
+    }
+    response.status(200);
+    response.send(removed);
 
+  };
+  // if(data.deletedCount < 1){
+  //   response.status(400);
+  //   return response.send({reason:"Failed"});
+  // }else{
+  //  response.status(200);
+    //response.send();
+  //}
 };

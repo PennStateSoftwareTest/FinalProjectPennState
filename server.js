@@ -8,6 +8,11 @@ var expressConfig = require('./server/config/express');
 var mongooseConfig = require('./server/config/mongoose');
 var routeConfig = require('./server/config/routes');
 
+if(process.env.NODE_ENV == "development"){
+  var env = require("node-env-file");
+  env("./.env");
+}
+
 var envconf = require('./server/config/envconf')[environment];
 var app = express();
 
