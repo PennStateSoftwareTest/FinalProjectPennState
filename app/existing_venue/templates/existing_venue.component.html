@@ -1,0 +1,38 @@
+<br>
+<br>
+<div class="row">
+    <div class="medium-6 medium-centered large-4 large-centered columns">
+        <form>
+            <div class="row column newuser-form">
+              <table class="hover">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Zip</th>
+                    <th>Capacity</th>
+                    <th>Rate</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let venue of venues | custom_json">
+                    <th>{{venue.venueName}}</th>
+                    <th>{{venue.address}}</th>
+                    <th>{{venue.city}}</th>
+                    <th>{{venue.state}}</th>
+                    <th>{{venue.zip}}</th>
+                    <th>{{venue.capacity}}</th>
+                    <th>{{venue.rate}}</th>
+                  </tr>
+                </tbody>
+              </table>
+              <h1 *ngFor="let hero of heros">
+                {{hero}}
+              </h1>
+              <a type="button" class="button expanded" (click)="getVenues()">Get Venues</a>
+            </div>
+        </form>
+    </div>
+</div>

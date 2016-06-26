@@ -1,0 +1,40 @@
+<br>
+<br>
+<div class="row">
+    <div class="medium-6 medium-centered large-4 large-centered columns">
+
+        <form>
+            <div class="row column newuser-form">
+                <h4 class="text-center">New Venue Creation</h4>
+                <label>Venue Name
+                    <input type="text" [(ngModel)]="model.venueName" required>
+                </label>
+                <label>Address
+                    <input type="text" [(ngModel)]="model.address" required>
+                </label>
+
+                <label>City
+                    <input type="text" [(ngModel)]="model.city" required>
+                </label>
+                <label>State
+                    <input type="text" [(ngModel)]="model.state" required>
+                </label>
+                <label>Zip Code
+                  <input type="text" [(ngModel)]="model.zip" required>
+                </label>
+                <label>Dates Available
+                  <input type="date"  [(ngModel)]="model.date">
+                </label>
+                <label>Capacity
+                  <input type="number" [(ngModel)]="model.capacity">
+                </label>
+                <label>Hourly Rate
+                  <input type="number" [(ngModel)]="model.rate">
+                </label>
+                <br>
+                <br>
+                <p><a type="submit" class="button expanded" (click)="createVenue()">Submit</a></p>
+            </div>
+        </form>
+    </div>
+</div>
