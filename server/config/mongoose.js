@@ -3,6 +3,7 @@
  */
 var mongoose = require('mongoose'),
     userModel = require('../models/User');
+    venueModel = require("../models/Venue");
 
 module.exports = function(envConf) {
 
@@ -17,4 +18,3 @@ module.exports = function(envConf) {
         console.log('scrs db opened');
     });
 };
-

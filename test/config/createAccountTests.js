@@ -10,21 +10,7 @@ var user1 = require('../../server/models/User.js');
 var userService1 = require('../../server/services/userService.js');
 
 describe("CreateAccount", function () {
-    it("Create Account should fail if userName already exists", function () {
-        //code to verify that userTest69 is not an existing username
-	//code to test that login fails when submitting userTest69 as username
-  var username = "userTest69";
-  var newUser = userService1.createUser(username);
-  var cb = sinon.spy();
-
-  function getSignupForm(name, cb) {
-      cb("hello " + name)};
-
-  getSignupForm("foo", cb);
-
-  expect(newUser).to.have.been.calledWith("The server will respond with a 400");
-      });
-
+    
     it("Create account should fail if the email already exists", function () {
         //code to create a new user with
         var email = "userTest69@testEmail.com";
