@@ -46,11 +46,11 @@ describe("userService Unit Test", function () {
 describe("userService delete unit test", function(){
   it("should return 200 - deleted account with email foo@bar.com", function(){
     chai.request(server)
-    .post("/api/user/delete")
+    .delete("/api/user/delete")
     .send({"email":"foo@bar.com"})
     .end(function(err, res){
 
-      console.log(res.body);
+      //console.log(res.body);
       expect(res).to.have.status(200);
     });
     done();
