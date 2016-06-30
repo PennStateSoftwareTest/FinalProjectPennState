@@ -3,8 +3,8 @@
  */
 
 const ACCOUNT_TYPES = {
-    VENUE: 'venue',
-    BAND: 'band'
+    VENUE: 'Venue Manager',
+    BAND: 'Band Manager'
 };
 Object.freeze(ACCOUNT_TYPES);
 

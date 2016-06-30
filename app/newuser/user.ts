@@ -7,7 +7,6 @@ export class User {
     constructor(
         public firstName : string = null,
         public lastName : string = null,
-        public username : string = null,
         public email : string = null,
         public accountType : string = null,
         public password : string = null
