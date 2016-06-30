@@ -3,6 +3,6 @@
  */
 
 export const AccountTypes : {[key : string] : string} = {
-    VENUE_MANAGER: 'venue',
-    BAND_MANAGER: 'band'
+    VENUE_MANAGER: 'Venue Manager',
+    BAND_MANAGER: 'Band Manager'
 }

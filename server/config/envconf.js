@@ -4,6 +4,7 @@
 var path = require('path');
 var rootPath = path.join(__dirname + '/../../server/');
 
+
 module.exports = {
     development: {
         db: process.env.MONGODB_URI,
