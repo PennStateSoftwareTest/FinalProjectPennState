@@ -25,7 +25,6 @@ describe('new user service tests',() => {
         let user : User = new User(
             'firstName',
             'lastName',
-            'username',
             'email@email.com',
             'venue',
             'superSecurePassword'
@@ -51,7 +50,6 @@ describe('new user service tests',() => {
         let user : User = new User(
             'firstName',
             'lastName',
-            'username',
             'email@email.com',
             'venue',
             'superSecurePassword'
