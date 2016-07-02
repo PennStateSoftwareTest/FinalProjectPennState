@@ -15,7 +15,7 @@ exports.getAllBands = function(request, response) {
   //     response.send(venues);
   //   }
   // });
-  Venue.find({}, (err, bands)=>{
+  Band.find({}, (err, bands)=>{
     if(err){
       return response.send(err);
     }else{

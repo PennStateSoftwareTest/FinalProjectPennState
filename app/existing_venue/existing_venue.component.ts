@@ -39,7 +39,7 @@ export class ExistingVenue {
     public getVenues() : void {
       console.log("In get venues");
 
-      this.venues = this.existingVenueService.getVenues()
+      this.existingVenueService.getVenues()
             .subscribe(
                 this.handleSuccessfullGet.bind(this),
                 this.handleFailedCreate

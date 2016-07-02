@@ -3,20 +3,32 @@ import { Component, OnInit } from '@angular/core';
 import {Router, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 import {ExistingBandService} from "../existing_band/existing_band.services";
 import {JsonPipe} from "../existing_venue/custom_pipe.pipe";
+import {Dashboard_ADMService} from "./dashboard_adm.services";
+
 
 @Component({
-    selector: 'dashboard_bm',
-    templateUrl: 'app/dashboard_bm/templates/bandmanagerdashboard.component.html',
+    selector: 'dashboard_adm',
+    templateUrl: 'app/dashboard_adm/templates/admindashboard.component.html',
     directives: [ROUTER_DIRECTIVES],
     viewProviders: [
-          ExistingBandService
+          ExistingBandService,
+          Dashboard_ADMService
       ],
     pipes: [
       JsonPipe
     ]
 })
-export class Dashboard_BMComponent {
+export class Dashboard_ADMComponent {
+  public changeListener($event:any) : void{
+    console.log ($event);
+    console.log($event.target.files[0]);
 
+    this.dashboard_ADMService.uploadCSV($event.target.files)
+        .subscribe(
+            this.handleSuccessfullCreate.bind(this),
+            this.handleFailedCreate
+        );
+}
   public ngOnInit() : void {
       //TODO: check auth
 
@@ -28,7 +40,8 @@ export class Dashboard_BMComponent {
   //public heros = ["Test", "Test2", "Test3"];
   constructor(
       private router : Router,
-      private existingBandService : ExistingBandService) {}
+      private existingBandService : ExistingBandService,
+      private dashboard_ADMService:Dashboard_ADMService) {}
 
   public getBands() : void {
 
@@ -43,6 +56,13 @@ export class Dashboard_BMComponent {
   private handleSuccessfullGet(object:any) : void {
     //console.log(object[0]);
     this.bands = object;
+          //TODO: say 'thank you' for registering
+      //route to login
+      //this.router.navigate(['Login']);
+  }
+  private handleSuccessfullCreate(object:any) : void {
+    //console.log(object[0]);
+
           //TODO: say 'thank you' for registering
       //route to login
       //this.router.navigate(['Login']);

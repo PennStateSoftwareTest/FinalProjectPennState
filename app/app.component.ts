@@ -12,6 +12,7 @@ import {CreateVenue} from "./create_venue/create_venue.component";
 import {ExistingVenue} from "./existing_venue/existing_venue.component";
 import {Dashboard_BMComponent} from "./dashboard_bm/dashboard_bm.component";
 import {CreateBand} from "./create_band/create_band.component";
+import {Dashboard_ADMComponent} from "./dashboard_adm/dashboard_adm.component";
 
 //TODO: add routes and auth service
 
@@ -49,6 +50,11 @@ import {CreateBand} from "./create_band/create_band.component";
         path: '/dashboard_vm',
         name: 'DashboardVM',
         component: Dashboard_VMComponent
+    },
+    {
+        path: '/dashboard_adm',
+        name: 'DashboardADM',
+        component: Dashboard_ADMComponent
     },
     {
         path: '/createvenue',

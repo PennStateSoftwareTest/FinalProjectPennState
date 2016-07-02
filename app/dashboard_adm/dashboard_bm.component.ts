@@ -5,8 +5,8 @@ import {ExistingBandService} from "../existing_band/existing_band.services";
 import {JsonPipe} from "../existing_venue/custom_pipe.pipe";
 
 @Component({
-    selector: 'dashboard_bm',
-    templateUrl: 'app/dashboard_bm/templates/bandmanagerdashboard.component.html',
+    selector: 'dashboard_adm',
+    templateUrl: 'app/dashboard_adm/templates/admindashboard.component.html',
     directives: [ROUTER_DIRECTIVES],
     viewProviders: [
           ExistingBandService
@@ -15,7 +15,7 @@ import {JsonPipe} from "../existing_venue/custom_pipe.pipe";
       JsonPipe
     ]
 })
-export class Dashboard_BMComponent {
+export class Dashboard_ADMComponent {
 
   public ngOnInit() : void {
       //TODO: check auth
