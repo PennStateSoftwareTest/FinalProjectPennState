@@ -10,6 +10,8 @@ import {ForgotPasswordComponent} from "./forgotpassword/forgotpassword.component
 import {Dashboard_VMComponent} from "./dashboard_vm/dashboard_vm.component";
 import {CreateVenue} from "./create_venue/create_venue.component";
 import {ExistingVenue} from "./existing_venue/existing_venue.component";
+import {Dashboard_BMComponent} from "./dashboard_bm/dashboard_bm.component";
+import {CreateBand} from "./create_band/create_band.component";
 
 //TODO: add routes and auth service
 
@@ -57,7 +59,18 @@ import {ExistingVenue} from "./existing_venue/existing_venue.component";
         path: '/existing_venue',
         name: 'ExistingVenue',
         component: ExistingVenue
+    },
+    {
+        path: '/dashboard_bm',
+        name: 'DashboardBM',
+        component: Dashboard_BMComponent
+    },
+    {
+        path: '/createband',
+        name: 'CreateBand',
+        component: CreateBand
     }
+
 ])
 export class AppComponent {
     constructor() {}

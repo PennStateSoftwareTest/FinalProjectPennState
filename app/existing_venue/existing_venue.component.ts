@@ -1,11 +1,9 @@
-/**
- * Created by jnevins on 5/24/16.
- */
+
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router-deprecated';
 import {ExistingVenueService} from "./existing_venue.services";
 import {AccountTypes} from "../common/constants";
-import {Venue} from './venue';
+import {Venue} from '../create_venue/venue';
 import {JsonPipe} from "./custom_pipe.pipe";
 
 @Component({
@@ -33,7 +31,7 @@ export class ExistingVenue {
     }
     public model : Venue = new Venue();
     public venues:any;
-    public heros = ["Test", "Test2", "Test3"];
+    //public heros = ["Test", "Test2", "Test3"];
     constructor(
         private router : Router,
         private existingVenueService : ExistingVenueService) {}

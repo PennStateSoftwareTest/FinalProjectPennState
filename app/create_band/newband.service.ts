@@ -1,35 +1,30 @@
-/**
- * Created by jnevins on 5/28/16.
- */
+
 import {Injectable} from "@angular/core";
 import {Http, Response, Headers, RequestOptions} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/Rx';
 import {ErrorObservable} from 'rxjs/observable/ErrorObservable';
-import {Venue} from "../create_venue/venue";
+import {Band} from "./band";
 
 @Injectable()
-export class ExistingVenueService {
+export class NewBandService {
 
-    private endpoint : string = '/api/venue/getall';
+    private endpoint : string = 'api/band';
 
     constructor(private http : Http) {}
 
-    public getVenues() : Observable<Object> {
-      console.log("Inside existing_venue.services.ts");
-        //TODO: put this in a nice little object
-        return this.http.get(this.endpoint).map(this.extractData)
-                        .catch(this.handleError);
+    public createBand(band : Band) : Observable<Boolean> {
 
+        //TODO: put this in a nice little object
+        let body : string = JSON.stringify(band);
+        let headers : Headers = new Headers({ 'Content-Type': 'application/json' });
+        let options : RequestOptions = new RequestOptions({headers: headers});
+
+        return this.http.post(this.endpoint, body, options)
+                        .catch(this.handleError);
     }
-    private extractData(res:Response){
-      //console.log(res);
-      let body = res.json();
-      //console.log(body);
-    //  console.log(body[0]);
-      return body || {};
-    }
+
     private handleError(error : any) : ErrorObservable {
         let errorMsg = (error.message) ? error.message :
             error.status ? `${error.status} - ${error.statusText}` : 'Server error';

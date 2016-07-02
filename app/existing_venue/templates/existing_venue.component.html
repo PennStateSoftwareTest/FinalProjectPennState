@@ -1,9 +1,9 @@
 <br>
 <br>
 <div class="row">
-    <div class="medium-6 medium-centered large-4 large-centered columns">
+    <div class="medium-8 medium-centered large-8 large-centered columns">
         <form>
-            <div class="row column newuser-form">
+            <div class="row column existing_venue-form">
               <table class="hover">
                 <thead>
                   <tr>
@@ -12,25 +12,29 @@
                     <th>City</th>
                     <th>State</th>
                     <th>Zip</th>
+                    <th>Date</th>
                     <th>Capacity</th>
                     <th>Rate</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let venue of venues | custom_json">
-                    <th>{{venue.venueName}}</th>
-                    <th>{{venue.address}}</th>
-                    <th>{{venue.city}}</th>
-                    <th>{{venue.state}}</th>
-                    <th>{{venue.zip}}</th>
-                    <th>{{venue.capacity}}</th>
-                    <th>{{venue.rate}}</th>
+
+                      <th *ngIf="venue.value != NULL">{{venue.value.venueName}}</th>
+                      <th *ngIf="venue.value != NULL">{{venue.value.address}}</th>
+                      <th *ngIf="venue.value != NULL">{{venue.value.city}}</th>
+                      <th *ngIf="venue.value != NULL">{{venue.value.state}}</th>
+                      <th *ngIf="venue.value != NULL">{{venue.value.zip}}</th>
+                      <th *ngIf="venue.value != NULL">{{venue.value.date}}</th>
+                      <th *ngIf="venue.value != NULL">{{venue.value.capacity}}</th>
+                      <th *ngIf="venue.value != NULL">{{venue.value.rate}}</th>
+
                   </tr>
                 </tbody>
               </table>
-              <h1 *ngFor="let hero of heros">
-                {{hero}}
-              </h1>
+              <!--h1 *ngFor="let hero of heros">
+                //{{hero}}
+              </h1-->
               <a type="button" class="button expanded" (click)="getVenues()">Get Venues</a>
             </div>
         </form>
