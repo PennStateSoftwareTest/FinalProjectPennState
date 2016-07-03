@@ -19,16 +19,17 @@ import {Dashboard_ADMService} from "./dashboard_adm.services";
     ]
 })
 export class Dashboard_ADMComponent {
-  public changeListener($event:any) : void{
-    console.log ($event);
-    console.log($event.target.files[0]);
-
-    this.dashboard_ADMService.uploadCSV($event.target.files)
+  public createManyBands() : void{
+    var element=<HTMLInputElement>document.getElementById("urlToBandCSV");
+    var filename=element.value;
+      this.dashboard_ADMService.uploadCSV([filename])
         .subscribe(
             this.handleSuccessfullCreate.bind(this),
             this.handleFailedCreate
         );
 }
+
+
   public ngOnInit() : void {
       //TODO: check auth
 
@@ -37,11 +38,13 @@ export class Dashboard_ADMComponent {
       this.getBands();
   }
   public bands:any;
+  public csv_input:string;
   //public heros = ["Test", "Test2", "Test3"];
   constructor(
       private router : Router,
       private existingBandService : ExistingBandService,
-      private dashboard_ADMService:Dashboard_ADMService) {}
+      private dashboard_ADMService:Dashboard_ADMService
+      ) {}
 
   public getBands() : void {
 
@@ -52,6 +55,11 @@ export class Dashboard_ADMComponent {
               this.handleFailedCreate
             );
   }
+
+  // public delete():void{
+  //   this.dashboard_ADMService.deleteUser()
+  //     .subscribe();
+  // }
 
   private handleSuccessfullGet(object:any) : void {
     //console.log(object[0]);

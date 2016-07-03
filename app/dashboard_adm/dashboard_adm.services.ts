@@ -33,4 +33,14 @@ export class Dashboard_ADMService {
             error.status ? `${error.status} - ${error.statusText}` : 'Server error';
         return Observable.throw(errorMsg);
     }
+
+    // public deleteUser():any{
+    //   var body:string = JSON.stringify({"email":"foo@bar.com"});
+    //   console.log("/api/user/delete?email="+encodeURIComponent("foo@bar.com"));
+    //     let headers : Headers = new Headers({ 'Content-Type': 'application/json' });
+    //   let options : RequestOptions = new RequestOptions({headers: headers});
+    //   return this.http.delete("/api/user/delete?email="+encodeURIComponent("foo@bar.com"), options);
+    //
+    //   //this.http.post("/api/user/delete");
+    // }
 }

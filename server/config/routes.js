@@ -10,6 +10,7 @@ module.exports = function(app, envconf) {
 
     app.post('/api/user', userService.createUser);
     app.delete("/api/user/delete", userService.deleteUser);
+    app.delete("/api/venue/delete", venueService.deleteVenue);
     app.post('/api/venue', venueService.createVenue);
     app.get("/api/venue/getall", venueService.getAllVenues);
     app.post("/api/band", bandService.createBand);
