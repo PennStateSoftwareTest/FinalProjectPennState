@@ -1,0 +1,44 @@
+<br>
+<br>
+<div class="row">
+    <div class="medium-6 medium-centered large-4 large-centered columns">
+
+        <form>
+            <div class="row column newuser-form">
+              <h1>Band Manager Dashboard</h1>
+              <ul class="menu vertical">
+                <li><a href=javascript:void(0) [routerLink]="['CreateBand']">Create a New Band</a></li>
+                <h4>Display a list of all bands (not yet just managed by this manager here!)</h4>
+                <table class="hover">
+                  <thead>
+                    <tr>
+                      <th>Band Name</th>
+                      <th>Address</th>
+                      <th>City</th>
+                      <th>State</th>
+                      <th>Zip</th>
+                      <th>Available Date</th>
+                      <th>Website</th>
+                      <th>Rate</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let band of bands | custom_json">
+
+                        <th *ngIf="band.value != NULL">{{band.value.bandName}}</th>
+                        <th *ngIf="band.value != NULL">{{band.value.bandAddress}}</th>
+                        <th *ngIf="band.value != NULL">{{band.value.bandCity}}</th>
+                        <th *ngIf="band.value != NULL">{{band.value.bandState}}</th>
+                        <th *ngIf="band.value != NULL">{{band.value.bandZip}}</th>
+                        <th *ngIf="band.value != NULL">{{band.value.bandAvailableDate}}</th>
+                        <th *ngIf="band.value != NULL">{{band.value.bandWebsite}}</th>
+                        <th *ngIf="band.value != NULL">{{band.value.bandPayRate}}</th>
+
+                    </tr>
+                  </tbody>
+                </table>
+              </ul>
+            </div>
+        </form>
+    </div>
+</div>

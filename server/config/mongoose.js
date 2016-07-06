@@ -4,7 +4,8 @@
 var mongoose = require('mongoose'),
     userModel = require('../models/User');
     venueModel = require("../models/Venue");
-
+  bandModel = require("../models/Band");
+  
 module.exports = function(envConf) {
 
     mongoose.connect(envConf.db);

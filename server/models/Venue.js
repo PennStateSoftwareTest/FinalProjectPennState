@@ -1,6 +1,4 @@
-/**
- * Created by jnevins on 5/23/16.
- */
+
 var mongoose = require('mongoose'),
     constants = require('../common/constants'),
     encrypt = require('../common/encryption');
@@ -16,6 +14,7 @@ var venueSchema = mongoose.Schema({
   state: {type: String, required:"{PATH} is required!"},
   zip: {type:String, requried: "{PATH} is requried!"},
   capacity: {type:Number},
+  date: {type:Date},
   rate: {type:Number}
 
 });

@@ -1,20 +1,20 @@
 "use strict";
 var chai = require("chai");
 var chaiHttp = require('chai-http');
-var sinon = require("sinon");
-var sinonChai = require("sinon-chai");
+//var sinon = require("sinon");
+//var sinonChai = require("sinon-chai");
 var expect = chai.expect;
 var server = require("../../server.js");
 chai.use(chaiHttp);
 
-var user1 = require('../../server/models/User.js');
-var userService1 = require('../../server/services/userService.js');
-describe("functional test CreateAccount", function () {
+var band1 = require('../../server/models/Band.js');
+var bandService1 = require('../../server/services/bandService.js');
+describe("functional test Create Band", function () {
 
-  it("should test the userService.createUser function", function (done) {
+  it("should test the bandService.createBand function", function (done) {
     chai.request(server)
-    .post('/api/user')
-    .send({"firstName":"foo","lastName":"bar","email":"foo@bar.com","accountType":"Band Manager","password":"foobar"})
+    .post('/api/band')
+    .send({"bandName":"foo","bandAddress":"111 howdy drive","bandCity":"foo@bar.com","accountType":"Band Manager","password":"foobar"})
     .end(function(err, res){
         console.log(res.body);
         expect(res).to.have.status(200);
