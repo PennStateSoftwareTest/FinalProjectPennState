@@ -15,13 +15,15 @@ import {CreateBand} from "./create_band/create_band.component";
 import {Dashboard_ADMComponent} from "./dashboard_adm/dashboard_adm.component";
 
 //TODO: add routes and auth service
+import {AuthService} from './app.auth.service';
 
 @Component({
     selector: 'our-awesome-app',
     templateUrl: 'app/templates/app.component.html',
     directives: [ROUTER_DIRECTIVES],
     providers: [
-        ROUTER_PROVIDERS
+        ROUTER_PROVIDERS,
+        AuthService
     ]
 })
 @RouteConfig([

@@ -7,14 +7,22 @@
             <div class="row column log-in-form">
                 <h4 class="text-center">Sound Check!!</h4>
                 <label>Email Address
-                    <input type="text" placeholder="Email">
+                    <input type="text"
+                           [(ngModel)]="email"
+                           placeholder="Email">
                 </label>
                 <label>Password
-                    <input type="text" placeholder="Password">
+                    <input type="password"
+                           [(ngModel)]="password"
+                           placeholder="Password">
                 </label>
-                <p><a type="submit" class="button expanded">Log In</a></p>
+                <p><a type="submit"
+                      class="button expanded"
+                      (click)="login()"
+                        >Log In
+                    </a>
+                </p>
                 <p class="text-center"><a href=javascript:void(0) [routerLink]="['NewUser']">Need an account?</a></p>
-                <p class="text-center"><a href=javascript:void(0) [routerLink]="['ForgotPassword']">Forgot Your Password?</a></p>
             </div>
         </form>
 

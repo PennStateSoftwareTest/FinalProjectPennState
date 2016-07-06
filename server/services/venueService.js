@@ -17,7 +17,7 @@ exports.getAllVenues = function(request, response) {
   //     response.send(venues);
   //   }
   // });
-  Venue.find({}, (err, venues)=>{
+  Venue.find({}, function(err, venues) {
     if(err){
       return response.send(err);
     }else{

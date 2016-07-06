@@ -7,7 +7,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/Rx';
 import {ErrorObservable} from 'rxjs/observable/ErrorObservable';
-import {User} from "./user";
+import {User} from "./../common/user";
 
 @Injectable()
 export class NewUserService {
@@ -16,7 +16,7 @@ export class NewUserService {
 
     constructor(private http : Http) {}
 
-    public createUser(user : User) : Observable<Boolean> {
+    public createUser(user : User) : Observable<boolean> {
 
         //TODO: put this in a nice little object
         let body : string = JSON.stringify(user);

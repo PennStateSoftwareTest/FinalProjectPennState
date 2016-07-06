@@ -2,24 +2,27 @@
  * Created by jnevins on 5/24/16.
  */
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router-deprecated';
+import {Router, OnActivate, CanActivate} from '@angular/router-deprecated';
+import {AuthService} from '../app.auth.service';
 
 @Component({
     selector: 'dashboard',
-    templateUrl: 'app/dashboard/templates/dashboard.component.html'
+    templateUrl: 'app/dashboard/templates/dashboard.component.html',
+    styleUrls: ['app/dashboard/styles/dashboard.component.css']
 })
-export class DashboardComponent implements  OnInit {
+export class DashboardComponent implements OnActivate {
 
-    constructor(private router : Router) {}
+    constructor(
+        private router : Router,
+        private authService : AuthService
+    ) {}
 
     /**
-     * We're using the 'OnInit' lifecycle hook here.  Angular will
-     * automatically run this when this component initializes.
+     * The routerOnActivate hook will allow us to
      */
-    public ngOnInit() : void {
-        //TODO: check auth
-
-        //Right now, we are just going to redirect to the login page
-        this.router.navigate(['Login']);
+    public routerOnActivate() : void {
+        if (!this.authService.isAuthenticated) {
+            this.router.navigate(['Login']);
+        }
     }
 }
