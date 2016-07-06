@@ -1,14 +1,42 @@
 <br>
 <br>
 <div class="row">
-    <div class="medium-6 medium-centered large-4 large-centered columns">
+    <div class="medium-8 medium-centered large-8 large-centered columns">
 
         <form>
             <div class="row column newuser-form">
-              <h1>Menu</h1>
+              <h1>Venue Manager Dashboard</h1>
               <ul class="menu vertical">
                 <li><a href=javascript:void(0) [routerLink]="['CreateVenue']">Create a New Venue</a></li>
-                <li><a href=javascript:void(0) [routerLink]="['ExistingVenue']">Add an existing Venue</a></li>
+                <h3>list of all venues(not yet just this guys venues!)</h3>
+                <table class="hover">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Address</th>
+                      <th>City</th>
+                      <th>State</th>
+                      <th>Zip</th>
+                      <th>Date</th>
+                      <th>Capacity</th>
+                      <th>Rate</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let venue of venues | custom_json">
+
+                        <th *ngIf="venue.value != NULL">{{venue.value.venueName}}</th>
+                        <th *ngIf="venue.value != NULL">{{venue.value.address}}</th>
+                        <th *ngIf="venue.value != NULL">{{venue.value.city}}</th>
+                        <th *ngIf="venue.value != NULL">{{venue.value.state}}</th>
+                        <th *ngIf="venue.value != NULL">{{venue.value.zip}}</th>
+                        <th *ngIf="venue.value != NULL">{{venue.value.date}}</th>
+                        <th *ngIf="venue.value != NULL">{{venue.value.capacity}}</th>
+                        <th *ngIf="venue.value != NULL">{{venue.value.rate}}</th>
+
+                    </tr>
+                  </tbody>
+                </table>
               </ul>
             </div>
         </form>

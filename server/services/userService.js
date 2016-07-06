@@ -42,25 +42,29 @@ exports.updateUser = function() {
 
 exports.deleteUser = function(request, response) {
 //exports.deleteUser = function() {
-var email_delete = request.body.email;
-  console.log(request.body.email);
+  var email_delete = request.query.email;
+  console.log(request.query.email);
+//  User.find({email:email_delete}).remove().exec();
   User.findOneAndRemove({email: email_delete}, function(err, removed){
     //response.status(200);
     //response.send(removed);
+    console.log("in remove function");
     console.log(removed);
     if(err){
       response.status(400);
       return response.send({"reason":error.toString()});
     }
     response.status(200);
-    response.send(removed);
+    return response.send(removed);
 
   });
+  //response.status(400);
+  //response.send({"reason":"Didnt enter remove function"});
   // if(data.deletedCount < 1){
   //   response.status(400);
   //   return response.send({reason:"Failed"});
   // }else{
   //  response.status(200);
-    //response.send();
-  //}
+  //   response.send();
+  // }
 };

@@ -1,0 +1,40 @@
+<br>
+<br>
+<div class="row">
+    <div class="medium-6 medium-centered large-4 large-centered columns">
+
+        <form>
+            <div class="row column newband-form">
+                <h4 class="text-center">New Band Creation</h4>
+                <label>Band Name
+                    <input type="text" [(ngModel)]="model.bandName" required>
+                </label>
+                <label>Address
+                    <input type="text" [(ngModel)]="model.bandAddress" required>
+                </label>
+
+                <label>City
+                    <input type="text" [(ngModel)]="model.bandCity" required>
+                </label>
+                <label>State
+                    <input type="text" [(ngModel)]="model.bandState" required>
+                </label>
+                <label>Zip Code
+                  <input type="text" [(ngModel)]="model.bandZip" required>
+                </label>
+                <label>Date Available
+                  <input type="date"  [(ngModel)]="model.bandAvailableDate">
+                </label>
+                <label>Website
+                  <input type="text" [(ngModel)]="model.bandWebsite">
+                </label>
+                <label>Hourly Rate
+                  <input type="number" [(ngModel)]="model.bandPayRate">
+                </label>
+                <br>
+                <br>
+                <p><a type="submit" class="button expanded" (click)="createBand()">Submit</a></p>
+            </div>
+        </form>
+    </div>
+</div>

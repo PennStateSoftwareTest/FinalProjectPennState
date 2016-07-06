@@ -1,9 +1,9 @@
-/**
- * Created by jnevins on 5/18/16.
- */
+
 var path = require('path'),
-    authService = require('../services/authService'),
-    userService = require('../services/userService'),
+var bandService = require("../services/bandService");
+var CSVUploadService = require("../services/CSVUploadService");
+    authService = require('../services/authService');
+    userService = require('../services/userService');
     venueService = require("../services/venueService");
 
 module.exports = function(app, envconf) {
@@ -15,6 +15,7 @@ module.exports = function(app, envconf) {
     //TODO: this is wrong; we need to fix it
     app.delete("/api/user/delete", userService.deleteUser);
 
+
     /*
      * Authentication routes.
      */
@@ -24,8 +25,13 @@ module.exports = function(app, envconf) {
      * Venue service routes
      */
     app.post('/api/venue', venueService.createVenue);
+    app.delete("/api/venue/delete", venueService.deleteVenue);
     //TODO: this is wrong; we need to fix it
     app.get("/api/venue/getall", venueService.getAllVenues);
+    app.post("/api/band", bandService.createBand);
+    app.get("/api/band/getall", bandService.getAllBands);
+    app.post("/api/band/csv", CSVUploadService.uploadBands);
+
 
     /*
      * Base routes

@@ -12,6 +12,8 @@ var routeConfig = require('./server/config/routes');
 if(process.env.NODE_ENV == "development"){
   var env = require("node-env-file");
   env("./.env");
+  var Converter = require("csvtojson").Converter;
+  var converter = new Converter({});
 }
 
 var envconf = require('./server/config/envconf')[environment];
