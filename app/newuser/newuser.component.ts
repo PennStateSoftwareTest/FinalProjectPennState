@@ -6,7 +6,7 @@ import {Router} from '@angular/router-deprecated';
 import {NgForm} from '@angular/common';
 import {NewUserService} from "./newuser.service";
 import {AccountTypes} from "../common/constants";
-import {User} from './user';
+import {User} from './../common/user';
 
 @Component({
     selector: 'new-user',

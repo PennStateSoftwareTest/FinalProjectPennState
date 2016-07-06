@@ -17,11 +17,6 @@ exports.createUser = function(request, response, next) {
     userData.email = userData.email.toLowerCase();
     userData.salt = encrypt.createSalt();
     userData.password_hash = encrypt.hashPassword(userData.salt, userData.password);
-    // if(userData.accountType == "band"){
-    //   userData.accountType = "Band Manager";
-    // }else if(userData.accountType == "venue"){
-    //   userData.accountType = "Venue Manager";
-    // }
 
     User.create(userData, function(error, user) {
         //TODO: clean this stuff up

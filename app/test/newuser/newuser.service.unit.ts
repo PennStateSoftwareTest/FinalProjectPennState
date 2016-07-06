@@ -6,7 +6,7 @@ import {describe, expect, beforeEach, it, inject, injectAsync, beforeEachProvide
 import {Http, HTTP_PROVIDERS, XHRBackend, Response, Headers, RequestOptions} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
 import {NewUserService} from "../../newuser/newuser.service";
-import {User} from "../../newuser/user";
+import {User} from "../../common/user";
 import Spy = jasmine.Spy;
 import {Observable} from 'rxjs/Observable';
 
