@@ -1,7 +1,7 @@
 
-var path = require('path'),
-var bandService = require("../services/bandService");
-var CSVUploadService = require("../services/CSVUploadService");
+path = require('path'),
+bandService = require("../services/bandService");
+CSVUploadService = require("../services/CSVUploadService");
     authService = require('../services/authService');
     userService = require('../services/userService');
     venueService = require("../services/venueService");
