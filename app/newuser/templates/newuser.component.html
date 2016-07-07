@@ -15,10 +15,17 @@
                 <label>Last Name
                     <input type="text" [(ngModel)]="model.lastName" required>
                 </label>
-              
-                <label>Password
+
+                <label>Password (strong password coming soon)
                     <input type="password" [(ngModel)]="model.password" required>
                 </label>
+
+                <label>Account Type
+                    <select [(ngModel)]="model.accountType" required>
+                        <option *ngFor="let acctType of accountTypes" [value]="acctType">{{acctType}}</option>
+                    </select>
+                </label>
+
                 <br>
                 <br>
                 <p><a type="submit" class="button expanded" (click)="createUser()">Submit</a></p>
