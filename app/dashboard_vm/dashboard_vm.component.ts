@@ -1,6 +1,3 @@
-/**
- * Created by jnevins on 5/24/16.
- */
 import { Component, OnInit } from '@angular/core';
 import {ExistingVenueService} from "../existing_venue/existing_venue.services";
 import {JsonPipe} from "../existing_venue/custom_pipe.pipe";

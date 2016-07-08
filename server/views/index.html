@@ -3,14 +3,19 @@
 <head>
   <base href="/">
   <meta charset="UTF-8">
-  <title>Final</title>
+  <title>SCRS</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
 
   <!-- Global CSS -->
   <link rel="stylesheet" href="../../node_modules/normalize.css/normalize.css" />
   <link rel="stylesheet" href="../../node_modules/foundation-sites/dist/foundation.css" />
   <link rel="stylesheet" href="../../icons/foundation-icons/foundation-icons.css" />
+
+  <script src="../../bower_components/webcomponentsjs/webcomponents.js"></script>
+  <script src="../../node_modules/core-js/client/shim.min.js"></script>
 
 
   <!-- Load libraries -->
@@ -21,15 +26,46 @@
   <script src="../../node_modules/reflect-metadata/Reflect.js"></script>
   <script src="../../node_modules/systemjs/dist/system.src.js"></script>
   <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="../../node_modules/foundation-sites/dist/foundation.js"></script>
+  <!-- <script src="../../node_modules/foundation-sites/dist/foundation.js"></script> -->
+  <!-- Styles -->
+      <!-- <link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout.html">
+      <link rel="import" href="bower_components/paper-styles/color.html">
+      <link rel="import" href="bower_components/paper-styles/default-theme.html">
+      <link rel="import" href="bower_components/paper-styles/typography.html">
+      <link rel="import" href="bower_components/paper-styles/shadow.html"> -->
+      <link rel="import" href="../../bower_components/paper-menu/paper-menu.html">
+      <link rel="import" href="../../bower_components/paper-item/paper-item.html">
 
+
+      <style is="custom-style">
+        body {
+          @apply(--layout-fullbleed);
+          @apply(--paper-font-body1);
+          background: var(--primary-background-color);
+          color: var(--primary-text-color);
+        }
+      </style>
+
+  <!-- <link rel="import" href="polymer-loader.html"> -->
+
+<!-- <script>
+  window.Polymer = window.Polymer || {};
+  window.Polymer.dom = 'shadow';
+</script> -->
 
   <!-- 2. Configure SystemJS -->
   <script src="../../systemjs.config.js"></script>
-  <script>
-    System.import('app').catch(function(err){ console.error(err); });
+  <!-- <script>
+   System.import('app').catch(function(err){ console.error(err); });
     $(document).foundation();
-  </script>
+    </script>   -->
+    <script>
+      document.addEventListener('WebComponentsReady', function() {
+        System.import('app').catch(function(err){ console.error(err); });
+      });
+      </script>
+    </script>
+
   <style>
     .size-12 { font-size: 12px; }
 
