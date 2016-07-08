@@ -15,7 +15,8 @@
     "postinstall": "typings install && tsc",
     "tsc": "tsc",
     "watch": "tsc -w",
-    "typings": "typings"
+    "typings": "typings",
+    "testall": "npm test && npm run testclient"
   },
   "repository": {
     "type": "git",
@@ -37,11 +38,13 @@
     "@angular/router": "2.0.0-rc.1",
     "@angular/router-deprecated": "2.0.0-rc.1",
     "@angular/upgrade": "2.0.0-rc.1",
+    "@vaadin/angular2-polymer": "^1.0.0-beta2",
     "angular2-in-memory-web-api": "0.0.7",
     "body-parser": "^1.15.1",
+    "bower": "^1.7.9",
     "chai-http": "^2.0.1",
-    "csvtojson": "^1.0.0",
     "cookie-parser": "^1.4.3",
+    "csvtojson": "^1.0.0",
     "es6-shim": "^0.35.0",
     "express": "^4.13.4",
     "express-session": "^1.14.0",
