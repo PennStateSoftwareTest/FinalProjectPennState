@@ -11,7 +11,7 @@ exports.readUser = function(request, response, next) {
 
 exports.createUser = function(request, response, next) {
     var userData = request.body;
-    console.log(request.body);
+  //  console.log(request.body);
 
     //TODO: add a validation function
     userData.email = userData.email.toLowerCase();
@@ -21,7 +21,7 @@ exports.createUser = function(request, response, next) {
     User.create(userData, function(error, user) {
         //TODO: clean this stuff up
         if(error){
-        console.log(error.toString());
+      //  console.log(error.toString());
       }
         if(error) {
             if(error.toString().indexOf('E11000') > -1) {
@@ -42,8 +42,8 @@ exports.updateUser = function() {
 
 exports.deleteUser = function(request, response) {
 //exports.deleteUser = function() {
-  var email_delete = request.query.email;
-  console.log(request.query.email);
+  var email_delete = request.body.email;
+  console.log(request.body);
 //  User.find({email:email_delete}).remove().exec();
   User.findOneAndRemove({email: email_delete}, function(err, removed){
     //response.status(200);
