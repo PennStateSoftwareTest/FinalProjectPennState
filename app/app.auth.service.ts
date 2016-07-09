@@ -37,6 +37,7 @@ export class AuthService {
 
             //TODO: refactor this... it's ugly
             loginPost.subscribe(
+                //Success
                 ((response : Response) => {
                     let responseBody : {success : boolean} = response.json();
 
@@ -49,6 +50,7 @@ export class AuthService {
                     this.setIsAuthenticated(responseBody.success);
                     observer.complete();
                 }).bind(this),
+                //Error
                 ((error : any) => {
                     this.setIsAuthenticated(false);
                     observer.error(new Error());
@@ -61,6 +63,38 @@ export class AuthService {
         });
 
         return loginObserver;
+    }
+
+    public isSessionValid() : Observable<boolean> {
+
+        //TODO: repeating the same messy pattern here.. need to refactor
+        let sessionObserver : Observable<boolean> = Observable.create((observer : Observer<boolean>) => {
+
+            let loginGet : Observable<Response> = this.http.get(this.endpoint);
+
+            loginGet.subscribe(
+                ((response : Response) => {
+                    observer.next(true);
+
+                    this.setIsAuthenticated(true);
+
+                    observer.complete();
+                }).bind(this),
+                //Error
+                ((error : any) => {
+                    this.setIsAuthenticated(false);
+
+                    observer.error(new Error());
+
+                    observer.complete();
+                }).bind(this)
+            );
+            loginGet.catch((error : any) => {
+                return Observable.throw('');
+            });
+        });
+
+        return sessionObserver;
     }
 
     private setIsAuthenticated(isAuthed : boolean) : void {

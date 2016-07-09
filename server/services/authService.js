@@ -37,7 +37,7 @@ function sanitizeUser(user) {
 exports.isAuthenticated = function(request, response, next) {
 
     if(!request.isAuthenticated()) {
-        response.status(403);
+        response.status(401);
         response.end();
     } else {
         next();
