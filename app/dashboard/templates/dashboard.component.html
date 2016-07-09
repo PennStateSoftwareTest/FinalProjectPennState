@@ -1,3 +1,42 @@
+<!-- <template is="auto-binding" id="template">
+    <core-drawer-panel layout vertical>
+      <core-header-panel drawer>
+        <core-toolbar>
+          <span>Menu</span>
+        </core-toolbar>
+        <core-menu selected="{{selected}}" valueattr="menuname">
+          <core-item menuname="one">One</core-item>
+          <core-item menuname="two">Two</core-item>
+        </core-menu>
+      </core-header-panel>
+      <core-header-panel  main>
+        <core-toolbar>
+          <core-icon-button icon="menu" core-drawer-toggle></core-icon-button>
+          <div>{{title}}</div>
+          <span flex></span>
+          <core-icon-button icon="search"></core-icon-button>
+        </core-toolbar>
+        <core-animated-pages selected="{{selected}}" valueattr="pagename">
+          <section pagename="one">
+            <div> Page one </div>
+          </section>
+          <section pagename="two">
+            <div> Page two </div>
+          </section>
+        </core-animated-pages>
+      </core-header-panel>
+    </core-drawer-panel>
+  </template> -->
+<!--
+  <script>
+    window.addEventListener("polymer-ready", function(e) {
+      var tmpl = document.querySelector("#template");
+      tmpl.title = "Some title";
+      tmpl.addEventListener('template-bound', function(e) {
+        console.log("Template bound");
+      });
+    });
+  </script> -->
 
 <div class="off-canvas-wrapper">
     <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
@@ -11,7 +50,7 @@
           <div class="callout primary">
 
               <div class="row column">
-                  <h4><img style="float:left; padding-right: 20px;" src="../../../icons/app4.png" width="90">Unified Dashboard</h4><p>(later we will only display tools based on user roles)</p>
+                  <h4><img style="float:left; padding-right: 20px;" src="../../../icons/app4.png" width="90">{{title}}</h4><p>(later we will only display tools based on user roles)</p>
               </div>
           </div>
       </div>
@@ -20,55 +59,27 @@
                 <br>
 
             </div> -->
+            <div *ngIf="isAuth()">
+            <div class="row">
+              <paper-menu-button>
+                <paper-icon-button icon="menu" class="dropdown-trigger"></paper-icon-button>
+              <paper-menu class="dropdown-content">
+                <paper-item *ngFor="let page of pages" (click)="onSelect(page)">
+                  <a [routerLink]="page.route" routerLinkActive="active">
+                    {{page.name}}
+                  </a>
+                </paper-item>
 
-            <div class="menu menu-bar vertical five-up">
-
-
-              <paper-menu>
-                <paper-item>Create New Venue</paper-item>
-                <paper-item>Book a Band</paper-item>
-                <paper-item>Add Another Manager</paper-item>
-                <paper-item>Admin Tools</paper-item>
-                <paper-item>Band Manager Tools</paper-item>
-                <paper-item>Account Settings</paper-item>
-                <paper-item>Log Out</paper-item>
-              </paper-menu>
-                <!-- <a class="item">
-                    <i class="fi-home size-36"></i>
-                    <label></label>
-                </a> -->
-
-                <!-- <a class="item">
-                    <i class="fi-home size-36"></i>
-                    <label>/label>
-                </a>
-
-                <a class="item">
-                    <i class="fi-home size-36"></i>
-                </a>
-
-                <a class="item">
-                    <i class="fi-home size-36"></i>
-                    <label></label>
-                </a>
-
-                <a class="item">
-                    <i class="fi-home size-36"></i>
-                </a>
-
-                <a class="item">
-                    <i class="fi-home size-36"></i>
-                    <label>Account Settings</label>
-                </a>
-
-                <a class="item">
-                    <i class="fi-home size-36"></i>
-                    <label>Log Out</label>
-                </a>
-            </div> -->
-
-
+            </paper-menu>
+          </paper-menu-button>
         </div>
+        </div>
+        <router-outlet></router-outlet>
+
+
+
+
+
 
 
     </div>

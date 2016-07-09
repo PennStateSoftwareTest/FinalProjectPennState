@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <title>SCRS</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
 
   <!-- Global CSS -->
   <link rel="stylesheet" href="../../node_modules/normalize.css/normalize.css" />
@@ -35,7 +35,23 @@
       <link rel="import" href="bower_components/paper-styles/shadow.html"> -->
       <link rel="import" href="../../bower_components/paper-menu/paper-menu.html">
       <link rel="import" href="../../bower_components/paper-item/paper-item.html">
+        <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+          <link rel="import" href="../../bower_components/paper-menu-button/paper-menu-button.html">
+               <link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
 
+      <!-- <link rel="import" href="bower_components/more-routing/more-routing.html">
+      <link rel="import" href="bower_components/core-elements/core-elements.html"> -->
+      <!-- <link rel="import" href="bower_components/more-routing/more-routing.html">
+      <link rel="import" href="bower_components/core-elements/core-elements.html"> -->
+      <style>
+                  core-header-panel {
+                      background-color: white;
+                  }
+                  a {
+                      color: black;
+                      text-decoration: none;
+                  }
+              </style>
 
       <style is="custom-style">
         body {
@@ -88,7 +104,13 @@
     .size-72 { font-size: 72px; }
   </style>
 </head>
+
+
+
 <body>
+
+
+
 <!--Bootstrap the application-->
 <our-awesome-app>Loading...</our-awesome-app>
 </body>
