@@ -17,9 +17,7 @@ export class AuthService {
 
     private endpoint : string = 'api/login';
 
-    constructor(private http : Http) {
-        //TODO: check for a good cookie and initialize isAuthenticated
-    }
+    constructor(private http : Http) {}
 
     public login(email : string, password : string) : Observable<boolean> {
 
@@ -97,10 +95,15 @@ export class AuthService {
         return sessionObserver;
     }
 
+    public logout() : void {
+        this.http.post('api/logout', '').subscribe(
+            (response : Response) => {
+                this.isAuthenticated = false;
+            }
+        );
+    }
+
     private setIsAuthenticated(isAuthed : boolean) : void {
         this.isAuthenticated = isAuthed;
     }
-
-
-
 }

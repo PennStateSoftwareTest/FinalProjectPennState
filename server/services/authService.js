@@ -24,6 +24,11 @@ exports.authenticate = function(request, response, next) {
     })(request, response, next);
 };
 
+exports.logout = function(request, response) {
+    request.logout();
+    response.end();
+};
+
 function sanitizeUser(user) {
 
     var jsonUser = user.toJSON();

@@ -25,14 +25,21 @@ export class DashboardComponent implements OnActivate {
      * The routerOnActivate hook will allow us to
      */
     public routerOnActivate() : void {
-        this.authService.isSessionValid()
-            .subscribe(
-                //No need for a success handler
-                null,
-                //Nav back to login on any other status code
-                () => {
-                    this.router.navigate(['Login']);
-                }
-            );
+        if (!this.authService.isAuthenticated) {
+            this.authService.isSessionValid()
+                .subscribe(
+                    //No need for a success handler
+                    null,
+                    //Nav back to login on any other status code
+                    () => {
+                        this.router.navigate(['Login']);
+                    }
+                );
+        }
+    }
+
+    public logout() : void {
+        this.authService.logout();
+        this.router.navigate(['Login']);
     }
 }

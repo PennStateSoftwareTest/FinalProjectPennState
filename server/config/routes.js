@@ -20,6 +20,7 @@ module.exports = function(app, envconf) {
      */
     app.post('/api/login', authService.authenticate);
     app.get('/api/login', authService.isAuthenticated);
+    app.post('/api/logout', authService.logout);
 
     /*
      * Venue service routes

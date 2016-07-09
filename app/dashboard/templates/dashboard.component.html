@@ -2,12 +2,6 @@
 <div class="off-canvas-wrapper">
     <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
       <div class="off-canvas-content" data-off-canvas-content>
-          <!-- <div class="title-bar hide-for-large">
-              <div class="title-bar-left">
-                  <button class="menu-icon" type="button" data-open="my-info"></button>
-                  <span class="title-bar-title">SC2RS</span>
-              </div>
-          </div> -->
           <div class="callout primary">
 
               <div class="row column">
@@ -15,61 +9,14 @@
               </div>
           </div>
       </div>
-        <!-- <div class="off-canvas position-left reveal-for-large" id="side-nav" data-off-canvas data-position="left"> -->
-            <!-- <div class="row column">
-                <br>
-
-            </div> -->
-
-            <div class="menu menu-bar vertical five-up">
-
-
-              <paper-menu>
-                <paper-item>Create New Venue</paper-item>
-                <paper-item>Book a Band</paper-item>
-                <paper-item>Add Another Manager</paper-item>
-                <paper-item>Admin Tools</paper-item>
-                <paper-item>Band Manager Tools</paper-item>
-                <paper-item>Account Settings</paper-item>
-                <paper-item>Log Out</paper-item>
-              </paper-menu>
-                <!-- <a class="item">
-                    <i class="fi-home size-36"></i>
-                    <label></label>
-                </a> -->
-
-                <!-- <a class="item">
-                    <i class="fi-home size-36"></i>
-                    <label>/label>
-                </a>
-
-                <a class="item">
-                    <i class="fi-home size-36"></i>
-                </a>
-
-                <a class="item">
-                    <i class="fi-home size-36"></i>
-                    <label></label>
-                </a>
-
-                <a class="item">
-                    <i class="fi-home size-36"></i>
-                </a>
-
-                <a class="item">
-                    <i class="fi-home size-36"></i>
-                    <label>Account Settings</label>
-                </a>
-
-                <a class="item">
-                    <i class="fi-home size-36"></i>
-                    <label>Log Out</label>
-                </a>
-            </div> -->
-
-
-        </div>
-
-
+          <paper-menu>
+            <paper-item>Create New Venue</paper-item>
+            <paper-item>Book a Band</paper-item>
+            <paper-item>Add Another Manager</paper-item>
+            <paper-item>Admin Tools</paper-item>
+            <paper-item>Band Manager Tools</paper-item>
+            <paper-item>Account Settings</paper-item>
+            <paper-item (click)="logout()">Log Out</paper-item>
+          </paper-menu>
     </div>
 </div>
