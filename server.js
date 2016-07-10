@@ -9,7 +9,7 @@ var mongooseConfig = require('./server/config/mongoose');
 var passportConfig = require('./server/config/passport');
 var routeConfig = require('./server/config/routes');
 
-if(process.env.NODE_ENV == "development"){
+if(process.env.NODE_ENV == "development" || process.env.NODE_ENV == "test"){
   var env = require("node-env-file");
   env("./.env");
   var Converter = require("csvtojson").Converter;

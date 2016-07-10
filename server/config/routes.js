@@ -14,6 +14,7 @@ module.exports = function(app, envconf) {
     app.post('/api/user', userService.createUser);
     //TODO: this is wrong; we need to fix it
     app.delete("/api/user", userService.deleteUser);
+  
 
 
     /*
@@ -25,7 +26,7 @@ module.exports = function(app, envconf) {
      * Venue service routes
      */
     app.post('/api/venue', venueService.createVenue);
-    app.delete("/api/venue/", venueService.deleteVenue);
+  //  app.delete("/api/venue/", venueService.deleteVenue);
     //TODO: this is wrong; we need to fix it
     app.get("/api/venue/getall", venueService.getAllVenues);
     app.post("/api/band", bandService.createBand);
