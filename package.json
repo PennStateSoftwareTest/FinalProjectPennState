@@ -12,7 +12,7 @@
     "testserver": "mocha --recursive -w",
     "testclient": "tsc && node ./node_modules/karma/bin/karma start ./app/test/karma.unit.conf.js",
     "start": "tsc && node server.js",
-    "postinstall": "typings install && tsc",
+    "postinstall": "typings install && tsc && ./node_modules/bower/bin/bower install",
     "tsc": "tsc",
     "watch": "tsc -w",
     "typings": "typings",
