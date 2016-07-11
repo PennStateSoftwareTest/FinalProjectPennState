@@ -13,8 +13,7 @@ import {ExistingVenue} from "./existing_venue/existing_venue.component";
 import {Dashboard_BMComponent} from "./dashboard_bm/dashboard_bm.component";
 import {CreateBand} from "./create_band/create_band.component";
 import {Dashboard_ADMComponent} from "./dashboard_adm/dashboard_adm.component";
-
-//TODO: add routes and auth service
+import {DashboardMenuComponent} from "./dashboard_menu/dashboard_menu.component";
 import {AuthService} from './app.auth.service';
 
 @Component({
@@ -37,6 +36,10 @@ import {AuthService} from './app.auth.service';
         path: '/login',
         name: 'Login',
         component: LoginComponent
+    },{
+        path: "/dashboard_menu",
+        name:"DashboardMenu",
+        component:DashboardMenuComponent
     },
     {
         path: '/newuser',

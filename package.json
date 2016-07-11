@@ -8,7 +8,7 @@
   "description": "Team 6 Final Project =====================",
   "main": "server.js",
   "scripts": {
-    "test": "istanbul cover ./node_modules/.bin/_mocha test/**/*.js --coverage",
+    "test": "istanbul cover  --root ./server/services  ./node_modules/.bin/_mocha test/**/*.js --coverage ",
     "testserver": "mocha --recursive -w",
     "testclient": "tsc && node ./node_modules/karma/bin/karma start ./app/test/karma.unit.conf.js",
     "start": "tsc && node server.js",
@@ -16,7 +16,7 @@
     "tsc": "tsc",
     "watch": "tsc -w",
     "typings": "typings",
-    "testall": "npm test && npm run testclient"
+    "alltests": "npm run testclient && npm test"
   },
   "repository": {
     "type": "git",
@@ -50,6 +50,7 @@
     "express-session": "^1.14.0",
     "foundation-sites": "^6.2.3",
     "jquery": "^2.2.4",
+    "karma-coverage": "^1.1.0",
     "mongoose": "^4.5.2",
     "node-env-file": "^0.1.8",
     "normalize.css": "^4.1.1",
@@ -67,15 +68,18 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "install": "^0.8.1",
     "istanbul": "^0.4.3",
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.22",
     "karma-jasmine": "^1.0.2",
     "karma-phantomjs-launcher": "^1.0.0",
     "mocha": "^2.4.5",
+    "npm": "^3.10.5",
     "phantomjs-prebuilt": "^2.1.7",
     "sinon": "^1.17.4",
-    "sinon-chai": "^2.8.0"
+    "sinon-chai": "^2.8.0",
+    "supertest": "^1.2.0"
   },
   "directories": {
     "test": "test"

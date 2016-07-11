@@ -12,8 +12,7 @@ module.exports = function(app, envconf) {
      * User service routes.
      */
     app.post('/api/user', userService.createUser);
-    //TODO: this is wrong; we need to fix it
-    app.delete("/api/user/delete", userService.deleteUser);
+    app.delete("/api/user", userService.deleteUser);
 
     /*
      * Authentication routes.
@@ -26,8 +25,7 @@ module.exports = function(app, envconf) {
      * Venue service routes
      */
     app.post('/api/venue', venueService.createVenue);
-    //TODO: this is wrong; we need to fix it
-    app.delete("/api/venue/delete", venueService.deleteVenue);
+    app.delete("/api/venue/", venueService.deleteVenue);
     //TODO: this is wrong; we need to fix it
     app.get("/api/venue/getall", venueService.getAllVenues);
 

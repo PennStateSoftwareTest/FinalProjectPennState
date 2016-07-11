@@ -18,11 +18,10 @@ import {User} from './../common/user';
 })
 export class NewUserComponent {
 
-    //TODO: add form validation
-
     public accountTypes : string[] = Object.keys(AccountTypes).map((key) => {
         return AccountTypes[key];
     });
+
     public model : User = new User();
 
     constructor(

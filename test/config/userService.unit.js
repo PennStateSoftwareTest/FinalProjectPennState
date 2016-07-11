@@ -1,8 +1,9 @@
 "use strict";
 var chai = require("chai");
 var chaiHttp = require('chai-http');
-var sinon = require("sinon");
-var sinonChai = require("sinon-chai");
+var SuperT = require('supertest');
+//var sinon = require("sinon");
+//var sinonChai = require("sinon-chai");
 var expect = chai.expect;
 var server = require("../../server.js");
 chai.use(chaiHttp);
@@ -16,7 +17,7 @@ describe("functional test CreateAccount", function () {
     .post('/api/user')
     .send({"firstName":"foo","lastName":"bar","email":"foo@bar.com","accountType":"Band Manager","password":"foobar"})
     .end(function(err, res){
-        console.log(res.body);
+      //  console.log(res.body);
         expect(res).to.have.status(200);
 
     //  chai.request(server).post("/api/user/delete").send("foo@bar.com").end(function(err, res){
@@ -35,7 +36,7 @@ describe("userService Unit Test", function () {
       .post('/api/user')
       .send({"firstName":"foo","lastName":"bar","email":"foo@bar.com","accountType":"Band Manager","password":"foobar"})
       .end(function(err, res){
-        console.log(res.body);
+      //  console.log(res.body);
         expect(res).to.have.status(400);
         done();
       })
@@ -45,11 +46,13 @@ describe("userService Unit Test", function () {
 
 describe("userService delete unit test", function(){
   it("should return 200 - deleted account with email foo@bar.com", function(){
-    chai.request(server)
-    .delete("/api/user/delete?email="+encodeURIComponent("foo@bar.com"))
-    .end(function(err, res){
+  //  chai.use(SuperT);
+    SuperT(server).del("/api/user")
+     .type('json')
+   .send({'email' : 'foo@bar.com'})
+      .end(function(err, res){
 
-      //console.log(res.body);
+    //  console.log(res.body);
       expect(res).to.have.status(200);
         done();
     })
