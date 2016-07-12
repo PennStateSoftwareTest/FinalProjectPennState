@@ -31,7 +31,7 @@ export class LoginComponent {
     }
 
     private goToDashboard(...args : any[]) : void {
-        this.router.navigate(['DashboardVM']);
+        this.router.navigate(['Dashboard']);
     }
 
     private handleFailedLogin() : void {

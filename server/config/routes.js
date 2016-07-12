@@ -12,15 +12,15 @@ module.exports = function(app, envconf) {
      * User service routes.
      */
     app.post('/api/user', userService.createUser);
-    //TODO: this is wrong; we need to fix it
     app.delete("/api/user", userService.deleteUser);
   
-
 
     /*
      * Authentication routes.
      */
     app.post('/api/login', authService.authenticate);
+    app.get('/api/login', authService.isAuthenticated);
+    app.post('/api/logout', authService.logout);
 
     /*
      * Venue service routes
@@ -29,8 +29,14 @@ module.exports = function(app, envconf) {
   //  app.delete("/api/venue/", venueService.deleteVenue);
     //TODO: this is wrong; we need to fix it
     app.get("/api/venue/getall", venueService.getAllVenues);
+
+    /*
+     * Bnd Routes
+     */
     app.post("/api/band", bandService.createBand);
+    //TODO: this is wrong; we need to fix it
     app.get("/api/band/getall", bandService.getAllBands);
+    //TODO: this is wrong; we need to fix it
     app.post("/api/band/csv", CSVUploadService.uploadBands);
 
 

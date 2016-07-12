@@ -1,86 +1,28 @@
-<!-- <template is="auto-binding" id="template">
-    <core-drawer-panel layout vertical>
-      <core-header-panel drawer>
-        <core-toolbar>
-          <span>Menu</span>
-        </core-toolbar>
-        <core-menu selected="{{selected}}" valueattr="menuname">
-          <core-item menuname="one">One</core-item>
-          <core-item menuname="two">Two</core-item>
-        </core-menu>
-      </core-header-panel>
-      <core-header-panel  main>
-        <core-toolbar>
-          <core-icon-button icon="menu" core-drawer-toggle></core-icon-button>
-          <div>{{title}}</div>
-          <span flex></span>
-          <core-icon-button icon="search"></core-icon-button>
-        </core-toolbar>
-        <core-animated-pages selected="{{selected}}" valueattr="pagename">
-          <section pagename="one">
-            <div> Page one </div>
-          </section>
-          <section pagename="two">
-            <div> Page two </div>
-          </section>
-        </core-animated-pages>
-      </core-header-panel>
-    </core-drawer-panel>
-  </template> -->
-<!--
-  <script>
-    window.addEventListener("polymer-ready", function(e) {
-      var tmpl = document.querySelector("#template");
-      tmpl.title = "Some title";
-      tmpl.addEventListener('template-bound', function(e) {
-        console.log("Template bound");
-      });
-    });
-  </script> -->
-
 <div class="off-canvas-wrapper">
     <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
       <div class="off-canvas-content" data-off-canvas-content>
-          <!-- <div class="title-bar hide-for-large">
-              <div class="title-bar-left">
-                  <button class="menu-icon" type="button" data-open="my-info"></button>
-                  <span class="title-bar-title">SC2RS</span>
-              </div>
-          </div> -->
           <div class="callout primary">
 
               <div class="row column">
-                  <h4><img style="float:left; padding-right: 20px;" src="../../../icons/app4.png" width="90">{{title}}</h4><p>(later we will only display tools based on user roles)</p>
+                  <h4><img style="float:left; padding-right: 20px;" src="../../../icons/app4.png" width="90">{{title}}</h4>
               </div>
           </div>
       </div>
-        <!-- <div class="off-canvas position-left reveal-for-large" id="side-nav" data-off-canvas data-position="left"> -->
-            <!-- <div class="row column">
-                <br>
-
-            </div> -->
-            <div *ngIf="isAuth()">
-            <div class="row">
-              <paper-menu-button>
-                <paper-icon-button icon="menu" class="dropdown-trigger"></paper-icon-button>
+        <div class="row">
+          <paper-menu-button>
+            <paper-icon-button icon="menu" class="dropdown-trigger"></paper-icon-button>
               <paper-menu class="dropdown-content">
                 <paper-item *ngFor="let page of pages" (click)="onSelect(page)">
                   <a [routerLink]="page.route" routerLinkActive="active">
                     {{page.name}}
                   </a>
                 </paper-item>
-
+                  <paper-item>
+                      <a (click)="logout()">Log Out</a>
+                  </paper-item>
             </paper-menu>
           </paper-menu-button>
         </div>
-        </div>
         <router-outlet></router-outlet>
-
-
-
-
-
-
-
     </div>
 </div>

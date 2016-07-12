@@ -24,6 +24,11 @@ exports.authenticate = function(request, response, next) {
     })(request, response, next);
 };
 
+exports.logout = function(request, response) {
+    request.logout();
+    response.end();
+};
+
 function sanitizeUser(user) {
 
     var jsonUser = user.toJSON();
@@ -37,7 +42,7 @@ function sanitizeUser(user) {
 exports.isAuthenticated = function(request, response, next) {
 
     if(!request.isAuthenticated()) {
-        response.status(403);
+        response.status(401);
         response.end();
     } else {
         next();

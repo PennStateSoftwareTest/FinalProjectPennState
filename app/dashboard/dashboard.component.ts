@@ -2,17 +2,24 @@
  * Created by jnevins on 5/24/16.
  */
 import { Component, OnInit } from '@angular/core';
-import {Router, OnActivate, CanActivate, ROUTER_PROVIDERS, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
+import {RouteConfig, Router, OnActivate, CanActivate, ROUTER_PROVIDERS, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 import {AuthService} from '../app.auth.service';
 import { PolymerElement } from '@vaadin/angular2-polymer';
+//TODO: these need to be moved into folder under the dashbaord unless they are to become reusable components
+import {Dashboard_VMComponent} from "../dashboard_vm/dashboard_vm.component";
+import {CreateVenue} from "../create_venue/create_venue.component";
+import {ExistingVenue} from "../existing_venue/existing_venue.component";
+import {Dashboard_BMComponent} from "../dashboard_bm/dashboard_bm.component";
+import {CreateBand} from "../create_band/create_band.component";
+import {Dashboard_ADMComponent} from "../dashboard_adm/dashboard_adm.component";
 
 const PAGES = [
+  {"route":["Dashboard"], "name":"Dashboard Home"},
   {"route":["NewUser"], "name":"Book a Band"},
   {"route":["DashboardVM"], "name":"Venue Manager Tools"},
   {"route":["DashboardADM"], "name":"Admin Tools"},
   {"route":["DashboardBM"], "name":"Band Manager Tools"},
   {"route":["NewUser"], "name":"Account Settings"},
-  {"route":["NewUser"], "name":"Logout"}
 ];
 
 @Component({
@@ -24,16 +31,45 @@ const PAGES = [
                   PolymerElement('paper-menu-button'),
                   PolymerElement('paper-icon-button'),
                   ROUTER_DIRECTIVES
-
-                //  PolymerElement("maps-icons")
-                  //PolymerElement('core-elements')
-      ],
-      providers:[ROUTER_PROVIDERS]
+      ]
 })
+@RouteConfig([
+    {
+        path: '/dashboard_vm',
+        name: 'DashboardVM',
+        component: Dashboard_VMComponent,
+        useAsDefault: true
+    },
+    {
+        path: '/dashboard_adm',
+        name: 'DashboardADM',
+        component: Dashboard_ADMComponent
+    },
+    {
+        path: '/createvenue',
+        name: 'CreateVenue',
+        component: CreateVenue
+    },
+    {
+        path: '/existing_venue',
+        name: 'ExistingVenue',
+        component: ExistingVenue
+    },
+    {
+        path: '/dashboard_bm',
+        name: 'DashboardBM',
+        component: Dashboard_BMComponent
+    },
+    {
+        path: '/createband',
+        name: 'CreateBand',
+        component: CreateBand
+    }
+])
 export class DashboardComponent implements OnActivate {
-  selectedPage : any;
-  pages = PAGES;
-  title = "Rockstar Login";
+  //public selectedPage : any;
+  public pages = PAGES;
+  public title : string = PAGES[0].name;
   first_auth= true;
     constructor(
         private router : Router,
@@ -45,27 +81,24 @@ export class DashboardComponent implements OnActivate {
      */
     public routerOnActivate() : void {
         if (!this.authService.isAuthenticated) {
-            this.router.navigate(['Login']);
+            this.authService.isSessionValid()
+                .subscribe(
+                    //No need for a success handler
+                    null,
+                    //Nav back to login on any other status code
+                    () => {
+                        this.router.navigate(['Login']);
+                    }
+                );
         }
     }
 
-    public isAuth():boolean{
-      var return_val = false;
-      if(this.authService.isAuthenticated){
-        return_val = true;
-        if(this.first_auth){
-          this.selectedPage = this.pages[0];
-          this.title = this.selectedPage.name;
-          this.first_auth = false;
-        }
-
-      }
-      return (return_val);
+    public logout() : void {
+        this.authService.logout();
+        this.router.navigate(['Login']);
     }
 
-    onSelect(page:any){
-      //this.selectedPage = page;
-      //console.log(this.selectedPage);
+    public onSelect(page:any) : void {
       this.title=page.name;
     }
 }

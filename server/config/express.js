@@ -15,7 +15,7 @@ module.exports = function(app, envconf) {
     app.use(cookieParser());
     app.use(session({
         secret: 'rock your face off',
-        resave: true,
+        resave: false,
         saveUninitialized: true
     }));
     app.use(passport.initialize());
