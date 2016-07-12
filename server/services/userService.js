@@ -41,17 +41,10 @@ exports.createUser = function(request, response, next) {
 // };
 
 exports.deleteUser = function(request, response) {
-//exports.deleteUser = function() {
   var email_delete = request.body.email;
-  console.log("body");
-  console.log(request.body);
-  console.log(email_delete);
-//  User.find({email:email_delete}).remove().exec();
   User.findOneAndRemove({email: email_delete}, function(err, removed){
     //response.status(200);
     //response.send(removed);
-    console.log("in remove function");
-    console.log(removed);
     if(err){
       response.status(400);
       return response.send({"reason":error.toString()});

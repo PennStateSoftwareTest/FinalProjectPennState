@@ -1,7 +1,6 @@
 "use strict";
 var chai = require("chai");
 var chaiHttp = require('chai-http');
-var SuperT = require('supertest');
 process.env.NODE_ENV = "test";
 //var sinon = require("sinon");
 //var sinonChai = require("sinon-chai");
@@ -88,32 +87,24 @@ describe("Test to prevent duplicate user", function () {
          done();
     });
 });
-//
-// describe("userService delete unit test", function(){
-//   beforeEach(function(){
-//     //user1.remove();
-//   // user1.collection.drop();
-//     chai.request(server)
-//     .post('/api/user')
-//     .send({"firstName":"foo","lastName":"bar","email":"foo@bar.com","accountType":"Band Manager","password":"foobar"})
-//     .end(function(err, res){
-//       // done();
-//     })
-//
-//   });
-//   it("should return 200 - deleted account with email foo@bar.com", function(){
-//   //  chai.use(SuperT);
-//     SuperT(server).del("/api/user/delete?email="+encodeURIComponent("foo@bar.com"))
-//      //.type('form')
-//   // .send({'email' : 'foo@bar.com'})
-//       .end(function(err, res){
-//
-//     //  console.log(res.body);
-//       expect(res).to.have.status(200);
-//         // done();
-//     })
-//
-//
-//   });
-//
-// });
+
+ describe("userService delete unit test", function(){
+   beforeEach(function(done){
+     chai.request(server)
+     .post('/api/user')
+     .send({"firstName":"foo","lastName":"bar","email":"foo@bar.com","accountType":"Venue Manager","password":"foobar"})
+     .end(function(err, res){
+        done();
+     })
+
+   });
+   it("should return 200 - deleted account with email foo@bar.com", function(){
+       chai.request(server)
+           .delete('/api/user')
+           .send({"email":"foo@bar.com"})
+           .end(function(err, res){
+               expect(res).to.have.status(200);
+           });
+   });
+
+ });
