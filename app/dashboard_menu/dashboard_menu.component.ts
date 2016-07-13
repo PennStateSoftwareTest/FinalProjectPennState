@@ -1,6 +1,3 @@
-/**
- * Created by jnevins on 5/24/16.
- */
 import { Component, OnInit, Input } from '@angular/core';
 import {Router, OnActivate, CanActivate} from '@angular/router-deprecated';
 import {AuthService} from '../app.auth.service';

@@ -6,7 +6,7 @@ import {Router} from '@angular/router-deprecated';
 import {NgForm} from '@angular/common';
 import {NewBandService} from "./newband.service";
 import {AccountTypes} from "../common/constants";
-import {Band} from './band';
+import {Band} from './../common/band';
 
 @Component({
     selector: 'create_band',

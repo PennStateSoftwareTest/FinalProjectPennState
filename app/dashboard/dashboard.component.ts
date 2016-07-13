@@ -1,6 +1,3 @@
-/**
- * Created by jnevins on 5/24/16.
- */
 import { Component, OnInit } from '@angular/core';
 import {RouteConfig, Router, OnActivate, CanActivate, ROUTER_PROVIDERS, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 import {AuthService} from '../app.auth.service';
@@ -12,15 +9,16 @@ import {ExistingVenue} from "../existing_venue/existing_venue.component";
 import {Dashboard_BMComponent} from "../dashboard_bm/dashboard_bm.component";
 import {CreateBand} from "../create_band/create_band.component";
 import {Dashboard_ADMComponent} from "../dashboard_adm/dashboard_adm.component";
-
-const PAGES = [
-  {"route":["Dashboard"], "name":"Dashboard Home"},
-  {"route":["NewUser"], "name":"Book a Band"},
-  {"route":["DashboardVM"], "name":"Venue Manager Tools"},
-  {"route":["DashboardADM"], "name":"Admin Tools"},
-  {"route":["DashboardBM"], "name":"Band Manager Tools"},
-  {"route":["NewUser"], "name":"Account Settings"},
-];
+import {PAGES} from "../common/constants";
+import {FindBand_Component} from "../find_band/find_band.component";
+// const PAGES = [
+//   //{"route":["Dashboard"], "name":"Dashboard Home"},
+//   {"route":["NewUser"], "name":"Find Bands"},
+//   {"route":["DashboardVM"], "name":"Venue Manager Tools"},
+//   {"route":["DashboardADM"], "name":"Admin Tools"},
+//   {"route":["DashboardBM"], "name":"Band Manager Tools"},
+//   {"route":["NewUser"], "name":"Account Settings"},
+// ];
 
 @Component({
     selector: 'dashboard',
@@ -39,6 +37,11 @@ const PAGES = [
         name: 'DashboardVM',
         component: Dashboard_VMComponent,
         useAsDefault: true
+    },
+    {
+        path: '/findband',
+        name: 'FindBand',
+        component: FindBand_Component,
     },
     {
         path: '/dashboard_adm',

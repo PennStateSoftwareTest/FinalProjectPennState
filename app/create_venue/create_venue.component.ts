@@ -6,7 +6,7 @@ import {Router} from '@angular/router-deprecated';
 import {NgForm} from '@angular/common';
 import {NewVenueService} from "./newvenue.service";
 import {AccountTypes} from "../common/constants";
-import {Venue} from './venue';
+import {Venue} from './../common/venue';
 
 @Component({
     selector: 'create_venue',
