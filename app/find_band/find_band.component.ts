@@ -1,19 +1,20 @@
 
 import { Component, OnInit } from '@angular/core';
 import {Router, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
-import {ExistingBandService} from "../existing_band/existing_band.services";
+import {FindBandService} from "../find_band/find_band.services";
 import {JsonPipe} from "../existing_venue/custom_pipe.pipe";
 import {Genre} from "../common/constants";
 import {Band} from './../common/band';
 import {Venue} from'./../common/venue';
+import {ExistingBandService} from "../existing_band/existing_band.services";
 
 @Component({
     selector: 'find_band',
     templateUrl: 'app/find_band/templates/find_band.component.html',
     directives: [ROUTER_DIRECTIVES],
     viewProviders: [
+          FindBandService,
           ExistingBandService
-
       ],
     pipes: [
       JsonPipe
@@ -26,7 +27,7 @@ export class FindBand_Component {
 
       //Right now, we are just going to redirect to the login page
       //this.router.navigate(['Login']);
-      this.getBands();
+      this.findBands();
   }
   public bands:any;
 
@@ -39,16 +40,16 @@ export class FindBand_Component {
   //public heros = ["Test", "Test2", "Test3"];
   constructor(
       private router : Router,
-      private existingBandService : ExistingBandService) {}
+      private findBandService : FindBandService) {}
 
-  public getBands() : void {
+  public findBands() : void {
 
 
-    this.existingBandService.getBands()
-          .subscribe(
-              this.handleSuccessfullGet.bind(this),
-              this.handleFailedCreate
-            );
+    this.findBandService.findBands()
+          //.subscribe(
+    //          this.handleSuccessfullGet.bind(this),
+    //          this.handleFailedCreate
+    //        );
   }
 
   private handleSuccessfullGet(object:any) : void {
@@ -64,7 +65,4 @@ export class FindBand_Component {
       console.log(error);
   }
 
-  private findBands(){
-    //TODO: fill in code to filter for bands using form data
-  }
 }
