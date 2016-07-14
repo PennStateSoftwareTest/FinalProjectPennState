@@ -5,7 +5,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/Rx';
 import {ErrorObservable} from 'rxjs/observable/ErrorObservable';
-import {Band} from "./band";
+import {Band} from './../common/band';
 
 @Injectable()
 export class NewBandService {

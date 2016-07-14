@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router-deprecated';
 import {ExistingVenueService} from "./existing_venue.services";
 import {AccountTypes} from "../common/constants";
-import {Venue} from '../create_venue/venue';
+import {Venue} from '../common/venue';
 import {JsonPipe} from "./custom_pipe.pipe";
 
 @Component({

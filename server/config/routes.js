@@ -5,6 +5,7 @@ CSVUploadService = require("../services/CSVUploadService");
     authService = require('../services/authService');
     userService = require('../services/userService');
     venueService = require("../services/venueService");
+    findBandService = require("../services/findBandService");
 
 module.exports = function(app, envconf) {
 
@@ -13,7 +14,7 @@ module.exports = function(app, envconf) {
      */
     app.post('/api/user', userService.createUser);
     app.delete("/api/user", userService.deleteUser);
-  
+
 
     /*
      * Authentication routes.
@@ -38,7 +39,7 @@ module.exports = function(app, envconf) {
     app.get("/api/band/getall", bandService.getAllBands);
     //TODO: this is wrong; we need to fix it
     app.post("/api/band/csv", CSVUploadService.uploadBands);
-
+      app.post("/api/band/findBands", findBandService.findBands);
 
     /*
      * Base routes

@@ -7,7 +7,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/Rx';
 import {ErrorObservable} from 'rxjs/observable/ErrorObservable';
-import {Band} from "../create_band/band";
+import {Band} from "../common/band";
 
 @Injectable()
 export class ExistingBandService {
@@ -17,7 +17,7 @@ export class ExistingBandService {
     constructor(private http : Http) {}
 
     public getBands() : Observable<Object> {
-      
+
         //TODO: put this in a nice little object
         return this.http.get(this.endpoint).map(this.extractData)
                         .catch(this.handleError);

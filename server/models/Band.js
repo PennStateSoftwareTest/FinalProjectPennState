@@ -17,7 +17,8 @@ var bandSchema = mongoose.Schema({
   bandZip: {type:String, requried: "{PATH} is requried!"},
   bandAvailableDate: {type:Date},
   bandWebsite: {type:String},
-  bandPayRate: {type:Number}
+  bandPayRate: {type:Number},
+  bandGenre: {type: String}
 
 });
 bandSchema.methods = {

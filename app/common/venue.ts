@@ -7,7 +7,8 @@ export class Venue{
       public zip : string = null,
       public capacity : string = null,
       public date : string = null,
-      public rate: string = null
+      public rate: string = null,
+      public venueGenre: string = null
 
   ) {}
 }
