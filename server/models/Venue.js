@@ -13,10 +13,10 @@ var venueSchema = mongoose.Schema({
   city: {type: String, required:"{PATH} is required!"},
   state: {type: String, required:"{PATH} is required!"},
   zip: {type:String, requried: "{PATH} is requried!"},
-  capacity: {type:Number},
-  date: {type:Date},
-  rate: {type:Number},
-  venueGenre: {type: String}
+  capacity: {type:Number}
+  //date: {type:Date},
+  //rate: {type:Number}
+  //venueGenre: {type: String}
 
 });
 venueSchema.methods = {

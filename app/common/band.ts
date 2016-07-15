@@ -5,7 +5,7 @@ export class Band{
       public bandCity : string = null,
       public bandState : string = null,
       public bandZip : string = null,
-      public capacity : string = null,
+      //public capacity : string = null,
       public rate: string = null,
       public bandGenre: string = null
 

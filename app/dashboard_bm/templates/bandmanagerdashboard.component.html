@@ -17,9 +17,12 @@
                       <th>City</th>
                       <th>State</th>
                       <th>Zip</th>
-                      <th>Available Date</th>
+                      <!-- <th>Available Date</th> -->
                       <th>Website</th>
-                      <th>Rate</th>
+                      <th>Hourly Rate</th>
+                      <th>Primary Genre</th>
+                      <th>Second Genre</th>
+                      <th>Third Genre</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -30,9 +33,12 @@
                         <th *ngIf="band.value != NULL">{{band.value.bandCity}}</th>
                         <th *ngIf="band.value != NULL">{{band.value.bandState}}</th>
                         <th *ngIf="band.value != NULL">{{band.value.bandZip}}</th>
-                        <th *ngIf="band.value != NULL">{{band.value.bandAvailableDate}}</th>
+
                         <th *ngIf="band.value != NULL">{{band.value.bandWebsite}}</th>
                         <th *ngIf="band.value != NULL">{{band.value.bandPayRate}}</th>
+                        <th *ngIf="band.value != NULL">{{band.value.bandGenre1}}</th>
+                        <th *ngIf="band.value != NULL">{{band.value.bandGenre2}}</th>
+                        <th *ngIf="band.value != NULL">{{band.value.bandGenre3}}</th>
 
                     </tr>
                   </tbody>

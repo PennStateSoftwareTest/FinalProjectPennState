@@ -22,14 +22,29 @@
                 <label>Zip Code
                   <input type="text" [(ngModel)]="model.bandZip" required>
                 </label>
-                <label>Date Available
+                <!-- <label>Date Available
                   <input type="date"  [(ngModel)]="model.bandAvailableDate">
-                </label>
+                </label> -->
                 <label>Website
                   <input type="text" [(ngModel)]="model.bandWebsite">
                 </label>
-                <label>Hourly Rate
+                <label>Minimum Expected Hourly Rate of Pay
                   <input type="number" [(ngModel)]="model.bandPayRate">
+                </label>
+                <label>Primary Genre
+                    <select [(ngModel)]="model.bandGenre1" required>
+                        <option *ngFor="let Genre of Genres" [value]="Genre">{{Genre}}</option>
+                    </select>
+                </label>
+                <label>Second Genre
+                    <select [(ngModel)]="model.bandGenre2" required>
+                        <option *ngFor="let Genre of Genres" [value]="Genre">{{Genre}}</option>
+                    </select>
+                </label>
+                <label>Third Genre
+                    <select [(ngModel)]="model.bandGenre3" required>
+                        <option *ngFor="let Genre of Genres" [value]="Genre">{{Genre}}</option>
+                    </select>
                 </label>
                 <br>
                 <br>
