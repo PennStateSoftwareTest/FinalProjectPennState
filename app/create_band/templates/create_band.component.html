@@ -33,17 +33,17 @@
                 </label>
                 <label>Primary Genre
                     <select [(ngModel)]="model.bandGenre1" required>
-                        <option *ngFor="let Genre of Genres" [value]="Genre">{{Genre}}</option>
+                        <option *ngFor="let bandGenre of Genre" [value]="bandGenre">{{bandGenre}}</option>
                     </select>
                 </label>
                 <label>Second Genre
                     <select [(ngModel)]="model.bandGenre2" required>
-                        <option *ngFor="let Genre of Genres" [value]="Genre">{{Genre}}</option>
+                        <option *ngFor="let bandGenre of Genre" [value]="bandGenre">{{bandGenre}}</option>
                     </select>
                 </label>
                 <label>Third Genre
                     <select [(ngModel)]="model.bandGenre3" required>
-                        <option *ngFor="let Genre of Genres" [value]="Genre">{{Genre}}</option>
+                        <option *ngFor="let bandGenre of Genre" [value]="bandGenre">{{bandGenre}}</option>
                     </select>
                 </label>
                 <br>
