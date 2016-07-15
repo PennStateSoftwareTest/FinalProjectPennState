@@ -9,6 +9,7 @@ export class User {
         public lastName : string = null,
         public email : string = null,
         public accountType : string = null,
-        public password : string = null
+        public password : string = null,
+        public  phoneNumber : number = null
     ) {}
 }
