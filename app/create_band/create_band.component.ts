@@ -1,6 +1,3 @@
-/**
- * Created by jnevins on 5/24/16.
- */
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router-deprecated';
 import {NgForm} from '@angular/common';
