@@ -4,29 +4,40 @@
     <div class="medium-6 large-4  columns">
 
         <form>
-            <div class="row column newuser-form">
-              <h1>Find a Band</h1>
+            <div class="row column bandFilter-form">
+              <!-- <h1>Find a Band</h1> -->
               <ul class="menu vertical">
-                <h4>Search for bands that meet your criteria</h4>
+                <!-- <h4>Search for bands that meet your criteria</h4> -->
                 <form>
                     <div class="row column findband-form">
-                        <h4 class="text-center">Search Bands</h4>
-                        <label>Genre wanted
-                          <select [(ngModel)]="model.venueGenre" required>
+                        <h4 class="text-center">Filter Bands</h4>
+                        <label>Primary Genre Desired
+                          <select>
                               <option *ngFor="let venueGenre of genre" [value]="venueGenre">{{venueGenre}}</option>
                           </select>
                         </label>
-                        <label>Hourly Rate
-                            <input type="text" [(ngModel)]="model.rate" required>
+                        <label>Second Genre Desired
+                          <select>
+                              <option *ngFor="let venueGenre of genre" [value]="venueGenre">{{venueGenre}}</option>
+                          </select>
                         </label>
-                        <label>Date wanted
+                        <label>Third Genre Desired
+                          <select>
+                              <option *ngFor="let venueGenre of genre" [value]="venueGenre">{{venueGenre}}</option>
+                          </select>
+                        </label>
+                        <label>Max Hourly Rate Willing to Pay (US Dollars)
+                            <input type="text" >
+                            <!-- <input type="text" [(ngModel)]="model.rate" required> -->
+                        </label>
+                        <!-- <label>Date wanted
                             <input type="text" [(ngModel)]="model.date" required>
-                        </label>
+                        </label> -->
                         <br>
-                        <p><a type="submit" class="button expanded" (click)="findBands()">Submit</a></p>
+                        <!-- <p><a type="submit" class="button expanded" (click)="findBands()">Submit</a></p> -->
                     </div>
                 </form>
-                <table class="hover">
+                <table class="hover"><caption>Available Bands</caption>
                   <thead>
                     <tr>
                       <th>Band Name</th>
@@ -34,9 +45,12 @@
                       <th>City</th>
                       <th>State</th>
                       <th>Zip</th>
-                      <th>Available Date</th>
+                      <!-- <th>Available Date</th> -->
                       <th>Website</th>
-                      <th>Rate</th>
+                      <th>Hourly Rate</th>
+                      <th>Primary Genre</th>
+                      <th>Second Genre</th>
+                      <th>Third Genre</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -47,9 +61,12 @@
                         <th *ngIf="band.value != NULL">{{band.value.bandCity}}</th>
                         <th *ngIf="band.value != NULL">{{band.value.bandState}}</th>
                         <th *ngIf="band.value != NULL">{{band.value.bandZip}}</th>
-                        <th *ngIf="band.value != NULL">{{band.value.bandAvailableDate}}</th>
+
                         <th *ngIf="band.value != NULL">{{band.value.bandWebsite}}</th>
                         <th *ngIf="band.value != NULL">{{band.value.bandPayRate}}</th>
+                        <th *ngIf="band.value != NULL">{{band.value.bandGenre1}}</th>
+                        <th *ngIf="band.value != NULL">{{band.value.bandGenre2}}</th>
+                        <th *ngIf="band.value != NULL">{{band.value.bandGenre3}}</th>
 
                     </tr>
                   </tbody>

@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router-deprecated';
 import {NgForm} from '@angular/common';
 import {NewBandService} from "./newband.service";
-import {AccountTypes} from "../common/constants";
+import {Genre} from "../common/constants";
 import {Band} from './../common/band';
 
 @Component({
@@ -16,7 +16,9 @@ import {Band} from './../common/band';
     ]
 })
 export class CreateBand {
-
+  public Genre : string[] = Object.keys(Genre).map((key) => {
+      return Genre[key];
+  });
 
     constructor(
         private router : Router,

@@ -15,11 +15,12 @@ var bandSchema = mongoose.Schema({
   bandCity: {type: String, required:"{PATH} is required!"},
   bandState: {type: String, required:"{PATH} is required!"},
   bandZip: {type:String, requried: "{PATH} is requried!"},
-  bandAvailableDate: {type:Date},
+  //bandAvailableDate: {type:Date},
   bandWebsite: {type:String},
   bandPayRate: {type:Number},
-  bandGenre: {type: String}
-
+  bandGenre1: {type: String},
+  bandGenre2: {type: String},
+  bandGenre3: {type: String}
 });
 bandSchema.methods = {
     //authenticate: function(passwordToMatch) {
