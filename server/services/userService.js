@@ -17,12 +17,13 @@ exports.createUser = function(request, response, next) {
     userData.email = userData.email.toLowerCase();
     userData.salt = encrypt.createSalt();
     userData.password_hash = encrypt.hashPassword(userData.salt, userData.password);
-
+    // User.find({}, function(err, people){
+    //   console.log("before");
+    //   console.log(people);
+    // });
     User.create(userData, function(error, user) {
         //TODO: clean this stuff up
-        if(error){
-      //  console.log(error.toString());
-      }
+        //console.log(user);
         if(error) {
             if(error.toString().indexOf('E11000') > -1) {
                 error = new Error('email already in use.');
@@ -45,10 +46,10 @@ exports.deleteUser = function(request, response) {
   User.findOneAndRemove({email: email_delete}, function(err, removed){
     //response.status(200);
     //response.send(removed);
-    if(err){
-      response.status(400);
-      return response.send({"reason":error.toString()});
-    }
+    // if(err){
+    //   response.status(400);
+    //   return response.send({"reason":error.toString()});
+    // }
     response.status(200);
     return response.send(removed);
 

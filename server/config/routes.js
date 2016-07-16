@@ -5,7 +5,7 @@ CSVUploadService = require("../services/CSVUploadService");
     authService = require('../services/authService');
     userService = require('../services/userService');
     venueService = require("../services/venueService");
-    findBandService = require("../services/findBandService");
+    //findBandService = require("../services/findBandService");
 
 module.exports = function(app, envconf) {
 

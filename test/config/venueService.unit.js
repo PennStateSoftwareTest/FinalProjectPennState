@@ -11,9 +11,9 @@ chai.use(chaiHttp);
 
 var venue1 = require('mongoose').model('Venue');
 var venueService1 = require('../../server/services/venueService.js');
-describe("functional test CreateVe", function () {
+describe("functional test CreateVenue", function () {
 
-  beforeEach(function(done){
+  before(function(done){
     //user1.remove();
   venue1.collection.drop();
   done();
@@ -30,13 +30,42 @@ describe("functional test CreateVe", function () {
           done();
       });
     });
-    afterEach(function(done){
+    after(function(done){
       venue1.collection.drop();
     //  user1.remove();
       done();
     });
 });
-
+// describe("Test Get All Venues", function () {
+//
+//   before(function(done){
+//     //user1.remove();
+//   venue1.collection.drop();
+//   chai.request(server)
+//     .post('/api/venue')
+//     .send({"venueName":"foo","address":"100 bar street","city":"city","state":"WV","zipcode":"22222"})
+//     .end(function(err, res){
+//        done();
+//     })
+//
+//   });
+//   it("Should get all venues", function (done) {
+//     chai.request(server)
+//     .get('/api/venue/getall')
+//     .end(function(err, res){
+//        //console.log(res.body);
+//       //console.log(res);
+//         expect(res).to.have.status(200);
+//         expect(res.body).to.have.lengthOf(1);
+//         done();
+//     });
+//   });
+//   after(function(done){
+//     venue1.collection.drop();
+//   //  user1.remove();
+//     done();
+//   });
+// });
 //chai.use(sinonChai);
 
 // describe("Venue Service Prevent Duplicate Venues Test", function () {

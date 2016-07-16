@@ -16,7 +16,10 @@ describe("functional test CreateAccount", function () {
   before(function(done){
     //user1.remove();
     user1.collection.drop();
-    done();
+    user1.ensureIndexes(function(){
+
+      done();
+    });
 
     //done();
   });
@@ -35,17 +38,16 @@ describe("functional test CreateAccount", function () {
       //  done();
       })
     });
-    // it("should return 400 - duplicate user", function (done) {
-    //   chai.request(server)
-    //   .post('/api/user')
-    //   .send({"firstName":"foo","lastName":"bar","email":"foo@bar.com","accountType":"Band Manager","password":"foobar"})
-    //   .end(function(err, res){
-    //   //  console.log(res.body);
-    //       expect(res).to.have.status(400);
-    //     done();
-    //   })
-//returning the user
-  //  });
+    it("should return 400 - duplicate user", function (done) {
+      chai.request(server)
+      .post('/api/user')
+      .send({"firstName":"foo","lastName":"bar","email":"foo@bar.com","accountType":"Band Manager","password":"foobar"})
+      .end(function(err, res){
+      //  console.log(res.body);
+          expect(res).to.have.status(400);
+        done();
+      })
+   });
     after(function(done){
       user1.collection.drop();
     //  user1.remove();
@@ -98,13 +100,15 @@ describe("functional test CreateAccount", function () {
      })
 
    });
-   it("should return 200 - deleted account with email foo@bar.com", function(){
+   it("should return 200 - deleted account with email foo@bar.com", function(done){
        chai.request(server)
            .delete('/api/user')
            .send({"email":"foo@bar.com"})
            .end(function(err, res){
                expect(res).to.have.status(200);
+               done();
            });
    });
+  
 
  });
