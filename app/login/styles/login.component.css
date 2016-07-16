@@ -1,10 +1,31 @@
-.row.column.log-in-form {
-    border: 1px solid #cacaca;
-    padding: 1rem;
-    border-radius: 3px;
-    width: 100%;
+h2 {
+    padding: 2%;
 }
 
-.button.expanded {
+a {
+    text-decoration: none;
+}
+
+form {
+    margin-left: 35%;
+    margin-right: 35%;
+    padding: 5px;
+    border-radius: 2px;
+    box-shadow: 0px 0 5px rgb(134, 178, 203);
+}
+
+#loginform fieldset {
+    border: none;
+    margin-top: 10px;
+}
+
+paper-material {
+    box-shadow: none;
+}
+
+paper-button {
     width: 100%;
+    height: 35px;
+    background: var(--primary-color);
+    color: var(--dark-theme-text-color);
 }
