@@ -27,15 +27,28 @@ export class FindBand_Component {
       //Right now, we are just going to redirect to the login page
       //this.router.navigate(['Login']);
       this.findBands();
-      this.getBands();
+      //this.getBands();
   }
   public bands:any;
+  public genre_filters : string[] = ["", "", ""];
+  public rate:number = Number.MAX_SAFE_INTEGER;
 
   public genre : string[] = Object.keys(Genre).map((key) => {
       return Genre[key];
   });
 
   //public model: Venue = new Venue();
+
+  public selectGenre(venue:string, position:number):void{
+    this.genre_filters[position] = venue;
+    //console.log(this.genre_filters);
+    this.findBands();
+  }
+
+  public changeRate(rate:number):void{
+    this.rate = rate;
+    this.findBands();
+  }
 
   //public heros = ["Test", "Test2", "Test3"];
   constructor(
@@ -46,9 +59,14 @@ export class FindBand_Component {
   public findBands() : void {
 
 
-    this.findBandService.findBands()
+    this.findBandService.findBands({"Genre":this.genre_filters, "Rate":this.rate})
+        .subscribe(
+            this.handleSuccessfullGet.bind(this),
+            this.handleFailedCreate
+        );
+
           //.subscribe(
-    //          this.handleSuccessfullGet.bind(this),
+    //         this.handleSuccessfullGet.bind(this),
     //          this.handleFailedCreate
     //        );
   }
@@ -82,9 +100,12 @@ export class FindBand_Component {
             );
   }
 
+
+
   private handleSuccessfullGet(object:any) : void {
     //console.log(object[0]);
     this.bands = object;
+    //console.log(this.bands);
           //TODO: say 'thank you' for registering
       //route to login
       //this.router.navigate(['Login']);

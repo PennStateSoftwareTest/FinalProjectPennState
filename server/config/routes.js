@@ -39,7 +39,7 @@ module.exports = function(app, envconf) {
     app.get("/api/band/getall", bandService.getAllBands);
     //TODO: this is wrong; we need to fix it
     app.post("/api/band/csv", CSVUploadService.uploadBands);
-      app.post("/api/band/findBands", findBandService.findBands);
+      app.post("/api/band/findbands", bandService.findBands);
 
     /*
      * Base routes

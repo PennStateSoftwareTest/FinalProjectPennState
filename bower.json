@@ -1,5 +1,5 @@
 {
-  "name": "SCRS",
+  "name": "scrs",
   "version": "0.0.0",
   "dependencies": {
     "iron-a11y-keys": "PolymerElements/iron-a11y-keys#^1.0.0",
