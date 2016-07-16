@@ -11,14 +11,7 @@ import {CreateBand} from "../create_band/create_band.component";
 import {Dashboard_ADMComponent} from "../dashboard_adm/dashboard_adm.component";
 import {PAGES} from "../common/constants";
 import {FindBand_Component} from "../find_band/find_band.component";
-// const PAGES = [
-//   //{"route":["Dashboard"], "name":"Dashboard Home"},
-//   {"route":["NewUser"], "name":"Find Bands"},
-//   {"route":["DashboardVM"], "name":"Venue Manager Tools"},
-//   {"route":["DashboardADM"], "name":"Admin Tools"},
-//   {"route":["DashboardBM"], "name":"Band Manager Tools"},
-//   {"route":["NewUser"], "name":"Account Settings"},
-// ];
+import {AccountSettings} from "./account_settings/account_settings.component";
 
 @Component({
     selector: 'dashboard',
@@ -26,6 +19,8 @@ import {FindBand_Component} from "../find_band/find_band.component";
     styleUrls: ['app/dashboard/styles/dashboard.component.css'],
     directives: [ PolymerElement('paper-menu'),
                   PolymerElement('paper-item'),
+                  PolymerElement('paper-toolbar'),
+                  PolymerElement('paper-drawer-panel'),
                   PolymerElement('paper-menu-button'),
                   PolymerElement('paper-icon-button'),
                   ROUTER_DIRECTIVES
@@ -67,6 +62,11 @@ import {FindBand_Component} from "../find_band/find_band.component";
         path: '/createband',
         name: 'CreateBand',
         component: CreateBand
+    },
+    {
+        path: '/account-settings',
+        name: 'AccountSettings',
+        component: AccountSettings
     }
 ])
 export class DashboardComponent implements OnActivate {

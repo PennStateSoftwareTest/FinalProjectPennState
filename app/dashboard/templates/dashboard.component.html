@@ -1,28 +1,25 @@
-<div class="off-canvas-wrapper">
-    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
-      <div class="off-canvas-content" data-off-canvas-content>
-          <div class="callout primary">
-
-              <div class="row column">
-                  <h4><img style="float:left; padding-right: 20px;" src="../../../icons/app4.png" width="90">{{title}}</h4>
-              </div>
-          </div>
-      </div>
-        <div class="row">
-          <paper-menu-button>
-            <paper-icon-button icon="menu" class="dropdown-trigger"></paper-icon-button>
-              <paper-menu class="dropdown-content">
-                <paper-item *ngFor="let page of pages" (click)="onSelect(page)">
-                  <a [routerLink]="page.route" routerLinkActive="active">
+<paper-drawer-panel>
+    <paper-header-panel drawer>
+        <paper-toolbar></paper-toolbar>
+        <paper-menu class="dropdown-content">
+            <paper-item *ngFor="let page of pages" (click)="onSelect(page)">
+                <a [routerLink]="page.route" routerLinkActive="active">
                     {{page.name}}
-                  </a>
-                </paper-item>
-                  <paper-item>
-                      <a (click)="logout()">Log Out</a>
-                  </paper-item>
-            </paper-menu>
-          </paper-menu-button>
-        </div>
+                </a>
+            </paper-item>
+            <paper-item>
+                <a (click)="logout()">Log Out</a>
+            </paper-item>
+        </paper-menu>
+    </paper-header-panel>
+
+    <paper-header-panel main>
+        <paper-toolbar>
+            <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
+
+            <img style="float:left; padding-right: 20px;" src="../../../icons/app4.png" width="50">
+            <h2>{{title}}</h2>
+        </paper-toolbar>
         <router-outlet></router-outlet>
-    </div>
-</div>
+    </paper-header-panel>
+</paper-drawer-panel>

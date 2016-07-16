@@ -27,10 +27,10 @@ export const Genre : {[key: string] : string} = {
 
 
 export const PAGES = [
-  //{"route":["Dashboard"], "name":"Dashboard Home"},
+  {"route":["Dashboard"], "name":"Dashboard Home"},
   {"route":["FindBand"], "name":"Find Bands"},
   {"route":["DashboardVM"], "name":"Venue Manager Tools"},
   {"route":["DashboardADM"], "name":"Admin Tools"},
   {"route":["DashboardBM"], "name":"Band Manager Tools"},
-  {"route":["NewUser"], "name":"Account Settings"},
+  {"route":["AccountSettings"], "name":"Account Settings"}
 ];
