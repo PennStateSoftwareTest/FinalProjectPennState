@@ -9,11 +9,14 @@ import 'rxjs/Rx';
 import {ErrorObservable} from 'rxjs/observable/ErrorObservable';
 import {User} from "./common/user";
 import {Observer} from "rxjs/Observer";
+import {IUserModel, IAuthResponse} from "./common/interfaces"
 
 @Injectable()
 export class AuthService {
 
     public isAuthenticated : boolean = false;
+    public activeUser : IUserModel = null;
+
     private endpoint : string = 'api/login';
 
     constructor(private http : Http) {}
@@ -36,9 +39,10 @@ export class AuthService {
             loginPost.subscribe(
                 //Success
                 ((response : Response) => {
-                    let responseBody : {success : boolean} = response.json();
+                    let responseBody : IAuthResponse = response.json();
 
                     if (responseBody.success) {
+                        this.activeUser = responseBody.user;
                         observer.next(responseBody.success);
                     } else {
                         observer.error(new Error());

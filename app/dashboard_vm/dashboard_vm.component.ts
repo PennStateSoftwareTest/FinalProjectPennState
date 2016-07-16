@@ -2,12 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import {ExistingVenueService} from "../existing_venue/existing_venue.services";
 import {JsonPipe} from "../existing_venue/custom_pipe.pipe";
 import {Router, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
+import { PolymerElement } from '@vaadin/angular2-polymer';
+
 @Component({
     selector: 'dashboard_vm',
     templateUrl: 'app/dashboard_vm/templates/dashboard.component.html',
     directives: [ROUTER_DIRECTIVES],
     viewProviders: [
-          ExistingVenueService
+        PolymerElement('paper-header-panel'),
+        PolymerElement('paper-material'),
+        ExistingVenueService
       ],
     pipes: [
       JsonPipe

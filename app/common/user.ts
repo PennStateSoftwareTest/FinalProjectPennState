@@ -2,6 +2,9 @@
  * Created by jnevins on 5/28/16.
  */
 
+/**
+ * UI New User
+ */
 export class User {
 
     constructor(
