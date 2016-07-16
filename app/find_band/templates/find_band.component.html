@@ -12,22 +12,26 @@
                     <div class="row column findband-form">
                         <h4 class="text-center">Filter Bands</h4>
                         <label>Primary Genre Desired
-                          <select>
-                              <option *ngFor="let venueGenre of genre" [value]="venueGenre">{{venueGenre}}</option>
+                          <select (change)="selectGenre($event.target.value, 0)">
+                              <option value=""></option>
+                              <option  *ngFor="let venueGenre of genre" [value]="venueGenre">{{venueGenre}}</option>
                           </select>
+
                         </label>
                         <label>Second Genre Desired
-                          <select>
+                          <select (change)="selectGenre($event.target.value, 1)">
+                              <option value=""></option>
                               <option *ngFor="let venueGenre of genre" [value]="venueGenre">{{venueGenre}}</option>
                           </select>
                         </label>
                         <label>Third Genre Desired
-                          <select>
+                          <select (change)="selectGenre($event.target.value, 2)">
+                              <option value=""></option>
                               <option *ngFor="let venueGenre of genre" [value]="venueGenre">{{venueGenre}}</option>
                           </select>
                         </label>
                         <label>Max Hourly Rate Willing to Pay (US Dollars)
-                            <input type="number" >
+                            <input (change)="changeRate($event.target.value)" type="number" >
                             <!-- <input type="text" [(ngModel)]="model.rate" required> -->
                         </label>
                         <!-- <label>Date wanted
