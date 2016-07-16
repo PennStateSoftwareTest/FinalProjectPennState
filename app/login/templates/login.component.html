@@ -1,31 +1,22 @@
-<br>
-<br>
-<div class="row">
-    <div class="medium-6 medium-centered large-4 large-centered columns">
 
-        <form>
-            <div class="row column log-in-form">
-                <h4 class="text-center">Sound Check!!</h4>
-                <label>Email Address
-                    <input type="text"
-                           [(ngModel)]="email"
-                           placeholder="Email">
-                </label>
-                <label>Password
-                    <input type="password"
-                           [(ngModel)]="password"
-                           placeholder="Password">
-                </label>
-                <p><a type="submit"
-                      class="button expanded"
-                      (click)="login()"
-                        >Log In
-                    </a>
-                </p>
-                <p class="text-center"><a href=javascript:void(0) [routerLink]="['NewUser']">Need an account?</a></p>
-                <p class="text-center"><a href=javascript:void(0) [routerLink]="['ForgotPassword']">Forgot password? (coming soon)</a></p>
-            </div>
+<h2 class="text-center">Sound Check!!</h2>
+
+<div id="logincontainer">
+    <paper-material is="custom-style">
+        <form id="loginform">
+            <fieldset name="email">
+                <paper-input label="Email Address" type="email" name="email" id="email" placeholder="Email" [(ngModel)]="email"></paper-input>
+            </fieldset>
+
+            <fieldset name="password">
+                <paper-input label="Password" type="password" name="password"  id="password" placeholder="Password" [(ngModel)]="password"></paper-input>
+            </fieldset>
+
+            <fieldset>
+                <paper-button raised (click)="login()">Log In</paper-button>
+            </fieldset>
+            <p class="text-center"><a href=javascript:void(0) [routerLink]="['NewUser']">Need an account?</a></p>
+            <p class="text-center"><a href=javascript:void(0) [routerLink]="['ForgotPassword']">Forgot password? (coming soon)</a></p>
         </form>
-
-    </div>
+    </paper-material>
 </div>

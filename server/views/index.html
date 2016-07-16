@@ -5,83 +5,58 @@
   <meta charset="UTF-8">
   <title>Street Corner to Rockstar</title>
 
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
 
-  <!-- Global CSS -->
-  <link rel="stylesheet" href="../../node_modules/normalize.css/normalize.css" />
-  <link rel="stylesheet" href="../../node_modules/foundation-sites/dist/foundation.css" />
-  <link rel="stylesheet" href="../../icons/foundation-icons/foundation-icons.css" />
-
   <script src="../../bower_components/webcomponentsjs/webcomponents.js"></script>
   <script src="../../node_modules/core-js/client/shim.min.js"></script>
-
-
-  <!-- Load libraries -->
-  <!-- Polyfill(s) for older browsers -->
   <script src="../../node_modules/es6-shim/es6-shim.min.js"></script>
 
   <script src="../../node_modules/zone.js/dist/zone.js"></script>
   <script src="../../node_modules/reflect-metadata/Reflect.js"></script>
   <script src="../../node_modules/systemjs/dist/system.src.js"></script>
   <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
-  <!-- <script src="../../node_modules/foundation-sites/dist/foundation.js"></script> -->
-  <!-- Styles -->
-      <!-- <link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout.html">
-      <link rel="import" href="bower_components/paper-styles/color.html">
-      <link rel="import" href="bower_components/paper-styles/default-theme.html">
-      <link rel="import" href="bower_components/paper-styles/typography.html">
-      <link rel="import" href="bower_components/paper-styles/shadow.html"> -->
-      <link rel="import" href="../../bower_components/paper-menu/paper-menu.html">
-      <link rel="import" href="../../bower_components/paper-item/paper-item.html">
-        <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
-          <link rel="import" href="../../bower_components/paper-menu-button/paper-menu-button.html">
-               <link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
 
-      <!-- <link rel="import" href="bower_components/more-routing/more-routing.html">
-      <link rel="import" href="bower_components/core-elements/core-elements.html"> -->
-      <!-- <link rel="import" href="bower_components/more-routing/more-routing.html">
-      <link rel="import" href="bower_components/core-elements/core-elements.html"> -->
-      <style>
-          core-header-panel {
-              background-color: white;
-          }
-          a {
-              color: black;
-              text-decoration: none;
-          }
-      </style>
+  <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+  <link rel="import" href="../../bower_components/paper-styles/color.html">
+  <link rel="import" href="../../bower_components/paper-styles/default-theme.html">
+  <link rel="import" href="../../bower_components/paper-styles/typography.html">
+  <link rel="import" href="../../bower_components/paper-styles/shadow.html">
 
-      <style is="custom-style">
-        body {
-          @apply(--layout-fullbleed);
-          @apply(--paper-font-body1);
-          background: var(--primary-background-color);
-          color: var(--primary-text-color);
-        }
-      </style>
+  <style is="custom-style">
+    body {
+      @apply(--layout-fullbleed);
+      @apply(--paper-font-body1);
+      background: var(--primary-background-color);
+      color: var(--primary-text-color);
+    }
+  </style>
 
-  <!-- <link rel="import" href="polymer-loader.html"> -->
+  <link rel="import" href="../../bower_components/paper-material/paper-material.html">
+  <link rel="import" href="../../bower_components/paper-input/paper-input.html">
+  <link rel="import" href="../../bower_components/paper-button/paper-button.html">
+  <link rel="import" href="../../bower_components/paper-menu/paper-menu.html">
+  <link rel="import" href="../../bower_components/paper-item/paper-item.html">
+  <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+  <link rel="import" href="../../bower_components/paper-menu-button/paper-menu-button.html">
+  <link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
 
-<!-- <script>
-  window.Polymer = window.Polymer || {};
-  window.Polymer.dom = 'shadow';
-</script> -->
-
-  <!-- 2. Configure SystemJS -->
+  <!--Configure SystemJS -->
   <script src="../../systemjs.config.js"></script>
-  <!-- <script>
-   System.import('app').catch(function(err){ console.error(err); });
-    $(document).foundation();
-    </script>   -->
     <script>
       document.addEventListener('WebComponentsReady', function() {
         System.import('app').catch(function(err){ console.error(err); });
       });
     </script>
 
+  <!--Gloabl CSS-->
   <style>
+
+    .text-center {
+      text-align: center;
+    }
+
     .size-12 { font-size: 12px; }
 
     .size-14 { font-size: 14px; }
@@ -104,11 +79,7 @@
   </style>
 </head>
 
-
-
 <body>
-
-
 
 <!--Bootstrap the application-->
 <our-awesome-app>Loading...</our-awesome-app>

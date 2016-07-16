@@ -5,12 +5,18 @@ import { Component } from '@angular/core';
 import {Router, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 import {NgForm} from '@angular/common';
 import {AuthService} from '../app.auth.service';
+import { PolymerElement } from '@vaadin/angular2-polymer';
 
 @Component({
     selector: 'login',
     templateUrl: 'app/login/templates/login.component.html',
     styleUrls: ['app/login/styles/login.component.css'],
-    directives: [ROUTER_DIRECTIVES]
+    directives: [
+        PolymerElement('paper-material'),
+        PolymerElement('paper-input'),
+        PolymerElement('paper-button'),
+        ROUTER_DIRECTIVES
+    ]
 })
 export class LoginComponent {
 
