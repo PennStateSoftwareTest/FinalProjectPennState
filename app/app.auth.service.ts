@@ -14,7 +14,6 @@ import {Observer} from "rxjs/Observer";
 export class AuthService {
 
     public isAuthenticated : boolean = false;
-
     private endpoint : string = 'api/login';
 
     constructor(private http : Http) {}

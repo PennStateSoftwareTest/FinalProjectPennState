@@ -18,11 +18,12 @@ exports.getAllVenues = function(request, response) {
   //   }
   // });
   Venue.find({}, function(err, venues) {
-    if(err){
-      return response.send(err);
-    }else{
+    //  console.log(venues);
+    // if(err){
+    //   return response.send(err);
+    // }else{
       response.json(venues);
-    }
+    //}
   })
 };
 
@@ -49,35 +50,35 @@ exports.createVenue = function(request, response, next) {
         }
     })
 };
-
-exports.updateVenue = function() {
-
-};
-
-exports.deleteVenue = function(request, response) {
-
-
-    var id_delete = request.query.id;
-    console.log(request.query.id);
-  //  User.find({email:email_delete}).remove().exec();
-    Venue.findOneAndRemove({_id: id_delete}, function(err, removed){
-      //response.status(200);
-      //response.send(removed);
-      console.log("in remove function");
-      console.log(removed);
-      if(err){
-        response.status(400);
-        return response.send({"reason":error.toString()});
-      }
-      response.status(200);
-      return response.send(removed);
-
-    });
-    //response.status(400);
-    //response.send({"reason":"Didnt enter remove function"});
-
-
-
-
-
-};
+//
+// exports.updateVenue = function() {
+//
+// };
+//
+// exports.deleteVenue = function(request, response) {
+//
+//
+//     var id_delete = request.query.id;
+//     console.log(request.query.id);
+//   //  User.find({email:email_delete}).remove().exec();
+//     Venue.findOneAndRemove({_id: id_delete}, function(err, removed){
+//       //response.status(200);
+//       //response.send(removed);
+//       console.log("in remove function");
+//       console.log(removed);
+//       if(err){
+//         response.status(400);
+//         return response.send({"reason":error.toString()});
+//       }
+//       response.status(200);
+//       return response.send(removed);
+//
+//     });
+//     //response.status(400);
+//     //response.send({"reason":"Didnt enter remove function"});
+//
+//
+//
+//
+//
+// };

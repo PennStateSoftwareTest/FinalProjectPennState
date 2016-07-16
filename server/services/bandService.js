@@ -16,11 +16,11 @@ exports.getAllBands = function(request, response) {
   //   }
   // });
   Band.find({}, function (err, bands){
-    if(err){
-      return response.send(err);
-    }else{
+    // if(err){
+    //   return response.send(err);
+    // }else{
       response.json(bands);
-    }
+    //}
   })
 };
 
@@ -47,19 +47,19 @@ exports.createBand = function(request, response, next) {
         }
     })
 };
-
-exports.updateBand = function() {
-
-};
-
-exports.deleteBand = function() {
-
-};
+//
+// exports.updateBand = function() {
+//
+// };
+//
+// exports.deleteBand = function() {
+//
+// };
 
 
 exports.findBands = function(request, response, next) {
     var bandRequestData = request.body;
-    console.log(request.body);
+    //console.log(request.body);
     var counter = 0;
     for(var i = 0; i < 3; i++){
       if(bandRequestData.Genre[i] != ""){
@@ -74,16 +74,16 @@ exports.findBands = function(request, response, next) {
           ]
       }).
       exec(function(err, bands){
-        if(err) {
-
-            response.status(400);
-            return response.send({reason:err.toString()});
-        } else {
-            console.log(bands);
+        // if(err) {
+        //
+        //     response.status(400);
+        //     return response.send({reason:err.toString()});
+        // } else {
+            //console.log(bands);
             response.status(200);
             response.send(bands);
 
-        }
+        //}
       });
     }else if(counter == 2){
       Band.find({
@@ -98,40 +98,40 @@ exports.findBands = function(request, response, next) {
         ]
       }).
       exec(function(err, bands){
-        if(err) {
-
-            response.status(400);
-            return response.send({reason:err.toString()});
-        } else {
-            console.log(bands);
+        // if(err) {
+        //
+        //     response.status(400);
+        //     return response.send({reason:err.toString()});
+        // } else {
+            //console.log(bands);
             response.status(200);
             response.send(bands);
 
-        }
+        //}
       });
     }else if(counter == 3){
         Band.find({
                 $and:[{bandGenre1:{$in:bandRequestData.Genre}}, {bandGenre2:{$in:bandRequestData.Genre}}, {bandGenre3:{$in:bandRequestData.Genre}},  {bandPayRate:{$lte:bandRequestData.Rate}}]
         }).
         exec(function(err, bands){
-          if(err) {
-
-              response.status(400);
-              return response.send({reason:err.toString()});
-          } else {
-              console.log(bands);
+          // if(err) {
+          //
+          //     response.status(400);
+          //     return response.send({reason:err.toString()});
+          // } else {
+              //console.log(bands);
               response.status(200);
               response.send(bands);
 
-          }
+          //}
         });
     }else{
       Band.find({bandPayRate:{$lte:bandRequestData.Rate}}, function (err, bands){
-        if(err){
-          return response.send(err);
-        }else{
+        // if(err){
+        //   return response.send(err);
+        // }else{
           response.json(bands);
-        }
+        //}
       })
     }
 };
