@@ -35,13 +35,42 @@ export class FindBand_Component {
 
   public genre : string[] = Object.keys(Genre).map((key) => {
       return Genre[key];
-  });
-
+  }).sort();
+  public genre2 : string[] = Object.keys(Genre).map((key) => {
+      return Genre[key];
+  }).sort();
+  public genre3 : string[] = Object.keys(Genre).map((key) => {
+      return Genre[key];
+  }).sort();
+  public genre_arrays = [this.genre, this.genre2, this.genre3];
   //public model: Venue = new Venue();
 
+  //venue is a string that relates to a selected string on the page find_band
+  //position is the select number that has been changed starting at 0 base
   public selectGenre(venue:string, position:number):void{
+    //Loop 3 times for each select
+    for(var i = 0; i < 3; i++){
+      //Don't want to modify the select that was just changed
+      if(i != position){
+        //If the previous value for the changed select is not empty string
+        if(this.genre_filters[position] != ""){
+          //Push element back on to the select at genre_array[i]
+          this.genre_arrays[i].push(this.genre_filters[position]);
+        }
+        //If the select that just changed did not pass a value of empty string
+        if(venue != ""){
+          //Find the index of that string and remove it from the select at genre_array[i]
+          var index = this.genre_arrays[i].indexOf(venue);
+          this.genre_arrays[i].splice(index, 1);
+        }
+        //Sort the array of genres
+        this.genre_arrays[i].sort();
+      }
+    }
+    //Set the value of genre_filters[position] to the new value of the changed select
     this.genre_filters[position] = venue;
     //console.log(this.genre_filters);
+    //Find our new bands
     this.findBands();
   }
 

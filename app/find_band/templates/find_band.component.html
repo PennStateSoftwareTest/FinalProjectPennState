@@ -21,13 +21,13 @@
                         <label>Second Genre Desired
                           <select (change)="selectGenre($event.target.value, 1)">
                               <option value=""></option>
-                              <option *ngFor="let venueGenre of genre" [value]="venueGenre">{{venueGenre}}</option>
+                              <option *ngFor="let venueGenre of genre2" [value]="venueGenre">{{venueGenre}}</option>
                           </select>
                         </label>
                         <label>Third Genre Desired
                           <select (change)="selectGenre($event.target.value, 2)">
                               <option value=""></option>
-                              <option *ngFor="let venueGenre of genre" [value]="venueGenre">{{venueGenre}}</option>
+                              <option *ngFor="let venueGenre of genre3" [value]="venueGenre">{{venueGenre}}</option>
                           </select>
                         </label>
                         <label>Max Hourly Rate Willing to Pay (US Dollars)

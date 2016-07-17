@@ -62,7 +62,7 @@ describe("Test Find Band Function", function () {
   });
   it("Should get all bands", function (done) {
     chai.request(server)
-    .get('/api/band/getall')
+    .get('/api/band/findbands')
     .end(function(err, res){
        //console.log(res.body);
       //console.log(res);
@@ -143,7 +143,7 @@ describe("Test Find Band Function", function () {
 //   });
 //   it("Band DB doesn't exist", function (done) {
 //     chai.request(server)
-//     .get('/api/band/getall')
+//     .get('/api/band/findbands')
 //     .end(function(err, res){
 //        //console.log(res.body);
 //       //console.log(res);
