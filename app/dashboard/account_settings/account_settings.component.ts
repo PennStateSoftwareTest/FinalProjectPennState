@@ -14,6 +14,8 @@ import {IUserModel} from "../../common/interfaces";
     directives: [
         PolymerElement('paper-toolbar'),
         PolymerElement('paper-material'),
+        PolymerElement('paper-item'),
+        //PolymerElement('paper-card'),
         PolymerElement('paper-drawer-panel'),
         PolymerElement('paper-header-panel'),
     ]

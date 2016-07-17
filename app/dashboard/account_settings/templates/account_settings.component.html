@@ -1,13 +1,7 @@
-<paper-header-panel class="side-panel" drawer>
-    <paper-menu id="completed" class="list">
-        <paper-material>
-            <p>sidebar</p>
-        </paper-material>
-    </paper-menu>
-</paper-header-panel>
-
-<paper-header-panel class="main-panel" main>
-    <paper-material>
-        <h1>main panel</h1>
-    </paper-material>
-</paper-header-panel>
+<paper-material elevation="1">
+<h3 style="padding: 10px;">User Information</h3>
+<div style="margin-left:20px; padding-bottom: 10px;">
+    <p>Name:  {{user.firstName}} {{user.lastName}}</p>
+    <p>Email Address:  {{user.email}}</p>
+</div>
+</paper-material>

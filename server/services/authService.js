@@ -45,7 +45,8 @@ exports.isAuthenticated = function(request, response, next) {
         response.status(401);
         response.end();
     } else {
-        next();
+        response.status(200);
+        response.send({user: sanitizeUser(request.user)});
     }
 };
 
