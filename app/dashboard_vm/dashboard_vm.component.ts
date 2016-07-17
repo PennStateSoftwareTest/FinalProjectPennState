@@ -7,6 +7,7 @@ import { PolymerElement } from '@vaadin/angular2-polymer';
 @Component({
     selector: 'dashboard_vm',
     templateUrl: 'app/dashboard_vm/templates/dashboard.component.html',
+    styleUrls: ['app/dashboard_vm/styles/dashboard_vm.component.css'],
     directives: [ROUTER_DIRECTIVES],
     viewProviders: [
         PolymerElement('paper-header-panel'),

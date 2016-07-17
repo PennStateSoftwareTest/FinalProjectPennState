@@ -75,6 +75,9 @@ export class AuthService {
 
             loginGet.subscribe(
                 ((response : Response) => {
+
+                    this.activeUser = <IUserModel>response.json().user;
+
                     observer.next(true);
 
                     this.setIsAuthenticated(true);
