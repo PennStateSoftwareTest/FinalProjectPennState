@@ -23,7 +23,7 @@ describe("Test Create Band Function", function () {
     it("should test the createBand function when it succeeds", function (done) {
       chai.request(server)
       .post('/api/band')
-      .send({"bandName":"foo","bandAddress":"100 bar street","bandCity":"city","bandState":"WV","bandZip":"22222"})
+      .send({"bandName":"foo","bandAddress":"100 bar street","bandCity":"city","bandState":"WV","bandZip":"22222", "bandGenre1":"Rock", "bandGenre2":"Disco", "bandGenre3":"Metal", "bandPayRate":200, "bandManagerName":"managerName", "bandManagerEmail":"validate@email.com", "bandManagerPhone":"4555555555"})
       .end(function(err, res){
         //  console.log(res.body);
           expect(res).to.have.status(200);
@@ -52,9 +52,10 @@ describe("Test Find Band Function", function () {
   before(function(done){
     //user1.remove();
   band1.collection.drop();
+  band1.ensureIndexes();
   chai.request(server)
     .post('/api/band')
-    .send({"bandName":"foo","bandAddress":"100 bar street","bandCity":"city","bandState":"WV","bandZip":"22222", "bandGenre1":"Rock", "bandGenre2":"Disco", "bandGenre3":"Metal", "bandPayRate":200})
+    .send({"bandName":"foo","bandAddress":"100 bar street","bandCity":"city","bandState":"WV","bandZip":"22222", "bandGenre1":"Rock", "bandGenre2":"Disco", "bandGenre3":"Metal", "bandPayRate":200, "bandManagerName":"managerName", "bandManagerEmail":"validate@email.com", "bandManagerPhone":"4555555555"})
     .end(function(err, res){
        done();
     })

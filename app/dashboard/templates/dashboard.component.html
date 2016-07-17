@@ -1,16 +1,14 @@
 <paper-drawer-panel>
     <paper-header-panel drawer>
         <paper-toolbar></paper-toolbar>
-        <paper-menu class="dropdown-content" selected="0">
-            <paper-item *ngFor="let page of pages" (click)="onSelect(page)">
-                <a [routerLink]="page.route" routerLinkActive="active">
+            <paper-item  *ngFor="let page of pages" (click)="onSelect(page)">
+                <a  paper-drawer-toggle style="display:block" [routerLink]="page.route" routerLinkActive="active">
                     {{page.name}}
                 </a>
             </paper-item>
             <paper-item>
                 <a (click)="logout()">Log Out</a>
             </paper-item>
-        </paper-menu>
     </paper-header-panel>
 
     <paper-header-panel main class="main-panel">
