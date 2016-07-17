@@ -9,6 +9,9 @@ export class Band{
       public rate: string = null,
       public bandGenre1: string = null,
       public bandGenre2: string = null,
+      public bandManagerName: string = null,
+      public bandManagerEmail: string = null,
+      public bandManagerPhone: string = null,
       public bandGenre3: string = null
   ) {}
 }

@@ -1,7 +1,5 @@
-if(process.env.NODE_ENV == "development"){
+if(process.env.NODE_ENV == "development" || process.env.NODE_ENV == "test"){
   var url = "http://localhost:3000";
-}else{
-  var url = "http://streetcorner2rockstar.com";
 }
 exports.uploadBands = function(request, response, next) {
   var data = request.body;
@@ -14,4 +12,7 @@ exports.uploadBands = function(request, response, next) {
     require("request").post(url+"/api/band").form(jsonObj);
   });
   require("request").get(data[0]).pipe(converter);
+
+  response.status(200);
+  response.send();
 };

@@ -12,7 +12,7 @@ import {Venue} from "../common/venue";
 @Injectable()
 export class ExistingVenueService {
 
-    private endpoint : string = '/api/venue/getall';
+    private endpoint : string = '/api/venue';
 
     constructor(private http : Http) {}
 

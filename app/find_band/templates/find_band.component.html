@@ -45,33 +45,38 @@
                   <thead>
                     <tr>
                       <th>Band Name</th>
-                      <th>Address</th>
+                      <!-- <th>Address</th> -->
                       <th>City</th>
                       <th>State</th>
-                      <th>Zip</th>
+                      <!-- <th>Zip</th> -->
                       <!-- <th>Available Date</th> -->
                       <th>Website</th>
                       <th>Hourly Rate</th>
                       <th>Primary Genre</th>
                       <th>Second Genre</th>
                       <th>Third Genre</th>
+                      <th>Band Manager</th>
+                      <th>Manager's Email</th>
+                      <th>Manager's Phone #</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr *ngFor="let band of bands | custom_json">
 
                         <th *ngIf="band.value != NULL">{{band.value.bandName}}</th>
-                        <th *ngIf="band.value != NULL">{{band.value.bandAddress}}</th>
+                        <!-- <th *ngIf="band.value != NULL">{{band.value.bandAddress}}</th> -->
                         <th *ngIf="band.value != NULL">{{band.value.bandCity}}</th>
                         <th *ngIf="band.value != NULL">{{band.value.bandState}}</th>
-                        <th *ngIf="band.value != NULL">{{band.value.bandZip}}</th>
+                        <!-- <th *ngIf="band.value != NULL">{{band.value.bandZip}}</th> -->
 
                         <th *ngIf="band.value != NULL">{{band.value.bandWebsite}}</th>
                         <th *ngIf="band.value != NULL">{{band.value.bandPayRate}}</th>
                         <th *ngIf="band.value != NULL">{{band.value.bandGenre1}}</th>
                         <th *ngIf="band.value != NULL">{{band.value.bandGenre2}}</th>
                         <th *ngIf="band.value != NULL">{{band.value.bandGenre3}}</th>
-
+                        <th *ngIf="band.value != NULL">{{band.value.bandManagerName}}</th>
+                        <th *ngIf="band.value != NULL">{{band.value.bandManagerEmail}}</th>
+                        <th *ngIf="band.value != NULL">{{band.value.bandManagerPhone}}</th>
                     </tr>
                   </tbody>
                 </table>

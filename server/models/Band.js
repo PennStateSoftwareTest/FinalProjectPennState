@@ -11,6 +11,9 @@ var accountTypes = Object.keys(constants.ACCOUNT_TYPE).map(function(key) {
 
 var bandSchema = mongoose.Schema({
   bandName: {type: String, required: "{PATH} is required!"},
+  bandManagerName: {type: String, required: "{PATH} is required!"},
+  bandManagerEmail: {type: String, required: "{PATH} is required!"},
+  bandManagerPhone: {type: String},
   bandAddress: {type: String, required: "{PATH} is required!"},
   bandCity: {type: String, required:"{PATH} is required!"},
   bandState: {type: String, required:"{PATH} is required!"},
