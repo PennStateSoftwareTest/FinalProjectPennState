@@ -12,7 +12,7 @@ import {Band} from "../common/band";
 @Injectable()
 export class ExistingBandService {
 
-    private endpoint : string = '/api/band/getall';
+    private endpoint : string = '/api/band/findbands';
 
     constructor(private http : Http) {}
 
