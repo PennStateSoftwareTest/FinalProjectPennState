@@ -1,7 +1,25 @@
 <paper-material elevation="1">
-<h3 style="padding: 10px;">User Information</h3>
-<div style="margin-left:20px; padding-bottom: 10px;">
+<h3 >User Information</h3>
+<div id="userInfo">
     <p>Name:  {{user.firstName}} {{user.lastName}}</p>
     <p>Email Address:  {{user.email}}</p>
 </div>
+</paper-material>
+
+<create-venue></create-venue>
+
+<paper-material elevation="1">
+    <h3>My Venues</h3>
+    <paper-material
+        *ngFor="let venue of venues"
+        elevation="2">
+        <div style="margin-left:20px; padding-bottom: 10px; padding-top: 10px">
+            <p><strong>{{venue.venueName}}</strong></p>
+            <p>{{venue.address}}</p>
+            <p>{{venue.city}}, {{venue.state}}  {{venue.zip}}</p>
+            <p *ngIf="venue.capacity">Capacity:  {{venue.capacity}}</p>
+            <br>
+            <h3>Coming soon!  Add your band search suggestion criteria!</h3>
+        </div>
+    </paper-material>
 </paper-material>

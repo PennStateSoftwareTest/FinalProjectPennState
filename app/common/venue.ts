@@ -5,10 +5,8 @@ export class Venue{
       public city : string = null,
       public state : string = null,
       public zip : string = null,
-      public capacity : string = null
-      //public date : string = null,
-      //public rate: string = null
-      //public venueGenre: string = null
-
+      public capacity : string = null,
+      public date : string = null,
+      public rate: string = null
   ) {}
 }

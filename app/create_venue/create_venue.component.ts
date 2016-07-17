@@ -7,32 +7,39 @@ import {NgForm} from '@angular/common';
 import {NewVenueService} from "./newvenue.service";
 import {AccountTypes} from "../common/constants";
 import {Venue} from './../common/venue';
+import { PolymerElement } from '@vaadin/angular2-polymer';
+
 
 @Component({
-    selector: 'create_venue',
+    selector: 'create-venue',
     templateUrl: 'app/create_venue/templates/create_venue.component.html',
+    styleUrls: ['app/create_venue/styles/create_venue.component.css'],
+    directives: [
+        PolymerElement('paper-material'),
+        PolymerElement('paper-input'),
+        PolymerElement('paper-fab'),
+        PolymerElement('paper-tooltip')
+    ],
     viewProviders: [
         NewVenueService
     ]
 })
-export class CreateVenue {
+export class CreateVenue implements OnInit{
 
+    public model : Venue;
 
     constructor(
         private router : Router,
-        private newVenueService : NewVenueService) {}
+        private newVenueService : NewVenueService
+    ) {}
 
-    public model : Venue = new Venue();
     /**
      * We're using the 'OnInit' lifecycle hook here.  Angular will
      * automatically run this when this component initializes.
      */
-    // public ngOnInit() : void {
-    //     //TODO: check auth
-    //
-    //     //Right now, we are just going to redirect to the login page
-    //     this.router.navigate(['Login']);
-    // }
+     public ngOnInit() : void {
+        this.model = new Venue();
+    }
     public createVenue() : void {
         this.newVenueService.createVenue(this.model)
             .subscribe(
@@ -42,14 +49,19 @@ export class CreateVenue {
     }
 
     private handleSuccessfullCreate(isSuccess : boolean) : void {
-        //TODO: say 'thank you' for registering
-        //route to login
-        this.router.navigate(['DashboardVM']);
+        //TODO: fire an event
+
+        //Clear the form.
+        this.model = new Venue();
     }
 
     private handleFailedCreate(error : any) : void {
-        //Tell the user something went wrong... probably server-side validation
-        console.log(error);
+        //Tell the user something went wrong...
+        //TODO: make this a toast
+        alert(`There was a problem creating your venue.
+            please make sure it is unique.  If you
+            feel this is in error, please contact
+            your account manager`);
     }
 
 }

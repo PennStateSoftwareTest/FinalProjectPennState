@@ -1,40 +1,18 @@
-<br>
-<br>
-<div class="row">
-    <div class="medium-6 medium-centered large-4 large-centered columns">
-
-        <form>
-            <div class="row column newvenue-form">
-                <h4 class="text-center">New Venue Creation</h4>
-                <label>Venue Name
-                    <input type="text" [(ngModel)]="model.venueName" required>
-                </label>
-                <label>Address
-                    <input type="text" [(ngModel)]="model.address" required>
-                </label>
-
-                <label>City
-                    <input type="text" [(ngModel)]="model.city" required>
-                </label>
-                <label>State
-                    <input type="text" [(ngModel)]="model.state" required>
-                </label>
-                <label>Zip Code
-                  <input type="text" [(ngModel)]="model.zip" required>
-                </label>
-                <label>Dates Available
-                  <input type="date"  [(ngModel)]="model.date">
-                </label>
-                <label>Capacity
-                  <input type="number" [(ngModel)]="model.capacity">
-                </label>
-                <label>Hourly Rate
-                  <input type="number" [(ngModel)]="model.rate">
-                </label>
-                <br>
-                <br>
-                <p><a type="submit" class="button expanded" (click)="createVenue()">Submit</a></p>
-            </div>
-        </form>
-    </div>
-</div>
+<paper-material id="addVenue" elevation="1">
+    <h3>Add a Venue</h3>
+    <form>
+    <paper-input label="Venue Name" [(ngModel)]="model.venueName" required></paper-input>
+    <paper-input label="Address" [(ngModel)]="model.address" required></paper-input>
+    <paper-input label="City" style="width:34%" [(ngModel)]="model.city" required></paper-input>
+    <paper-input label="State" style="width:35%" [(ngModel)]="model.state" required></paper-input>
+    <paper-input label="Zip Code" style="width:34%" [(ngModel)]="model.zip" required></paper-input>
+    <!--TODO: date range-->
+    <!--    <paper-input label="Dates Available" style="width:35%" type="date" [(ngModel)]="model.date"></paper-input>-->
+    <paper-input label="Capacity" style="width:34%" [(ngModel)]="model.capacity"></paper-input>
+    <!--Don't bands charge the hourly rate?-->
+    <!--    <paper-input label="Hourly Rate" style="width:35%" [(ngModel)]="model.rate"></paper-input>-->
+    <br>
+    <paper-fab id="addVenueButton" icon="icons:add" (click)="createVenue()"></paper-fab>
+    <paper-tooltip for="addVenueButton" position="left" animation-delay="1">Add Venue</paper-tooltip>
+    </form>
+</paper-material>
