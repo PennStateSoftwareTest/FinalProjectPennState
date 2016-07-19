@@ -4,7 +4,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router-deprecated';
 import {NgForm} from '@angular/common';
-import {NewVenueService} from "./newvenue.service";
+import {VenueService} from "../app.venue.service";
 import {AccountTypes} from "../common/constants";
 import {Venue} from './../common/venue';
 import { PolymerElement } from '@vaadin/angular2-polymer';
@@ -19,9 +19,6 @@ import { PolymerElement } from '@vaadin/angular2-polymer';
         PolymerElement('paper-input'),
         PolymerElement('paper-fab'),
         PolymerElement('paper-tooltip')
-    ],
-    viewProviders: [
-        NewVenueService
     ]
 })
 export class CreateVenue implements OnInit{
@@ -30,7 +27,7 @@ export class CreateVenue implements OnInit{
 
     constructor(
         private router : Router,
-        private newVenueService : NewVenueService
+        private VenueService : VenueService
     ) {}
 
     /**
@@ -41,7 +38,7 @@ export class CreateVenue implements OnInit{
         this.model = new Venue();
     }
     public createVenue() : void {
-        this.newVenueService.createVenue(this.model)
+        this.VenueService.createVenue(this.model)
             .subscribe(
                 this.handleSuccessfullCreate.bind(this),
                 this.handleFailedCreate

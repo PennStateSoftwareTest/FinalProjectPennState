@@ -13,6 +13,7 @@ module.exports = function(app, envconf) {
      * User service routes.
      */
     app.post('/api/user', userService.createUser);
+    app.put('/api/user/:userId/venue', userService.patchUserOwnerships);
     app.delete("/api/user", userService.deleteUser);
 
 
