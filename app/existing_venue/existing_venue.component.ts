@@ -18,6 +18,7 @@ import {JsonPipe} from "./custom_pipe.pipe";
 })
 export class ExistingVenue {
 
+    //TODO: this is very messy... it needs to be cleaned up.
 
     /**
      * We're using the 'OnInit' lifecycle hook here.  Angular will
@@ -29,7 +30,6 @@ export class ExistingVenue {
         //Right now, we are just going to redirect to the login page
         //this.router.navigate(['Login']);
     }
-    public model : Venue = new Venue();
     public venues:any;
     //public heros = ["Test", "Test2", "Test3"];
     constructor(
@@ -37,8 +37,6 @@ export class ExistingVenue {
         private existingVenueService : ExistingVenueService) {}
 
     public getVenues() : void {
-      console.log("In get venues");
-
       this.existingVenueService.getVenues()
             .subscribe(
                 this.handleSuccessfullGet.bind(this),
@@ -49,7 +47,6 @@ export class ExistingVenue {
     private handleSuccessfullGet(object:any) : void {
       //console.log(object[0]);
       this.venues = object;
-      console.log(this.venues);
       //console.log(this.venues);
         //TODO: say 'thank you' for registering
         //route to login
@@ -57,7 +54,7 @@ export class ExistingVenue {
     }
 
     private handleFailedCreate(error : any) : void {
-        //Tell the user something went wrong... probably server-side validation
+        //TODO: tell the user something went wrong...
         console.log(error);
     }
 

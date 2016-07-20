@@ -6,16 +6,6 @@ var accountTypes = Object.keys(constants.ACCOUNT_TYPE).map(function(key) {
     return constants.ACCOUNT_TYPE[key];
 });
 
-var criteria = mongoose.Schema({
-    key: String, //TODO: use copnstants
-    value: String //TODO: use constants
-});
-
-var ownerships = mongoose.Schema({
-    foreignId: mongoose.Schema.ObjectId,
-    criteria: [criteria]
-});
-
 var userSchema = mongoose.Schema({
     firstName: {type: String, required: '{PATH} is required!'},
     lastName: {type: String, required: '{PATH} is required!'},
@@ -29,8 +19,7 @@ var userSchema = mongoose.Schema({
     // accountType: {type: String, required: '{PATH} is required!', enum: accountTypes},
     salt: {type: String, required: '{PATH} is required!'},
     password_hash: {type: String, required: '{PATH} is required!'},
-    roles: [String],
-    ownerships: [ownerships]
+    roles: [String]
 });
 userSchema.methods = {
     authenticate: function(passwordToMatch) {

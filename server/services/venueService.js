@@ -4,17 +4,21 @@
 var Venue = require('mongoose').model('Venue'),
     encrypt = require('../common/encryption');
 
+var self = this;
 
-exports.getAllVenues = function(request, response) {
-  Venue.find({}, function(error, venues) {
+exports.getVenues = function(request, response) {
 
-      if(error) {
+    //TODO: apply filter params here
+
+    Venue.find({}, function(error, venues) {
+
+        if(error) {
           response.status(500);
           return response.send({reason:error.toString()});
-      } else {
+        } else {
           response.json(venues);
-      }
-  })
+        }
+        })
 };
 
 exports.createVenue = function(request, response, next) {
@@ -32,7 +36,7 @@ exports.createVenue = function(request, response, next) {
             }
         };
 
-    this.insertVenue(venueData, callback);
+    self.insertVenue(venueData, callback);
 };
 
 exports.insertVenue = function(venueData, callback) {

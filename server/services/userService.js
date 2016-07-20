@@ -51,37 +51,3 @@ exports.deleteUser = function(request, response) {
   //   response.send();
   // }
 };
-
-exports.patchUserOwnerships = function(request, response) {
-    //Create the venue and do the below in the calllback
-    var venueData = request.body,
-        callback = function(error, venue) {
-            //TODO: clean this stuff up
-            if(error) {
-                response.status(400);
-                return response.send({reason:error.toString()});
-            } else {
-
-                //TODO: security
-                User.findOne({ _id: request.user._id }, function (err, user){
-
-                    if(error) {
-                        response.status(500);
-                        return response.send({reason:error.toString()});
-                    } else {
-                        user.ownerships.push({
-                            venueId: venue._id,
-                            criteria: [
-
-                            ]
-                        });
-                        user.save();
-                        response.status(200);
-                        response.send(venue);
-                    }
-                });
-            }
-        };
-
-    venueService.insertVenue(venueData, callback);
-};

@@ -8,7 +8,8 @@ import {VenueService} from "../app.venue.service";
 import {AccountTypes} from "../common/constants";
 import {Venue} from './../common/venue';
 import { PolymerElement } from '@vaadin/angular2-polymer';
-
+import {AuthService} from "../app.auth.service";
+import {IVenue} from "../common/interfaces";
 
 @Component({
     selector: 'create-venue',
@@ -23,11 +24,12 @@ import { PolymerElement } from '@vaadin/angular2-polymer';
 })
 export class CreateVenue implements OnInit{
 
-    public model : Venue;
+    public model : IVenue;
 
     constructor(
         private router : Router,
-        private VenueService : VenueService
+        private VenueService : VenueService,
+        private AuthService : AuthService
     ) {}
 
     /**
@@ -35,7 +37,7 @@ export class CreateVenue implements OnInit{
      * automatically run this when this component initializes.
      */
      public ngOnInit() : void {
-        this.model = new Venue();
+        this.model = new Venue(this.AuthService.activeUser._id);
     }
     public createVenue() : void {
         this.VenueService.createVenue(this.model)
@@ -49,7 +51,7 @@ export class CreateVenue implements OnInit{
         //TODO: fire an event
 
         //Clear the form.
-        this.model = new Venue();
+        this.model = new Venue(this.AuthService.activeUser._id);
     }
 
     private handleFailedCreate(error : any) : void {

@@ -13,7 +13,6 @@ module.exports = function(app, envconf) {
      * User service routes.
      */
     app.post('/api/user', userService.createUser);
-    app.put('/api/user/:userId/venue', userService.patchUserOwnerships);
     app.delete("/api/user", userService.deleteUser);
 
 
@@ -29,8 +28,7 @@ module.exports = function(app, envconf) {
      */
     app.post('/api/venue', venueService.createVenue);
   //  app.delete("/api/venue/", venueService.deleteVenue);
-    //TODO: this is wrong; we need to fix it
-    app.get("/api/venue", venueService.getAllVenues);
+    app.get("/api/venue", venueService.getVenues);
 
     /*
      * Bnd Routes
@@ -38,7 +36,6 @@ module.exports = function(app, envconf) {
     app.post("/api/band", bandService.createBand);
     //TODO: this is wrong; we need to fix it
     app.get("/api/band/findbands", bandService.getAllBands);
-    //TODO: this is wrong; we need to fix it
     app.post("/api/band/csv", CSVUploadService.uploadBands);
       app.post("/api/band/findbands", bandService.findBands);
 
