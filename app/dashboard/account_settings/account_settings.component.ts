@@ -8,6 +8,7 @@ import { PolymerElement } from '@vaadin/angular2-polymer';
 import {IUserModel} from "../../common/interfaces";
 import {CreateVenue} from "../../create_venue/create_venue.component";
 import {Venue} from "../../common/venue";
+import {VenueService} from "../../app.venue.service";
 
 @Component({
     selector: 'account',
@@ -26,29 +27,17 @@ export class AccountSettings implements OnInit {
 
     constructor(
         private router : Router,
-        private authService : AuthService
+        private authService : AuthService,
+        private venueService : VenueService
     ) {}
 
     public ngOnInit() : void {
         this.user = this.authService.activeUser;
 
-        //TODO: replace with real data
-        this.venues = [
-            new Venue(
-                'My Sample Venue',
-                '123 Some Awesome Place',
-                'Denver',
-                'CO',
-                '80211',
-                '45'
-            ),
-            new Venue(
-                'My Other Sample Venue',
-                '123 Some Other Awesome Place',
-                'Denver',
-                'CO',
-                '80211'
-            )
-        ];
+        this.venueService.getVenues(this.user._id).subscribe(
+            ((venues : Venue[]) => {
+                this.venues = venues
+            }).bind(this)
+        );
     }
 }

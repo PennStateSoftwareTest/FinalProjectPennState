@@ -8,17 +8,24 @@ var self = this;
 
 exports.getVenues = function(request, response) {
 
-    //TODO: apply filter params here
+    //TODO: security - we need to do an auth check in case the user's session expired
 
-    Venue.find({}, function(error, venues) {
+    var params = {};
+
+    //TODO: filter param generation should be more abstract
+    if (request.query.userId) {
+        params['ownerships.foreignId'] = request.query.userId
+    }
+
+    Venue.find(params, function(error, venues) {
 
         if(error) {
-          response.status(500);
-          return response.send({reason:error.toString()});
+            response.status(500);
+            return response.send({reason:error.toString()});
         } else {
-          response.json(venues);
+            response.json(venues);
         }
-        })
+    });
 };
 
 exports.createVenue = function(request, response, next) {

@@ -24,7 +24,7 @@ export class VenueService {
         private AuthService : AuthService
     ) {}
 
-    public createVenue(venue : IVenue) : Observable<Boolean> {
+    public createVenue(venue : IVenue) : Observable<Venue> {
 
         //TODO: put this in a nice little object
         let body : string = JSON.stringify(venue);
@@ -32,10 +32,37 @@ export class VenueService {
         let options : RequestOptions = new RequestOptions({headers: headers});
 
         return this.http.post(this.venueEndpoint, body, options)
+            .map(this.extractNewVenue)
             .catch(this.handleError);
     }
 
+    public getVenues(userId : string) : Observable<Venue[]> {
+
+
+        let headers : Headers = new Headers({ 'Content-Type': 'application/json' });
+        let params : URLSearchParams = new URLSearchParams();
+        params.set('userId', userId);
+        let options : RequestOptions = new RequestOptions({headers: headers, search: params});
+
+        return this.http.get(this.venueEndpoint, options)
+            .map(this.extractVenues)
+            .catch(this.handleError);
+    }
+
+    private extractVenues(response : Response) : Venue[] {
+        let venues : Venue[] = response.json();
+        return venues || [];
+    }
+
+    private extractNewVenue(response : Response) : Venue {
+        let venue : Venue = response.json();
+        return venue;
+    }
+
     private handleError(error : any) : ErrorObservable {
+
+        //TODO: handle unauthorized and log the user out
+
         let errorMsg = (error.message) ? error.message :
             error.status ? `${error.status} - ${error.statusText}` : 'Server error';
         return Observable.throw(errorMsg);

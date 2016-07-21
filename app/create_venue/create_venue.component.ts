@@ -1,7 +1,7 @@
 /**
  * Created by jnevins on 5/24/16.
  */
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {Router} from '@angular/router-deprecated';
 import {NgForm} from '@angular/common';
 import {VenueService} from "../app.venue.service";
@@ -20,9 +20,12 @@ import {IVenue} from "../common/interfaces";
         PolymerElement('paper-input'),
         PolymerElement('paper-fab'),
         PolymerElement('paper-tooltip')
-    ]
+    ],
+    inputs: ['venues']
 })
 export class CreateVenue implements OnInit{
+
+   public venues : Venue[] = [];
 
     public model : IVenue;
 
@@ -47,8 +50,9 @@ export class CreateVenue implements OnInit{
             );
     }
 
-    private handleSuccessfullCreate(isSuccess : boolean) : void {
-        //TODO: fire an event
+    private handleSuccessfullCreate(venue : Venue) : void {
+        //Add the new venue to the view
+        this.venues.push(venue);
 
         //Clear the form.
         this.model = new Venue(this.AuthService.activeUser._id);
