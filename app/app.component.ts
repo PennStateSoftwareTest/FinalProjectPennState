@@ -8,6 +8,7 @@ import {LoginComponent} from "./login/login.component";
 import {NewUserComponent} from "./newuser/newuser.component";
 import {ForgotPasswordComponent} from "./forgotpassword/forgotpassword.component";
 import {AuthService} from './app.auth.service';
+import {VenueService} from "./app.venue.service";
 
 @Component({
     selector: 'our-awesome-app',
@@ -15,7 +16,8 @@ import {AuthService} from './app.auth.service';
     directives: [ROUTER_DIRECTIVES],
     providers: [
         ROUTER_PROVIDERS,
-        AuthService
+        AuthService,
+        VenueService
     ]
 })
 @RouteConfig([

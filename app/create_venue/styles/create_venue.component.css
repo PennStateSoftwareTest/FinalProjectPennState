@@ -1,0 +1,30 @@
+/*TODO: We're reusing these styles, so let's move them into something more global.*/
+paper-material {
+    background-color: #fff;
+    width: 95%;
+    margin: 25px auto;
+    padding-bottom: 1px;
+    position: relative;
+}
+
+paper-input {
+    margin: 0 4vw;
+    padding: 0;
+    width: 80%;
+    display: inline-block;
+}
+
+paper-fab {
+    position: absolute;
+    background: #b71c1c;
+    bottom: 2vh;
+    right: 2vw;
+}
+
+h3 {
+    padding: 10px;
+}
+
+#addVenue {
+    padding-bottom: 80px;
+}

@@ -44,11 +44,6 @@ import {AccountSettings} from "./account_settings/account_settings.component";
         component: Dashboard_ADMComponent
     },
     {
-        path: '/createvenue',
-        name: 'CreateVenue',
-        component: CreateVenue
-    },
-    {
         path: '/existing_venue',
         name: 'ExistingVenue',
         component: ExistingVenue
