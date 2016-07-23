@@ -1,60 +1,75 @@
-<br>
-<br>
-<div class="row">
-    <div class="medium-6 large-4  columns">
 
-        <form>
-            <div class="row column bandFilter-form">
-              <!-- <h1>Find a Band</h1> -->
-              <ul class="menu vertical">
+<paper-material elevation="1">
+        <!-- <form> -->
+            <!-- <div class="row column bandFilter-form">
+               <h1>Find a Band</h1> -->
+              <!-- <ul class="menu vertical"> -->
                 <!-- <h4>Search for bands that meet your criteria</h4> -->
                 <form>
-                    <div class="row column findband-form">
+                    <!-- <div class="row column findband-form"> -->
                         <h4 class="text-center">Filter Bands</h4>
-                        <label>Primary Genre Desired
-                          <select (change)="selectGenre($event.target.value, 0)">
+
+                          <paper-dropdown-menu label="Primary Genre Desired" (iron-select)="selectGenre($event.detail.item.value, 0)">
+                              <paper-listbox class="dropdown-content" >
+                                <paper-item value=""></paper-item>
+                                <paper-item *ngFor="let venueGenre of genre" [value]="venueGenre">{{venueGenre}}</paper-item>
+                              </paper-listbox>
+                            </paper-dropdown-menu>
+                          <!-- <select (change)="selectGenre($event.target.value, 0)">
                               <option value=""></option>
                               <option  *ngFor="let venueGenre of genre" [value]="venueGenre">{{venueGenre}}</option>
-                          </select>
+                          </select> -->
 
-                        </label>
-                        <label>Second Genre Desired
-                          <select (change)="selectGenre($event.target.value, 1)">
-                              <option value=""></option>
-                              <option *ngFor="let venueGenre of genre2" [value]="venueGenre">{{venueGenre}}</option>
-                          </select>
-                        </label>
-                        <label>Third Genre Desired
-                          <select (change)="selectGenre($event.target.value, 2)">
-                              <option value=""></option>
-                              <option *ngFor="let venueGenre of genre3" [value]="venueGenre">{{venueGenre}}</option>
-                          </select>
-                        </label>
-                        <label>Max Hourly Rate Willing to Pay (US Dollars)
-                            <input (change)="changeRate($event.target.value)" type="number" >
-                            <!-- <input type="text" [(ngModel)]="model.rate" required> -->
-                        </label>
-                        <!-- <label>Date wanted
-                            <input type="text" [(ngModel)]="model.date" required>
-                        </label> -->
-                        <br>
+                          <paper-dropdown-menu label="Second Genre Desired" (iron-select)="selectGenre($event.detail.item.value, 1)">
+                              <paper-listbox class="dropdown-content" >
+                                <paper-item value=""></paper-item>
+                                <paper-item *ngFor="let venueGenre of genre2" [value]="venueGenre">{{venueGenre}}</paper-item>
+                              </paper-listbox>
+                            </paper-dropdown-menu>
+
+                            <paper-dropdown-menu label="Third Genre Desired" (iron-select)="selectGenre($event.detail.item.value, 2)">
+                                <paper-listbox class="dropdown-content" >
+                                  <paper-item value=""></paper-item>
+                                  <paper-item *ngFor="let venueGenre of genre3" [value]="venueGenre">{{venueGenre}}</paper-item>
+                                </paper-listbox>
+                              </paper-dropdown-menu>
+
+                              <paper-input label="Max Hourly Rate Willing to Pay (US Dollars)" (change)="changeRate($event.target.value)" type="number" >
+                        </paper-input>
+
                         <!-- <p><a type="submit" class="button expanded" (click)="findBands()">Submit</a></p> -->
-                    </div>
+                    <!-- </div> -->
                 </form>
+              </paper-material>
+              <paper-material elevation="1">
+                <vaadin-grid>
                 <table class="hover"><caption>Available Bands</caption>
+                  <colgroup>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                  </colgroup>
                   <thead>
                     <tr>
                       <th>Band Name</th>
+                        <th>Genre</th>
+                          <th>Hourly Rate</th>
                       <!-- <th>Address</th> -->
                       <th>City</th>
                       <th>State</th>
                       <!-- <th>Zip</th> -->
                       <!-- <th>Available Date</th> -->
                       <th>Website</th>
-                      <th>Hourly Rate</th>
-                      <th>Primary Genre</th>
-                      <th>Second Genre</th>
-                      <th>Third Genre</th>
+
+
+                      <!-- <th>Second Genre</th>
+                      <th>Third Genre</th> -->
                       <th>Band Manager</th>
                       <th>Manager's Email</th>
                       <th>Manager's Phone #</th>
@@ -63,25 +78,27 @@
                   <tbody>
                     <tr *ngFor="let band of bands | custom_json">
 
-                        <th *ngIf="band.value != NULL">{{band.value.bandName}}</th>
+                        <td *ngIf="band.value != NULL">{{band.value.bandName}}</td>
+                        <td *ngIf="band.value != NULL">{{band.value.bandGenre1}} {{band.value.bandGenre2}} {{band.value.bandGenre3}}</td>
+                          <td *ngIf="band.value != NULL">{{band.value.bandPayRate}}</td>
                         <!-- <th *ngIf="band.value != NULL">{{band.value.bandAddress}}</th> -->
-                        <th *ngIf="band.value != NULL">{{band.value.bandCity}}</th>
-                        <th *ngIf="band.value != NULL">{{band.value.bandState}}</th>
+                        <td *ngIf="band.value != NULL">{{band.value.bandCity}}</td>
+                        <td *ngIf="band.value != NULL">{{band.value.bandState}}</td>
                         <!-- <th *ngIf="band.value != NULL">{{band.value.bandZip}}</th> -->
 
-                        <th *ngIf="band.value != NULL">{{band.value.bandWebsite}}</th>
-                        <th *ngIf="band.value != NULL">{{band.value.bandPayRate}}</th>
-                        <th *ngIf="band.value != NULL">{{band.value.bandGenre1}}</th>
-                        <th *ngIf="band.value != NULL">{{band.value.bandGenre2}}</th>
-                        <th *ngIf="band.value != NULL">{{band.value.bandGenre3}}</th>
-                        <th *ngIf="band.value != NULL">{{band.value.bandManagerName}}</th>
-                        <th *ngIf="band.value != NULL">{{band.value.bandManagerEmail}}</th>
-                        <th *ngIf="band.value != NULL">{{band.value.bandManagerPhone}}</th>
+                        <td *ngIf="band.value != NULL">{{band.value.bandWebsite}}</td>
+
+
+                        <!-- <th *ngIf="band.value != NULL">{{band.value.bandGenre2}}</th>
+                        <th *ngIf="band.value != NULL">{{band.value.bandGenre3}}</th> -->
+                        <td *ngIf="band.value != NULL">{{band.value.bandManagerName}}</td>
+                        <td *ngIf="band.value != NULL">{{band.value.bandManagerEmail}}</td>
+                        <td *ngIf="band.value != NULL">{{band.value.bandManagerPhone}}</td>
                     </tr>
                   </tbody>
                 </table>
-              </ul>
-            </div>
-        </form>
-    </div>
-</div>
+            </vaadin-grid>
+              </paper-material>
+              <!-- </ul>
+            </div> -->
+        <!-- </form> -->

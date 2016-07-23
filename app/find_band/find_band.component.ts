@@ -6,11 +6,23 @@ import {Genre} from "../common/constants";
 import {Band} from './../common/band';
 //import {Venue} from'./../common/venue';
 import {ExistingBandService} from "../existing_band/existing_band.services";
+import { PolymerElement } from '@vaadin/angular2-polymer';
 
 @Component({
     selector: 'find_band',
     templateUrl: 'app/find_band/templates/find_band.component.html',
-    directives: [ROUTER_DIRECTIVES],
+    styleUrls: ['app/dashboard/account_settings/styles/account_settings.component.css'],
+    directives: [ROUTER_DIRECTIVES,
+    PolymerElement('vaadin-grid'),
+    PolymerElement('paper-material'),
+    PolymerElement('paper-dropdown-menu'),
+    PolymerElement('paper-item'),
+    PolymerElement('paper-listbox'),
+    PolymerElement('paper-input')
+    // PolymerElement('paper-material'),
+    // PolymerElement('paper-material')
+
+   ],
     viewProviders: [
           FindBandService,
           ExistingBandService
@@ -48,6 +60,10 @@ export class FindBand_Component {
   //venue is a string that relates to a selected string on the page find_band
   //position is the select number that has been changed starting at 0 base
   public selectGenre(venue:string, position:number):void{
+    if(venue == null){
+      venue = "";
+    }
+  
     //Loop 3 times for each select
     for(var i = 0; i < 3; i++){
       //Don't want to modify the select that was just changed
