@@ -22,7 +22,8 @@ export const Genre : {[key: string] : string} = {
   POLKA:'Polka',
   DISCO:'Disco',
   CHRISTIAN:'Christian',
-  REGGAE:'Reggae'
+  REGGAE:'Reggae',
+  AMERICANA:"Americana"
 }
 
 

@@ -23,3 +23,19 @@
         </div>
     </paper-material>
 </paper-material>
+
+<!-- <create-band [bands]="bands"></create-band> -->
+
+<paper-material elevation="1">
+    <h3>My Bands</h3>
+    <paper-material
+        *ngFor="let band of bands"
+        elevation="2">
+        <div style="margin-left:20px; padding-bottom: 10px; padding-top: 10px">
+            <p><strong>{{band.bandName}}</strong></p>
+            <p>{{band.bandAddress}}</p>
+            <p>{{band.bandCity}}, {{band.bandState}}  {{band.bandZip}}</p>
+            <br>
+        </div>
+    </paper-material>
+</paper-material>

@@ -2,7 +2,7 @@
 var Band = require('mongoose').model('Band'),
     encrypt = require('../common/encryption');
 
-
+var self = this;
 exports.getAllBands = function(request, response) {
   //console.log("In services getAllVenues");
   // Venue.find(function(err, venues){
@@ -15,13 +15,20 @@ exports.getAllBands = function(request, response) {
   //     response.send(venues);
   //   }
   // });
-  Band.find({}, function (err, bands){
-    // if(err){
-    //   return response.send(err);
-    // }else{
-      response.json(bands);
-    //}
-  })
+  var params = {};
+  if (request.query.userId) {
+      params['ownerships.foreignId'] = request.query.userId
+  }
+
+  Band.find(params, function(error, bands) {
+
+      if(error) {
+          response.status(500);
+          return response.send({reason:error.toString()});
+      } else {
+          response.json(bands);
+      }
+  });
 };
 
 exports.createBand = function(request, response, next) {
@@ -29,23 +36,21 @@ exports.createBand = function(request, response, next) {
     console.log(request.body);
 
     //TODO: add a validation function
-    //userData.email = userData.email.toLowerCase();
-  //  userData.salt = encrypt.createSalt();
-    //userData.password_hash = encrypt.hashPassword(userData.salt, userData.password);
-
-
-
-    Band.create(bandData, function(error, band) {
+    callback = function(error, venue) {
         //TODO: clean this stuff up
         if(error) {
-
             response.status(400);
             return response.send({reason:error.toString()});
         } else {
             response.status(200);
-            response.send(band);
+            response.send(venue);
         }
-    })
+    };
+    self.insertBand(bandData, callback);
+};
+
+exports.insertBand = function(bandData, callback) {
+    Band.create(bandData, callback);
 };
 //
 // exports.updateBand = function() {

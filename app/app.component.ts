@@ -9,6 +9,7 @@ import {NewUserComponent} from "./newuser/newuser.component";
 import {ForgotPasswordComponent} from "./forgotpassword/forgotpassword.component";
 import {AuthService} from './app.auth.service';
 import {VenueService} from "./app.venue.service";
+import {BandService} from "./app.band.service";
 
 @Component({
     selector: 'our-awesome-app',
@@ -17,7 +18,8 @@ import {VenueService} from "./app.venue.service";
     providers: [
         ROUTER_PROVIDERS,
         AuthService,
-        VenueService
+        VenueService,
+        BandService
     ]
 })
 @RouteConfig([

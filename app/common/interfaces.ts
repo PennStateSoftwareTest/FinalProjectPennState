@@ -40,3 +40,17 @@ export interface IVenue {
     date : string,
     rate: string
 }
+
+export interface IBand {
+    ownerships : IOwnership[],
+    bandName : string,
+    bandAddress : string,
+    bandCity : string,
+    bandState : string,
+    bandZip : string,
+    bandPayRate: string,
+    bandWebsite:string,
+    bandGenre1:string,
+    bandGenre2:string,
+    bandGenre3:string
+}
