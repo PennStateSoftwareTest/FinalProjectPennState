@@ -7,16 +7,17 @@ import {Band} from './../common/band';
 import { PolymerElement } from '@vaadin/angular2-polymer';
 import {AuthService} from "../app.auth.service";
 import {IBand} from "../common/interfaces";
+import {JsonPipe} from "../existing_venue/custom_pipe.pipe";
 
 @Component({
     selector: 'create-band',
     templateUrl: 'app/create_band/templates/create_band.component.html',
+    styleUrls: ['app/create_venue/styles/create_venue.component.css'],
     viewProviders: [
         BandService
       ],
       directives:[
         PolymerElement('paper-material'),
-        PolymerElement('paper-input'),
         PolymerElement('paper-fab'),
         PolymerElement('paper-tooltip'),
         PolymerElement('paper-dropdown-menu'),
@@ -24,7 +25,10 @@ import {IBand} from "../common/interfaces";
         PolymerElement('paper-listbox'),
         PolymerElement('paper-input')
     ],
-    inputs: ['bands']
+    inputs: ['bands'],
+    pipes: [
+      JsonPipe
+    ]
 })
 export class CreateBand implements OnInit{
 
@@ -51,9 +55,13 @@ export class CreateBand implements OnInit{
                 this.handleFailedCreate
             );
     }
-    // public Genre : string[] = Object.keys(Genre).map((key) => {
-    //     return Genre[key];
-    // });
+
+    public Genre : string[] = Object.keys(Genre).map((key) => {
+        return Genre[key];
+    }).sort();
+
+
+
     private handleSuccessfullCreate(band : Band) : void {
       //Add the new venue to the view
       this.bands.push(band);
