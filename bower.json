@@ -22,7 +22,9 @@
     "paper-drawer-panel": "~1.0.9",
     "paper-toolbar": "~1.1.6",
     "paper-fab": "~1.2.0",
-    "paper-tooltip": "~1.1.2"
+    "paper-tooltip": "~1.1.2",
+    "vaadin-grid": "^1.1.1",
+    "paper-listbox": "polymerelements/paper-listbox#^1.1.2"
   },
   "resolutions": {
     "polymer": "^1.5.0",
