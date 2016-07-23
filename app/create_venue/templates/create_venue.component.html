@@ -1,5 +1,5 @@
 <paper-material id="addVenue" elevation="1">
-    <h3>Add a Venue</h3>
+    <h3>Create Venue</h3>
     <form>
     <paper-input label="Venue Name" [(ngModel)]="model.venueName" required></paper-input>
     <paper-input label="Address" [(ngModel)]="model.address" required></paper-input>
@@ -13,6 +13,6 @@
     <!--    <paper-input label="Hourly Rate" style="width:35%" [(ngModel)]="model.rate"></paper-input>-->
     <br>
     <paper-fab id="addVenueButton" icon="icons:add" (click)="createVenue()"></paper-fab>
-    <paper-tooltip for="addVenueButton" position="left" animation-delay="1">Add Venue</paper-tooltip>
+    <paper-tooltip for="addVenueButton" position="left" animation-delay="1">Create Venue</paper-tooltip>
     </form>
 </paper-material>

@@ -26,7 +26,8 @@ const GENRE = {
   POLKA:'Polka',
   DISCO:'Disco',
   CHRISTIAN:'Christian',
-  REGGAE:'Reggae'
+  REGGAE:'Reggae',
+  AMERICANA:"Americana"
 }
 Object.freeze(GENRE);
 
