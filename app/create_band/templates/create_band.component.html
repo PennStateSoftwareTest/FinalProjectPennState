@@ -1,7 +1,7 @@
 <paper-material id="createBand" elevation="1">
     <h3>Create Band</h3>
     <form>
-     <paper-input label="Band Name"   [(ngModel)]="model.bandName" required></paper-input>
+     <paper-input label="Band Name" [(ngModel)]="model.bandName" required></paper-input>
      <paper-input label="Address" [(ngModel)]="model.bandAddress" required></paper-input>
     <paper-input label="City" style="width:34%" [(ngModel)]="model.bandCity" required></paper-input>
     <paper-input label="State" style="width:35%" [(ngModel)]="model.bandState" required></paper-input>
@@ -9,20 +9,20 @@
     <paper-input label="Website" style="width:34%" [(ngModel)]="model.bandWebsite"></paper-input>
     <paper-input label="Hourly pay rate (US dollars)" style="width:34%" [(ngModel)]="model.bandPayRate"></paper-input>
 
-    <!-- <paper-dropdown-menu [(ngModel)]="model.bandGenre1" required label="Primary Genre Desired">
+    <!-- <paper-dropdown-menu [(ngModel)]="model.bandGenre1" required label="Primary Genre">
         <paper-listbox class="dropdown-content" >
                     <paper-item *ngFor="let bandGenre of Genre" [value]="bandGenre">{{bandGenre}}</paper-item>
         </paper-listbox>
       </paper-dropdown-menu>
 
-    <paper-dropdown-menu [(ngModel)]="model.bandGenre2" required label="Second Genre Desired" >
+    <paper-dropdown-menu [(ngModel)]="model.bandGenre2" required label="Second Genre" >
         <paper-listbox class="dropdown-content" >
 
           <paper-item *ngFor="let bandGenre of Genre" [value]="bandGenre">{{bandGenre}}</paper-item>
         </paper-listbox>
       </paper-dropdown-menu>
 
-      <paper-dropdown-menu [(ngModel)]="model.bandGenre3" required label="Third Genre Desired" >
+      <paper-dropdown-menu [(ngModel)]="model.bandGenre3" required label="Third Genre" >
           <paper-listbox class="dropdown-content" >
 
             <paper-item *ngFor="let bandGenre of Genre" [value]="bandGenre">{{bandGenre}}</paper-item>
