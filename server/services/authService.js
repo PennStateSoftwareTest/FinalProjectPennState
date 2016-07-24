@@ -18,7 +18,6 @@ exports.authenticate = function(request, response, next) {
 
         request.logIn(user, function(err) {
             if(err) {return next(err);}
-
             response.send({success:true, user: sanitizeUser(user)});
         })
     })(request, response, next);

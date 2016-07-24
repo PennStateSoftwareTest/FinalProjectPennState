@@ -36,6 +36,6 @@ export const PAGES = [
   {"route":["FindBand"], "name":"Find Bands"},
   {"route":["DashboardVM"], "name":"Venue Manager Tools"},
   {"route":["DashboardADM"], "name":"Admin Tools"},
-  {"route":["DashboardBM"], "name":"Band Manager Tools"},
+  {"route":["DashboardBM"], "name":"Create Band"},
   {"route":["AccountSettings"], "name":"Account Settings"}
 ];

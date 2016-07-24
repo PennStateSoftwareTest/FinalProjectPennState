@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {Router} from '@angular/router-deprecated';
+import {RouteConfig, Router, OnActivate, CanActivate, ROUTER_PROVIDERS, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
+
 import {NgForm} from '@angular/common';
 import {BandService} from "../app.band.service";
 import {Genre} from "../common/constants";
@@ -21,6 +22,7 @@ import {JsonPipe} from "../existing_venue/custom_pipe.pipe";
         PolymerElement('paper-fab'),
         PolymerElement('paper-tooltip'),
         PolymerElement('paper-dropdown-menu'),
+        PolymerElement('paper-input'),
         PolymerElement('paper-item'),
         PolymerElement('paper-listbox')
     ],
@@ -45,9 +47,13 @@ export class CreateBand implements OnInit{
      */
      public ngOnInit() : void {
         this.model = new Band(this.AuthService.activeUser._id);
+        
         //console.log(this.model);
     }
     public createBand() : void {
+      this.model.bandManagerName = this.AuthService.activeUser.firstName + " " + this.AuthService.activeUser.lastName;
+      this.model.bandManagerPhone = this.AuthService.activeUser.phoneNumber;
+      this.model.bandManagerEmail = this.AuthService.activeUser.email;
         this.bandService.createBand(this.model)
             .subscribe(
                 this.handleSuccessfullCreate.bind(this),
@@ -59,7 +65,16 @@ export class CreateBand implements OnInit{
         return Genre[key];
     }).sort();
 
-
+    public genreChange(value:string, position:number):void {
+      if(position == 0){
+        this.model.bandGenre1 = value;
+      }else if(position == 1){
+        this.model.bandGenre2 = value;
+      }else if(position == 2){
+        this.model.bandGenre3 = value;
+      }
+      console.log(this.model);
+    }
 
     private handleSuccessfullCreate(band : Band) : void {
       //Add the new venue to the view

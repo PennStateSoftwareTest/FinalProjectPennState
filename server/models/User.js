@@ -14,7 +14,7 @@ var userSchema = mongoose.Schema({
         required: '{PATH} is required!',
         unique: true
     },
-    phoneNumber: {type: Number, unique: true},
+    phoneNumber: {type: String, unique: true},
      accountType: {type: String, enum: accountTypes},
     // accountType: {type: String, required: '{PATH} is required!', enum: accountTypes},
     salt: {type: String, required: '{PATH} is required!'},
