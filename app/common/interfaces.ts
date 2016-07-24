@@ -12,6 +12,7 @@ export interface IUserModel {
     email : string,
     firstName : string,
     lastName : string,
+    phoneNumber:string,
     roles : string[]
 }
 
@@ -60,5 +61,8 @@ export interface IBand {
     bandWebsite:string,
     bandGenre1:string,
     bandGenre2:string,
-    bandGenre3:string
+    bandGenre3:string,
+    bandManagerName:string,
+    bandManagerEmail: string,
+    bandManagerPhone: string
 }

@@ -8,7 +8,7 @@ export class Band implements IBand{
   public ownerships : IOwnership[] = [];
 
   constructor(
-      private userId : string,
+      private userId : string = null,
       public bandName : string = null,
       public bandAddress : string = null,
       public bandCity : string = null,
@@ -19,7 +19,10 @@ export class Band implements IBand{
       public bandGenre1: string = null,
       public bandGenre2: string = null,
       public bandGenre3: string = null,
-      public bandWebsite:string = null
+      public bandWebsite:string = null,
+      public bandManagerName:string = null,
+      public bandManagerEmail: string = null,
+      public bandManagerPhone: string = null
   ) {
     this.ownerships.push(new Ownership(userId, []));
   }

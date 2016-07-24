@@ -9,26 +9,24 @@
     <paper-input label="Website" style="width:34%" [(ngModel)]="model.bandWebsite"></paper-input>
     <paper-input label="Hourly pay rate (US dollars)" style="width:34%" [(ngModel)]="model.bandPayRate"></paper-input>
 
-    <paper-dropdown-menu label="Primary Genre">
-        <paper-listbox [(ngModel)]="model.bandGenre1" required class="dropdown-content" selected="0">
+    <paper-dropdown-menu label="Primary Genre" (iron-select)="genreChange($event.detail.item.value, 0)">
+        <paper-listbox  required  class="dropdown-content" >
                     <paper-item *ngFor="let bandGenre of Genre" [value]="bandGenre">{{bandGenre}}</paper-item>
         </paper-listbox>
       </paper-dropdown-menu>
 
-    <paper-dropdown-menu label="Second Genre" >
-        <paper-listbox [(ngModel)]="model.bandGenre2" required class="dropdown-content" selected="0">
-
+    <paper-dropdown-menu label="Second Genre" (iron-select)="genreChange($event.detail.item.value, 1)">
+        <paper-listbox  required class="dropdown-content" >
           <paper-item *ngFor="let bandGenre of Genre" [value]="bandGenre">{{bandGenre}}</paper-item>
         </paper-listbox>
       </paper-dropdown-menu>
 
-      <paper-dropdown-menu label="Third Genre" >
-          <paper-listbox [(ngModel)]="model.bandGenre3" required class="dropdown-content" selected="0">
-
+      <paper-dropdown-menu label="Third Genre" (iron-select)="genreChange($event.detail.item.value, 2)">
+          <paper-listbox required class="dropdown-content" >
             <paper-item *ngFor="let bandGenre of Genre" [value]="bandGenre">{{bandGenre}}</paper-item>
           </paper-listbox>
         </paper-dropdown-menu>
-    <br>
+
     <paper-fab id="addBandButton" icon="icons:add" (click)="createBand()"></paper-fab>
     <paper-tooltip for="addBandButton" position="left" animation-delay="1">Create Band</paper-tooltip>
     </form>

@@ -7,10 +7,7 @@ import {AuthService} from '../../app.auth.service';
 import { PolymerElement } from '@vaadin/angular2-polymer';
 import {IUserModel, IVenue, IOwnership, ISuggestCriteria} from "../../common/interfaces";
 import {CreateVenue} from "../../create_venue/create_venue.component";
-import {CreateBand} from "../../create_band/create_band.component";
 import {Venue} from "../../common/venue";
-import {Band} from "../../common/band";
-import {BandService} from "../../app.band.service";
 import {VenueService} from "../../app.venue.service";
 import {Genre, Criteria} from "../../common/constants";
 
@@ -20,7 +17,6 @@ import {Genre, Criteria} from "../../common/constants";
     styleUrls: ['app/dashboard/account_settings/styles/account_settings.component.css'],
     directives: [
         CreateVenue,
-        CreateBand,
         PolymerElement('paper-material'),
         PolymerElement('paper-item'),
         PolymerElement('paper-dropdown-menu'),
@@ -32,14 +28,13 @@ export class AccountSettings implements OnInit {
 
     public user : IUserModel;
     public venues : IVenue[];
-    public bands : Band[];
     public availableGenre : string[];
 
     constructor(
         private router : Router,
         private authService : AuthService,
-        private venueService : VenueService,
-        private bandService: BandService
+        private venueService : VenueService
+
     ) {}
 
     public ngOnInit() : void {
@@ -51,11 +46,7 @@ export class AccountSettings implements OnInit {
             }).bind(this)
         );
 
-        this.bandService.getBands(this.user._id).subscribe(
-            ((bands : Band[]) => {
-                this.bands = bands
-            }).bind(this)
-        );
+
     }
 
     public setVenueGenreCriteria(

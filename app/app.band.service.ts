@@ -26,7 +26,7 @@ export class BandService {
     ) {}
 
     public createBand(band : IBand) : Observable<Band> {
-
+      
         //TODO: put this in a nice little object
         let body : string = JSON.stringify(band);
         let headers : Headers = new Headers({ 'Content-Type': 'application/json' });

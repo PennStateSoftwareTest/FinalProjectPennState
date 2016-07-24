@@ -1,4 +1,22 @@
-<br>
+<create-band [bands]="bands"></create-band>
+
+<paper-material elevation="1">
+   <h3>My Bands</h3>
+   <paper-material
+       *ngFor="let band of bands"
+       elevation="2">
+       <div style="margin-left:20px; padding-bottom: 10px; padding-top: 10px">
+           <p><strong>{{band.bandName}}</strong></p>
+           <p>{{band.bandAddress}}</p>
+           <p>{{band.bandCity}}, {{band.bandState}}  {{band.bandZip}}</p>
+           <br>
+       </div>
+   </paper-material>
+</paper-material>
+
+
+
+<!-- <br>
 <br>
 <div class="row">
     <div class="medium-6 medium-centered large-4 large-centered columns">
@@ -17,7 +35,6 @@
                       <th>City</th>
                       <th>State</th>
                       <th>Zip</th>
-                      <!-- <th>Available Date</th> -->
                       <th>Website</th>
                       <th>Hourly Rate</th>
                       <th>Primary Genre</th>
@@ -47,4 +64,4 @@
             </div>
         </form>
     </div>
-</div>
+</div> -->
