@@ -3,6 +3,7 @@
  */
 
 
+import {Criteria} from "./constants";
 /**
  * Response form the server.
  */
@@ -20,16 +21,21 @@ export interface IAuthResponse {
 }
 
 export interface ISuggestCriteria {
-    key : string,
+    key : Criteria,
     value : string
 }
 
 export interface IOwnership {
     foreignId : string,
-    criteria : ISuggestCriteria[]
+    criteria : ISuggestCriteria[],
+
+    hasCriteria : (criterion : Criteria) => boolean,
+    updateCriteria : (key : Criteria, value : string) => void,
+    addCriteria : (newKey : Criteria, newValue : string) => void
 }
 
 export interface IVenue {
+    _id ?: string,
     ownerships : IOwnership[],
     venueName : string,
     address : string,
@@ -38,7 +44,9 @@ export interface IVenue {
     zip : string,
     capacity : string,
     date : string,
-    rate: string
+    rate: string,
+
+    getOwnership : (foriegnId : string) => IOwnership[]
 }
 
 export interface IBand {

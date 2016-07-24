@@ -2,6 +2,10 @@
 export const AccountTypes : {[key : string] : string} = {
     VENUE_MANAGER: 'Venue Manager',
     BAND_MANAGER: 'Band Manager',
+};
+
+export enum Criteria {
+  GENRE = <any>'genre'
 }
 
 export const Genre : {[key: string] : string} = {
@@ -24,7 +28,7 @@ export const Genre : {[key: string] : string} = {
   CHRISTIAN:'Christian',
   REGGAE:'Reggae',
   AMERICANA:"Americana"
-}
+};
 
 
 export const PAGES = [
