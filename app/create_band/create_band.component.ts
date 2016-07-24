@@ -22,8 +22,7 @@ import {JsonPipe} from "../existing_venue/custom_pipe.pipe";
         PolymerElement('paper-tooltip'),
         PolymerElement('paper-dropdown-menu'),
         PolymerElement('paper-item'),
-        PolymerElement('paper-listbox'),
-        PolymerElement('paper-input')
+        PolymerElement('paper-listbox')
     ],
     inputs: ['bands'],
     pipes: [

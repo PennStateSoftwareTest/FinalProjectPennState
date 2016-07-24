@@ -38,7 +38,6 @@ export class VenueService {
 
     public getVenues(userId : string) : Observable<Venue[]> {
 
-
         let headers : Headers = new Headers({ 'Content-Type': 'application/json' });
         let params : URLSearchParams = new URLSearchParams();
         params.set('userId', userId);
@@ -49,14 +48,22 @@ export class VenueService {
             .catch(this.handleError);
     }
 
-    private extractVenues(response : Response) : Venue[] {
-        let venues : Venue[] = response.json();
+    private extractVenues(response : Response) : IVenue[] {
+        let venues : Venue[] = response.json().map((venue : IVenue) => {
+            let instanceVenue = new Venue();
+            instanceVenue.extendFromObject(venue);
+
+            return instanceVenue;
+        });
         return venues || [];
     }
 
-    private extractNewVenue(response : Response) : Venue {
-        let venue : Venue = response.json();
-        return venue;
+    private extractNewVenue(response : Response) : IVenue {
+        let venue : IVenue = response.json();
+        let instanceVenue = new Venue();
+        instanceVenue.extendFromObject(venue);
+
+        return instanceVenue;
     }
 
     private handleError(error : any) : ErrorObservable {

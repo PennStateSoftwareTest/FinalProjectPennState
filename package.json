@@ -10,11 +10,11 @@
   "scripts": {
     "test": "istanbul cover  --root ./server/services  ./node_modules/.bin/_mocha test/**/*.js --coverage ",
     "testserver": "mocha --recursive -w",
-    "testclient": "tsc && node ./node_modules/karma/bin/karma start ./app/test/karma.unit.conf.js",
-    "start": "tsc && node server.js",
-    "postinstall": "typings install && tsc && ./node_modules/bower/bin/bower install",
-    "tsc": "tsc",
-    "watch": "tsc -w",
+    "testclient": "tsc --suppressImplicitAnyIndexErrors && node ./node_modules/karma/bin/karma start ./app/test/karma.unit.conf.js",
+    "start": "tsc --suppressImplicitAnyIndexErrors && node server.js",
+    "postinstall": "typings install && tsc --suppressImplicitAnyIndexErrors && ./node_modules/bower/bin/bower install",
+    "tsc": "tsc --suppressImplicitAnyIndexErrors",
+    "watch": "tsc --suppressImplicitAnyIndexErrors -w",
     "typings": "typings",
     "alltests": "npm run testclient && npm test"
   },

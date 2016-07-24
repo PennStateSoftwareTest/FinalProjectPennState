@@ -1,6 +1,7 @@
 import {IOwnership} from "./interfaces";
 import {IBand} from "./interfaces";
 import {ISuggestCriteria} from "./interfaces";
+import {Ownership} from "./ownership";
 
 export class Band implements IBand{
 
@@ -20,9 +21,6 @@ export class Band implements IBand{
       public bandGenre3: string = null,
       public bandWebsite:string = null
   ) {
-    this.ownerships.push({
-      foreignId: userId,
-      criteria: []
-    })
+    this.ownerships.push(new Ownership(userId, []));
   }
 }
