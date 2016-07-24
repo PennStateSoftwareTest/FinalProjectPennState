@@ -47,7 +47,7 @@ export class CreateBand implements OnInit{
      */
      public ngOnInit() : void {
         this.model = new Band(this.AuthService.activeUser._id);
-        
+
         //console.log(this.model);
     }
     public createBand() : void {
@@ -73,7 +73,7 @@ export class CreateBand implements OnInit{
       }else if(position == 2){
         this.model.bandGenre3 = value;
       }
-      console.log(this.model);
+
     }
 
     private handleSuccessfullCreate(band : Band) : void {
