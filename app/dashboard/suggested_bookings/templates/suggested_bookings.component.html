@@ -1,0 +1,27 @@
+<paper-material elevation="1">
+    <h3>About Suggestions</h3>
+    <div id="suggestionInfo">
+        <p><strong>From Street Corner to Rock Star</strong>'s
+            Suggested Bookings feature matches the best bands
+            for your venues.  To tune it, simply update your
+            criteria in your settings.</p>
+    </div>
+</paper-material>
+
+<paper-material elevation="1">
+    <h3>My Venues</h3>
+    <paper-material
+        *ngFor="let venue of venues"
+        elevation="2">
+        <div style="margin-left:20px; padding-bottom: 10px; padding-top: 10px">
+            <h4>Venue Information</h4>
+            <p><strong>{{venue.venueName}}</strong></p>
+            <p>{{venue.address}}</p>
+            <p>{{venue.city}}, {{venue.state}}  {{venue.zip}}</p>
+            <p *ngIf="venue.capacity">Capacity:  {{venue.capacity}}</p>
+            <br>
+            <h4>Suggested Bands</h4>
+            <paper-item *ngFor="let band of venue.bands">{{band.bandName}}, {{band.bandManagerPhone}}</paper-item>
+        </div>
+    </paper-material>
+</paper-material>
