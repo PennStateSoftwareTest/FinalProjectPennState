@@ -22,8 +22,26 @@ export class Ownership extends Serializable implements IOwnership {
         });
     }
 
-    public updateCriteria(key : Criteria, value : string) : void {
+    public getCriteria(criterion : Criteria) : string {
+        let criteriaValue : string = null;
 
+        this.criteria.some((savedCriterion) => {
+           if (savedCriterion.key === criterion) {
+               criteriaValue = savedCriterion.value;
+               return true;
+           }
+        });
+
+        return criteriaValue;
+    }
+
+    public updateCriteria(key : Criteria, value : string) : void {
+        this.criteria.some((savedCriterion) => {
+            if (savedCriterion.key === key) {
+                savedCriterion.value = value;
+                return true;
+            }
+        });
     }
 
     public addCriteria(newKey : Criteria, newValue : string) : void {

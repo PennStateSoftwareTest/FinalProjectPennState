@@ -31,6 +31,7 @@ export interface IOwnership {
     criteria : ISuggestCriteria[],
 
     hasCriteria : (criterion : Criteria) => boolean,
+    getCriteria : (criterion : Criteria) => string,
     updateCriteria : (key : Criteria, value : string) => void,
     addCriteria : (newKey : Criteria, newValue : string) => void
 }

@@ -31,6 +31,14 @@ venueSchema.methods = {
         return this.ownerships.some(function(ownership) {
           return ownership.foreignId == userId;
         })
+    },
+    putCriteria: function(userId, criteria) {
+        this.ownerships.some(function(ownership, index) {
+            if (ownership.foreignId == userId) {
+                this.ownerships[index].criteria = criteria;
+                this.save();
+            }
+        }.bind(this));
     }
 };
 mongoose.model('Venue', venueSchema);

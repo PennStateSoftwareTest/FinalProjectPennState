@@ -9,7 +9,7 @@ import 'rxjs/Rx';
 import {ErrorObservable} from 'rxjs/observable/ErrorObservable';
 import {User} from "./common/user";
 import {Observer} from "rxjs/Observer";
-import {IUserModel, IAuthResponse, IVenue} from "./common/interfaces"
+import {IUserModel, IAuthResponse, IVenue, IOwnership} from "./common/interfaces"
 import {Venue} from './common/venue';
 import {AuthService} from "./app.auth.service";
 
@@ -18,11 +18,28 @@ import {AuthService} from "./app.auth.service";
 export class VenueService {
 
     private venueEndpoint = 'api/venue';
+    private criteriaEndpoint = 'api/venue/:venueId/ownership/:foreignId/criteria';
 
     constructor(
         private http : Http,
         private AuthService : AuthService
     ) {}
+
+    public updateCriteria(venueId : string, ownership : IOwnership) : void {
+
+        let params : URLSearchParams = new URLSearchParams();
+        params.set('venueId', venueId);
+        params.set('foreignId', ownership.foreignId);
+
+        let body : string = JSON.stringify(ownership.criteria);
+        let headers : Headers = new Headers({ 'Content-Type': 'application/json' });
+        let options : RequestOptions = new RequestOptions({headers: headers, search: params});
+
+        let put : Observable<Response> = this.http.put(this.criteriaEndpoint, body, options)
+            .catch(this.handleError);
+
+        put.subscribe();
+    }
 
     public createVenue(venue : IVenue) : Observable<Venue> {
 

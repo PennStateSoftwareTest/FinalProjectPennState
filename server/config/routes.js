@@ -29,6 +29,7 @@ module.exports = function(app, envconf) {
     app.post('/api/venue', venueService.createVenue);
   //  app.delete("/api/venue/", venueService.deleteVenue);
     app.get("/api/venue", venueService.getVenues);
+    app.put('/api/venue/:venueId/ownership/:foreignId/criteria', venueService.putOwnershipCriteria);
 
     /*
      * Bnd Routes
