@@ -22,7 +22,7 @@
             <br>
             <h4>Venue Criteria</h4>
             <paper-dropdown-menu label="Genre">
-                <paper-listbox class="dropdown-content">
+                <paper-listbox class="dropdown-content" selected={{getGenreViewIndex(venue)}}>
                     <paper-item *ngFor="let genre of availableGenre" (click)="setVenueGenreCriteria(venue, genre)">{{genre}}</paper-item>
                 </paper-listbox>
             </paper-dropdown-menu>

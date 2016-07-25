@@ -49,6 +49,15 @@ export class AccountSettings implements OnInit {
 
     }
 
+    public getGenreViewIndex(venue : IVenue) : number {
+
+        let myOwnership : IOwnership = venue.getOwnership(this.user._id)[0];
+
+        if (!myOwnership.hasCriteria(Criteria.GENRE)) return -1;
+
+        return this.availableGenre.indexOf(myOwnership.getCriteria(Criteria.GENRE));
+    }
+
     public setVenueGenreCriteria(
         venue : IVenue,
         genre : string
@@ -62,7 +71,7 @@ export class AccountSettings implements OnInit {
             myOwnership.addCriteria(Criteria.GENRE, genre);
         }
 
-        this.updateCriteria(venue._id, myOwnership);
+        this.venueService.updateCriteria(venue._id, myOwnership);
     }
 
     private initializeGenre() : void {
@@ -70,10 +79,5 @@ export class AccountSettings implements OnInit {
         this.availableGenre = Object.keys(Genre).map((key) => {
             return Genre[key];
         });
-    }
-
-    private updateCriteria(venueId : string, ownership : IOwnership) : void {
-        //PUT the updated criteria
-        console.log(venueId, ownership);
     }
 }

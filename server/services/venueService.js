@@ -28,6 +28,30 @@ exports.getVenues = function(request, response) {
     });
 };
 
+exports.putOwnershipCriteria = function(request, response) {
+    //TODO: security.  Validate the things.  Can a user only update his/her own venues?
+
+    var criteria = request.body;
+
+    var params = {
+        '_id': request.query.venueId,
+        'ownerships.foreignId': request.query.foreignId
+    };
+
+    Venue.findOne(params, function(error, venue) {
+        if(error) {
+            response.status(500);
+            return response.send({reason:error.toString()});
+        } else {
+            venue.putCriteria(request.query.foreignId, criteria);
+
+            response.status(200);
+            response.send();
+        }
+    });
+
+};
+
 exports.createVenue = function(request, response, next) {
     //TODO: add a validation function
 

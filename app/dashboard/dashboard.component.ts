@@ -12,6 +12,7 @@ import {Dashboard_ADMComponent} from "../dashboard_adm/dashboard_adm.component";
 import {PAGES} from "../common/constants";
 import {FindBand_Component} from "../find_band/find_band.component";
 import {AccountSettings} from "./account_settings/account_settings.component";
+import {SuggestedBookings} from "./suggested_bookings/suggested_bookings.component";
 
 @Component({
     selector: 'dashboard',
@@ -28,9 +29,9 @@ import {AccountSettings} from "./account_settings/account_settings.component";
 })
 @RouteConfig([
     {
-        path: '/dashboard_vm',
-        name: 'DashboardVM',
-        component: Dashboard_VMComponent,
+        path: '/suggestions',
+        name: 'Suggestions',
+        component: SuggestedBookings,
         useAsDefault: true
     },
     {
