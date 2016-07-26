@@ -14,14 +14,12 @@
 
                   <paper-input label="Password (strong password coming soon)" [(ngModel)]="model.password" required></paper-input>
 
-                  <paper-dropdown-menu label="Account Type" (iron-select)="accountChange($event.detail.item.value)">
+                  <paper-dropdown-menu label="Account Type" (iron-select)="typeChange($event.detail.item.value)">
                       <paper-listbox required class="dropdown-content" >
                         <paper-item *ngFor="let acctType of accountTypes" [value]="acctType">{{acctType}}</paper-item>
                       </paper-listbox>
                     </paper-dropdown-menu>
-                    <paper-button style="margin:20px 0 0" raised (click)="createUser()" keyEventTarget="enter">Create Account</paper-button>
+                    <paper-button style="margin:20px 0 0" raised (click)="createUser()">Create Account</paper-button>
 
-
-
-        </form>
+                  </form>
       </paper-material>
