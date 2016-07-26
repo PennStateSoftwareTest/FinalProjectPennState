@@ -5,7 +5,7 @@ CSVUploadService = require("../services/CSVUploadService");
     authService = require('../services/authService');
     userService = require('../services/userService');
     venueService = require("../services/venueService");
-    //findBandService = require("../services/findBandService");
+    suggestionService = require("../services/suggestionService");
 
 module.exports = function(app, envconf) {
 
@@ -32,13 +32,19 @@ module.exports = function(app, envconf) {
     app.put('/api/venue/:venueId/ownership/:foreignId/criteria', venueService.putOwnershipCriteria);
 
     /*
-     * Bnd Routes
+     * Band Routes
      */
     app.post("/api/band", bandService.createBand);
     //TODO: this is wrong; we need to fix it
     app.get("/api/band/findbands", bandService.getAllBands);
     app.post("/api/band/csv", CSVUploadService.uploadBands);
+    //TODO: POST is wrong here
       app.post("/api/band/findbands", bandService.findBands);
+
+    /*
+     * Suggestion Routes
+     */
+    app.get("/api/suggestion/:userId", suggestionService.getUserSuggestions);
 
     /*
      * Base routes

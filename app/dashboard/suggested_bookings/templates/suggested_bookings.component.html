@@ -21,7 +21,8 @@
             <p *ngIf="venue.capacity">Capacity:  {{venue.capacity}}</p>
             <br>
             <h4>Suggested Bands</h4>
-            <paper-item *ngFor="let band of venue.bands">{{band.bandName}}, {{band.bandManagerPhone}}</paper-item>
+            <paper-item *ngFor="let band of venue.bands">{{band.bandName}}, {{band.bandManagerPhone || 'No Phone Number'}}</paper-item>
+            <p *ngIf="venue.bands.length < 1">We're sorry, but there are no bands available that meet your suggestion criteria.</p>
         </div>
     </paper-material>
 </paper-material>

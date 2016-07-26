@@ -51,6 +51,10 @@ export interface IVenue {
     getOwnership : (foriegnId : string) => IOwnership[]
 }
 
+export interface IVenueSuggestion extends IVenue {
+    bands : IBand
+}
+
 export interface IBand {
     ownerships : IOwnership[],
     bandName : string,
