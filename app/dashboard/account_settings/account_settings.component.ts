@@ -42,7 +42,7 @@ export class AccountSettings implements OnInit {
         this.user = this.authService.activeUser;
         this.venueService.getVenues(this.user._id).subscribe(
             ((venues : IVenue[]) => {
-                this.venues = venues
+                this.venues = venues;
             }).bind(this)
         );
 
