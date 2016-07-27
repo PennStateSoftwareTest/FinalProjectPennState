@@ -78,6 +78,6 @@ export class AccountSettings implements OnInit {
         //Would be nice if TypeScript supported object.values...
         this.availableGenre = Object.keys(Genre).map((key) => {
             return Genre[key];
-        });
+        }).sort();
     }
 }
