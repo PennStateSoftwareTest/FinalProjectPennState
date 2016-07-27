@@ -32,6 +32,31 @@ describe("Test CSV to Create Bands Function", function () {
           done();
       });
     });
+
+    it("should find the bands with userId", function (done) {
+      //this.timeout(5000);
+      chai.request(server)
+      .get('/api/band/findbands')
+    .query({userId: '577ed9ae29204d7d152319cc'})
+      .end(function(err, res){
+        //  console.log(res.body);
+          expect(res).to.have.status(200);
+          done();
+      });
+    });
+
+    it("should not find the bands with userId and return error", function (done) {
+      //this.timeout(5000);
+      chai.request(server)
+      .get('/api/band/findbands')
+    .query({userId: '577'})
+      .end(function(err, res){
+        //  console.log(res.body);
+          expect(res).to.have.status(500);
+          done();
+      });
+    });
+
     after(function(done){
       band1.collection.drop();
     //  user1.remove();
