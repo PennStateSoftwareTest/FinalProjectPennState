@@ -104,24 +104,36 @@ describe("Test put venue ownership criteria", function () {
   venue1.ensureIndexes();
   chai.request(server)
     .post('/api/venue')
-    .send({"venueName":"foo","address":"100 bar street","city":"city","state":"WV","zipcode":"22222","ownerships":[{"foreignId":"577ed9ae29204d7d152319cc","criteria":[]}]})
+    .send({"_id":"577ed9ae29204d7d152319cc","venueName":"foo","address":"100 bar street","city":"city","state":"WV","zipcode":"22222","ownerships":[{"foreignId":"577ed9ae29204d7d152319cc","criteria":[]}]})
     .end(function(err, res){
        done();
     })
 
   });
 
-    // it("should test the venueService.putOwnershipCriteria function", function (done) {
-    //   chai.request(server)
-    //   .put('/api/venue')
-    //   .query(venueId:"123",foreignId:"577ed9ae29204d7d152319cc")
-    //   .send({"criteria":"foo"})
-    //   .end(function(err, res){
-    //     //  console.log(res.body);
-    //       expect(res).to.have.status(404);
-    //       done();
-    //   });
-    // });
+    it("should test the venueService.putOwnershipCriteria function with returning an error 500", function (done) {
+      chai.request(server)
+      .put('/api/venue/:venueId/ownership/:foreignId/criteria')
+      .query({venueId:"123",foreignId:"577ed9ae29204d7d152319cc"})
+      // .send({[{key: "genre", value: "Acoustic", _id: "57956fdbc5885016000241da"}]})
+      .end(function(err, res){
+        console.log(res.body);
+          expect(res).to.have.status(500);
+          done();
+      });
+    });
+
+    it("should test the venueService.putOwnershipCriteria function with returning status 200", function (done) {
+      chai.request(server)
+      .put('/api/venue/:venueId/ownership/:foreignId/criteria')
+      .query({venueId:"577ed9ae29204d7d152319cc",foreignId:"577ed9ae29204d7d152319cc"})
+      .send({"key": "genre", "value": "Acoustic", "_id": "57956fdbc5885016000241da"})
+      .end(function(err, res){
+        //  console.log(res.body);
+          expect(res).to.have.status(200);
+          done();
+      });
+    });
 
     after(function(done){
       venue1.collection.drop();
