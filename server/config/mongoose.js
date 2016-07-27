@@ -5,6 +5,8 @@ var mongoose = require('mongoose'),
     userModel = require('../models/User');
     venueModel = require("../models/Venue");
   bandModel = require("../models/Band");
+
+mongoose.Promise = require('q').Promise;
   
 module.exports = function(envConf) {
 
