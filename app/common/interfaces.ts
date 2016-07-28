@@ -2,8 +2,12 @@
  * Created by jnevins on 7/10/16.
  */
 
-
 import {Criteria} from "./constants";
+
+export interface ISerializable {
+    extendFromObject ?: (fromObject : {[key : string] : any}) => void;
+}
+
 /**
  * Response form the server.
  */
@@ -36,7 +40,7 @@ export interface IOwnership {
     addCriteria : (newKey : Criteria, newValue : string) => void
 }
 
-export interface IVenue {
+export interface IVenue extends ISerializable{
     _id ?: string,
     ownerships : IOwnership[],
     venueName : string,
@@ -45,10 +49,10 @@ export interface IVenue {
     state : string,
     zip : string,
     capacity : string,
-    date : string,
-    rate: string,
+    date ?: string,
+    rate ?: string,
 
-    getOwnership : (foriegnId : string) => IOwnership[]
+    getOwnership ?: (foriegnId : string) => IOwnership[]
 }
 
 export interface IVenueSuggestion extends IVenue {
