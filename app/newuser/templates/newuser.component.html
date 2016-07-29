@@ -1,8 +1,9 @@
       <paper-material>
 
         <form>
+  <img style="float:left; padding-right: 20px;" src="../../../icons/app4.png" width="50">
+  <h4 class="text-left">Account Signup</h4>
 
-                <h4 class="text-center">New Account Signup</h4>
                 <paper-input label="Email" [(ngModel)]="model.email" required></paper-input>
 
 
@@ -12,8 +13,9 @@
 
                   <paper-input label="Last Name" [(ngModel)]="model.lastName" required></paper-input>
 
-                  <paper-input label="Password (strong password coming soon)" [(ngModel)]="model.password" required></paper-input>
-
+                  <paper-input label="Password" [(ngModel)]="model.password" required>
+                                          </paper-input>
+                                          
                   <paper-dropdown-menu label="Account Type" (iron-select)="typeChange($event.detail.item.value)">
                       <paper-listbox required class="dropdown-content" >
                         <paper-item *ngFor="let acctType of accountTypes" [value]="acctType">{{acctType}}</paper-item>

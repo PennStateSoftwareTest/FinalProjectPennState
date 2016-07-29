@@ -1,4 +1,4 @@
-
+import { PolymerElement } from '@vaadin/angular2-polymer';
 import { Component, OnInit } from '@angular/core';
 import {Router, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 import {ExistingBandService} from "../existing_band/existing_band.services";
@@ -9,7 +9,12 @@ import {Dashboard_ADMService} from "./dashboard_adm.services";
 @Component({
     selector: 'dashboard_adm',
     templateUrl: 'app/dashboard_adm/templates/admindashboard.component.html',
-    directives: [ROUTER_DIRECTIVES],
+styleUrls: ['app/create_venue/styles/create_venue.component.css'],
+    directives: [ROUTER_DIRECTIVES,
+      PolymerElement('paper-material'),
+        PolymerElement('paper-input'),
+          PolymerElement('paper-button')
+    ],
     viewProviders: [
           ExistingBandService,
           Dashboard_ADMService

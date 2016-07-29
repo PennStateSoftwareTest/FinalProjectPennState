@@ -28,3 +28,10 @@ h3 {
 #addVenue {
     padding-bottom: 80px;
 }
+
+paper-button {
+    width: 98%;
+    height: 35px;
+    background: var(--primary-color);
+    color: var(--dark-theme-text-color);
+}

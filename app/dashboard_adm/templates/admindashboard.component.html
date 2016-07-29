@@ -1,22 +1,19 @@
-<br>
-<br>
-<div class="row">
-    <div class="medium-6 medium-centered large-4 large-centered columns">
 
-        <form>
-            <div class="row column newuser-form">
-              <h2>Admin Dashboard</h2>
-        <p>Import a .csv file of bands</p>
-<form><input type="text" name="urlToBandCSV" id="urlToBandCSV" placeholder="Dropbox URL of CSV File"/>
-<button type="submit" class="button expanded" (click)="createManyBands()">Submit</button></form>
+<paper-material elevation="1">
 
+<form>
+  <h3>Import a .csv file of bands</h3>
+  <paper-input label="Dropbox URL of CSV File" type="text" name="urlToBandCSV" id="urlToBandCSV"></paper-input>
+  <paper-button raised (click)="createManyBands()">Submit</paper-button>
+
+</form>
+</paper-material>
 <!--a type="button" class="button expanded" (click)="delete()">Delete foo@bar.com</a-->
-<p>&nbsp; </p>
-        <p>Export a .csv file of the bands</p>
+<paper-material elevation="1">
+
+        <p>Export a .csv file of the bands (coming soon)</p>
 
         <p>&nbsp; </p>
-                <p>Delete a User by Email</p>
-            </div>
-        </form>
-    </div>
-</div>
+                <p>Delete a User by Email (coming soon)</p>
+
+</paper-material>
