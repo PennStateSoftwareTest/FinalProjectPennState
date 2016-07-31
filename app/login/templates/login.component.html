@@ -4,7 +4,7 @@
 
     <paper-material is="custom-style">
 
-        <form id="loginform">
+        <form id="loginform" style="width: 90%">
           <img style="float:left; padding-right: 20px;" src="../../../icons/app4.png" width="50">
         <h3 class="text-left">Street Corner to Rockstar</h3>
         <p>&nbsp;</p>
@@ -20,6 +20,14 @@
                 <paper-button raised (click)="login()">Log In</paper-button>
             </fieldset>
             <p class="text-center"><a href=javascript:void(0) [routerLink]="['NewUser']">Need an account?</a></p>
-            <p class="text-center"><a href=javascript:void(0) [routerLink]="['ForgotPassword']">Forgot password? <span style="font-size: 11px; font-style: italic">(coming soon)</span></a></p>
+            <p class="text-center">
+
+              <!-- <a href=javascript:void(0) [routerLink]="['ForgotPassword']"> -->
+
+              Forgot password? <span style="font-size: 11px; font-style: italic">(coming soon)</span>
+
+            <!-- </a> -->
+
+          </p>
         </form>
     </paper-material>

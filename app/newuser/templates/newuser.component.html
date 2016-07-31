@@ -6,16 +6,16 @@
 
                 <paper-input label="Email" [(ngModel)]="model.email" required></paper-input>
 
-
+                <paper-input label="Password" [(ngModel)]="model.password" required>
+                                        </paper-input>
 
                     <paper-input label="First Name" [(ngModel)]="model.firstName" required></paper-input>
 
 
                   <paper-input label="Last Name" [(ngModel)]="model.lastName" required></paper-input>
 
-                  <paper-input label="Password" [(ngModel)]="model.password" required>
-                                          </paper-input>
-                                          
+                <paper-input label="Phone Number" [(ngModel)]="model.phoneNumber" ></paper-input>
+
                   <paper-dropdown-menu label="Account Type" (iron-select)="typeChange($event.detail.item.value)">
                       <paper-listbox required class="dropdown-content" >
                         <paper-item *ngFor="let acctType of accountTypes" [value]="acctType">{{acctType}}</paper-item>
