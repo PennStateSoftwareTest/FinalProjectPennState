@@ -15,12 +15,14 @@ form {
 #loginform fieldset {
     border: none;
     margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px:
 }
 
 paper-material {
     box-shadow: none;
-    margin-left:20vw;
-    margin-right:20vw;
+    margin-left:7vw;
+    margin-right:7vw;
 }
 
 paper-button {
