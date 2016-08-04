@@ -32,9 +32,11 @@ export const Genre : {[key: string] : string} = {
 
 
 export const PAGES = [
-  {"route":["Suggestions"], "name":"Suggested Bookings"},
+  {"route":["Suggestions"], "name":"Suggested Bands"},
+    {"route":["AccountSettings"], "name":"Venue Settings"},
   {"route":["FindBand"], "name":"Find Bands"},
-  {"route":["DashboardADM"], "name":"Admin Tools"},
+
   {"route":["DashboardBM"], "name":"Band Settings"},
-  {"route":["AccountSettings"], "name":"Venue Settings"}
+
+    {"route":["DashboardADM"], "name":"Admin Tools"}
 ];

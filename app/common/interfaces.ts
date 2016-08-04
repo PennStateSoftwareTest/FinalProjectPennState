@@ -66,7 +66,7 @@ export interface IBand {
     bandCity : string,
     bandState : string,
     bandZip : string,
-    bandPayRate: string,
+    bandPayRate: number,
     bandWebsite:string,
     bandGenre1:string,
     bandGenre2:string,

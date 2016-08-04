@@ -63,7 +63,7 @@ export class FindBand_Component {
     if(venue == null){
       venue = "";
     }
-  
+
     //Loop 3 times for each select
     for(var i = 0; i < 3; i++){
       //Don't want to modify the select that was just changed

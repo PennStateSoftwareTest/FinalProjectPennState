@@ -61,10 +61,7 @@ export class CreateVenue implements OnInit{
     private handleFailedCreate(error : any) : void {
         //Tell the user something went wrong...
         //TODO: make this a toast
-        alert(`There was a problem creating your venue.
-            please make sure it is unique.  If you
-            feel this is in error, please contact
-            your account manager`);
+        alert(`Not all required fields have been filled out properly. Try again.`);
     }
 
 }

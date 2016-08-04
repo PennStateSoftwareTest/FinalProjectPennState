@@ -1,5 +1,5 @@
 <paper-material id="addVenue" elevation="1">
-    <h3>Create Venue</h3>
+    <h3>Create a New Venue</h3>
     <form>
     <paper-input label="Venue Name" [(ngModel)]="model.venueName" required></paper-input>
     <paper-input label="Address" [(ngModel)]="model.address" required></paper-input>
@@ -11,8 +11,7 @@
     <paper-input label="Capacity" style="width:34%" [(ngModel)]="model.capacity"></paper-input>
     <!--Don't bands charge the hourly rate?-->
     <!--    <paper-input label="Hourly Rate" style="width:35%" [(ngModel)]="model.rate"></paper-input>-->
-    <br>
-    <paper-fab id="addVenueButton" icon="icons:add" (click)="createVenue()"></paper-fab>
-    <paper-tooltip for="addVenueButton" position="left" animation-delay="1">Create Venue</paper-tooltip>
+    <p>&nbsp;<p>
+    <paper-button raised (click)="createVenue()">Create Venue</paper-button>
     </form>
 </paper-material>
