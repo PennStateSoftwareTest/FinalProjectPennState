@@ -15,7 +15,7 @@ export class Band implements IBand{
       public bandState : string = null,
       public bandZip : string = null,
       //public capacity : string = null,
-      public bandPayRate: string = null,
+      public bandPayRate: number = null,
       public bandGenre1: string = null,
       public bandGenre2: string = null,
       public bandGenre3: string = null,

@@ -1,4 +1,10 @@
-<create-band [bands]="bands"></create-band>
+<paper-material elevation="1">
+<h3 >User Information</h3>
+<div id="userInfo">
+    <p>Name:  {{user.firstName}} {{user.lastName}}</p>
+    <p>Email Address:  {{user.email}}</p>
+</div>
+</paper-material>
 
 <paper-material elevation="1">
    <h3>My Bands</h3>
@@ -14,7 +20,7 @@
    </paper-material>
 </paper-material>
 
-
+<create-band [bands]="bands"></create-band>
 
 <!-- <br>
 <br>

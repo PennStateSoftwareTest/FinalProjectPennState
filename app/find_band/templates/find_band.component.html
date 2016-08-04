@@ -8,8 +8,9 @@
                 <form>
                     <!-- <div class="row column findband-form"> -->
                         <h4 class="text-center">Filter Bands</h4>
-
-                          <paper-dropdown-menu label="Primary Genre Desired" (iron-select)="selectGenre($event.detail.item.value, 0)">
+                        <paper-input style="width: 350px; margin-left: 0.5cm" label="Max Hourly Rate Willing to Pay (US Dollars)" (change)="changeRate($event.target.value)" type="number" >
+                        </paper-input>
+                          <paper-dropdown-menu style="margin-left: 0.5cm; width:140px" label="Primary Genre" (iron-select)="selectGenre($event.detail.item.value, 0)">
                               <paper-listbox class="dropdown-content" >
                                 <paper-item value=""></paper-item>
                                 <paper-item *ngFor="let venueGenre of genre" [value]="venueGenre">{{venueGenre}}</paper-item>
@@ -20,22 +21,21 @@
                               <option  *ngFor="let venueGenre of genre" [value]="venueGenre">{{venueGenre}}</option>
                           </select> -->
 
-                          <paper-dropdown-menu label="Second Genre Desired" (iron-select)="selectGenre($event.detail.item.value, 1)">
+                          <paper-dropdown-menu style="margin-left: 0.5cm; width:140px" label="Second Genre" (iron-select)="selectGenre($event.detail.item.value, 1)">
                               <paper-listbox class="dropdown-content" >
                                 <paper-item value=""></paper-item>
                                 <paper-item *ngFor="let venueGenre of genre2" [value]="venueGenre">{{venueGenre}}</paper-item>
                               </paper-listbox>
                             </paper-dropdown-menu>
 
-                            <paper-dropdown-menu label="Third Genre Desired" (iron-select)="selectGenre($event.detail.item.value, 2)">
+                            <paper-dropdown-menu style="margin-left: 0.5cm; width:140px" label="Third Genre" (iron-select)="selectGenre($event.detail.item.value, 2)">
                                 <paper-listbox class="dropdown-content" >
                                   <paper-item value=""></paper-item>
                                   <paper-item *ngFor="let venueGenre of genre3" [value]="venueGenre">{{venueGenre}}</paper-item>
                                 </paper-listbox>
                               </paper-dropdown-menu>
 
-                              <paper-input label="Max Hourly Rate Willing to Pay (US Dollars)" (change)="changeRate($event.target.value)" type="number" >
-                        </paper-input>
+
 
                         <!-- <p><a type="submit" class="button expanded" (click)="findBands()">Submit</a></p> -->
                     <!-- </div> -->

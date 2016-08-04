@@ -1,10 +1,9 @@
 <paper-material elevation="1">
     <h3>About Suggestions</h3>
     <div id="suggestionInfo">
-        <p><strong>From Street Corner to Rock Star</strong>'s
-            Suggested Bookings feature matches the best bands
-            for your venues.  To tune it, simply update your
-            criteria in your settings.</p>
+        <p style="text-align: left"><strong>Street Corner to Rock Star's</strong>
+            Suggested Bands feature matches the best bands
+            for your venues. From the <strong>Venue Settings</strong> page, update your venue's criteria to identify matching bands.</p>
     </div>
 </paper-material>
 
@@ -14,15 +13,18 @@
         *ngFor="let venue of venues"
         elevation="2">
         <div style="margin-left:20px; padding-bottom: 10px; padding-top: 10px">
-            <h4>Venue Information</h4>
+
             <p><strong>{{venue.venueName}}</strong></p>
             <p>{{venue.address}}</p>
             <p>{{venue.city}}, {{venue.state}}  {{venue.zip}}</p>
             <p *ngIf="venue.capacity">Capacity:  {{venue.capacity}}</p>
             <br>
-            <h4>Suggested Bands</h4>
-            <paper-item *ngFor="let band of venue.bands">{{band.bandName}}, {{band.bandManagerPhone || 'No Phone Number'}}</paper-item>
-            <p *ngIf="venue.bands.length < 1">We're sorry, but there are no bands available that meet your suggestion criteria.</p>
+            <p><strong>Suggested Bands</strong></p>
+            <paper-item *ngFor="let band of venue.bands">{{band.bandName}}
+              <br>Manager's Name:  {{band.bandManagerName || 'No Manager'}}<br>
+              Manager's Phone#:  {{band.bandManagerPhone || 'No Phone Number'}}<br>
+              Manager's Email:  {{band.bandManagerEmail || 'No Email Provided'}}<br><br></paper-item>
+            <p *ngIf="venue.bands.length < 1">We're sorry, but there are no bands available that meet your venue's criteria.</p>
         </div>
     </paper-material>
 </paper-material>

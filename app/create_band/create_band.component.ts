@@ -86,10 +86,7 @@ export class CreateBand implements OnInit{
 
     private handleFailedCreate(error : any) : void {
         //Tell the user something went wrong... probably server-side validation
-        alert(`There was a problem creating your band.
-            please make sure it is unique.  If you
-            feel this is in error, please contact
-            your account manager`);
+        alert(`Not all required fields have been filled out properly. Try again.`);
     }
 
 }
