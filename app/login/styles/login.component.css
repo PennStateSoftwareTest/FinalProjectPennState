@@ -2,8 +2,19 @@ h2 {
     padding: 2%;
 }
 
+h3 {
+    text-align: center;
+}
+
 a {
     text-decoration: none;
+}
+
+img {
+    display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 form {
@@ -21,8 +32,9 @@ form {
 
 paper-material {
     box-shadow: none;
-    margin-left:7vw;
-    margin-right:7vw;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
 }
 
 paper-button {
@@ -30,11 +42,4 @@ paper-button {
     height: 35px;
     background: var(--primary-color);
     color: var(--dark-theme-text-color);
-}
-
-paper-fab {
-
-    background: #b71c1c;
-    float:right;
-    margin-top:20px;
 }
