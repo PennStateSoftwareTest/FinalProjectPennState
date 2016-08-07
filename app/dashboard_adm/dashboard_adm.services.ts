@@ -17,7 +17,7 @@ export class Dashboard_ADMService {
       console.log(JSON.stringify(filename));
         //TODO: put this in a nice little object
         let body : string = JSON.stringify(filename);
-        let headers : Headers = new Headers({ 'Content-Type': 'application/json' });
+        let headers : Headers = new Headers({ 'Content-Type': ['application/json'] });
         let options : RequestOptions = new RequestOptions({headers: headers});
 
         //TODO: put this in a nice little object

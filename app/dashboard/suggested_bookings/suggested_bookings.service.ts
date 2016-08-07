@@ -17,7 +17,7 @@ export class SuggestedBookingService {
     constructor(private http : Http) {}
 
     public getSuggestions(userId : string) {
-        let headers : Headers = new Headers({ 'Content-Type': 'application/json' });
+        let headers : Headers = new Headers({ 'Content-Type': ['application/json'] });
         let params : URLSearchParams = new URLSearchParams();
         params.set('userId', userId);
         let options : RequestOptions = new RequestOptions({headers: headers, search: params});
