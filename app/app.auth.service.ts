@@ -28,7 +28,7 @@ export class AuthService {
             email: email,
             password: password
         });
-        let headers : Headers = new Headers({ 'Content-Type': 'application/json' });
+        let headers : Headers = new Headers({ 'Content-Type': ['application/json'] });
         let options : RequestOptions = new RequestOptions({headers: headers});
 
         let loginObserver : Observable<boolean> = Observable.create((observer : Observer<boolean>) => {

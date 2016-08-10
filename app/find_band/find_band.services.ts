@@ -17,7 +17,7 @@ export class FindBandService {
 
         //TODO: put this in a nice little object
         let body : string = JSON.stringify(genres);
-        let headers : Headers = new Headers({ 'Content-Type': 'application/json' });
+        let headers : Headers = new Headers({ 'Content-Type': ['application/json'] });
         let options : RequestOptions = new RequestOptions({headers: headers});
 
         return this.http.post(this.endpoint, body, options).map(this.extractData)

@@ -9,7 +9,7 @@ import {User} from './../common/user';
 @Component({
     selector: 'new-user',
     templateUrl: 'app/newuser/templates/newuser.component.html',
-    styleUrls: ['app/login/styles/login.component.css'],
+    styleUrls: ['app/newuser/styles/newuser.component.css'],
     viewProviders: [
         NewUserService
     ],

@@ -32,7 +32,7 @@ export class VenueService {
         params.set('foreignId', ownership.foreignId);
 
         let body : string = JSON.stringify(ownership.criteria);
-        let headers : Headers = new Headers({ 'Content-Type': 'application/json' });
+        let headers : Headers = new Headers({ 'Content-Type': ['application/json'] });
         let options : RequestOptions = new RequestOptions({headers: headers, search: params});
 
         let put : Observable<Response> = this.http.put(this.criteriaEndpoint, body, options)
@@ -45,7 +45,7 @@ export class VenueService {
 
         //TODO: put this in a nice little object
         let body : string = JSON.stringify(venue);
-        let headers : Headers = new Headers({ 'Content-Type': 'application/json' });
+        let headers : Headers = new Headers({ 'Content-Type': ['application/json'] });
         let options : RequestOptions = new RequestOptions({headers: headers});
 
         return this.http.post(this.venueEndpoint, body, options)
@@ -55,7 +55,7 @@ export class VenueService {
 
     public getVenues(userId : string) : Observable<Venue[]> {
 
-        let headers : Headers = new Headers({ 'Content-Type': 'application/json' });
+        let headers : Headers = new Headers({ 'Content-Type': ['application/json'] });
         let params : URLSearchParams = new URLSearchParams();
         params.set('userId', userId);
         let options : RequestOptions = new RequestOptions({headers: headers, search: params});

@@ -18,7 +18,7 @@ export class NewBandService {
 
         //TODO: put this in a nice little object
         let body : string = JSON.stringify(band);
-        let headers : Headers = new Headers({ 'Content-Type': 'application/json' });
+        let headers : Headers = new Headers({ 'Content-Type': ['application/json'] });
         let options : RequestOptions = new RequestOptions({headers: headers});
 
         return this.http.post(this.endpoint, body, options)

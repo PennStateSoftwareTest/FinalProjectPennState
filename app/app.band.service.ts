@@ -29,7 +29,7 @@ export class BandService {
       
         //TODO: put this in a nice little object
         let body : string = JSON.stringify(band);
-        let headers : Headers = new Headers({ 'Content-Type': 'application/json' });
+        let headers : Headers = new Headers({ 'Content-Type': ['application/json'] });
         let options : RequestOptions = new RequestOptions({headers: headers});
 
         return this.http.post(this.bandEndpoint, body, options)
@@ -40,7 +40,7 @@ export class BandService {
     public getBands(userId : string) : Observable<Band[]> {
 
 
-        let headers : Headers = new Headers({ 'Content-Type': 'application/json' });
+        let headers : Headers = new Headers({ 'Content-Type': ['application/json'] });
         let params : URLSearchParams = new URLSearchParams();
         params.set('userId', userId);
         let options : RequestOptions = new RequestOptions({headers: headers, search: params});
